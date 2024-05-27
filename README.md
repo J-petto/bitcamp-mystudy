@@ -1,3 +1,3 @@
 # bitcamp-mystudy
 
-test
+계정 이동 test
