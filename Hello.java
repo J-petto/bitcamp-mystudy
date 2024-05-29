@@ -1,11 +1,11 @@
 public class Hello {
     public static void main(String[] args) {
         System.out.println("Hello, World!");
-
         int a = 100;
 
+        // 테스트입니다
         if (a < 100) {
-            System.out.println("Test");
+            System.out.println("하하하");
         }
-    }    
+    }
 }
