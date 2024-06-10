@@ -3,20 +3,21 @@
  */
 package bitcamp.myapp;
 
-import java.io.InputStream;
 import java.util.Scanner;
+import java.util.SimpleTimeZone;
 
 public class App {
     public static void main(String[] args) {
         String title = "[팀 프로젝트 관리 시스템]";
         String dashLine = "--------------------------------------------";
-        String[] listTitles = {"회원", "팀", "프로젝트", "게시판", "도움말", "종료"};
-        String listTitle1 = "회원";
-        String listTitle2 = "팀";
-        String listTitle3 = "프로젝트";
-        String listTitle4 = "게시판";
-        String listTitle5 = "도움말";
-        String listTitle6 = "종료";
+        String[] menuTitles = {
+                "회원",
+//                "팀",
+//                "프로젝트",
+//                "게시판",
+//                "도움말",
+                "종료"
+        };
 
         String boldANSI = "\033[1m";
         String redColorANSI = "\033[31m";
@@ -24,60 +25,44 @@ public class App {
 
         System.out.println(boldANSI + dashLine + endANSI);
         System.out.println(boldANSI + title + endANSI + "\n");
-//        for(int i=0; i < 6; i++){
-//            System.out.println(i + ". " + listTitles[i]);
-//            if(i == 5){
-//                System.out.println(boldANSI + redColorANSI + listTitle6 + endANSI);
-//            }
-//        }
-        System.out.println("1. " + listTitle1);
-        System.out.println("2. " + listTitle2);
-        System.out.println("3. " + listTitle3);
-        System.out.println("4. " + listTitle4);
-        System.out.println("5. " + listTitle5);
-        System.out.println(boldANSI + redColorANSI + "6. " + listTitle6 + endANSI);
+
+        for (int i = 0; i < menuTitles.length; i++) {
+            if (menuTitles[i].equals("종료")) {
+                System.out.printf("%s%d. %s%s \n", (boldANSI + redColorANSI), (i + 1), menuTitles[i], endANSI);
+            } else {
+                System.out.printf("%d. %s \n", (i + 1), menuTitles[i]);
+            }
+        }
         System.out.println(boldANSI + dashLine + endANSI);
 
         Scanner scanner = new Scanner(System.in);
-        boolean exit = true;
-        String userNumber = "";
-        int checkUserNumber = 0;
-
-        try {
-            while (exit) {
+        String menuCheck;
+        int menuNo;
+        while (true) {
+            try {
                 System.out.print("> ");
-                userNumber = scanner.nextLine();
-                checkUserNumber = Integer.parseInt(userNumber);
-                switch (checkUserNumber) {
-                    case 1:
-                        System.out.println(listTitle1);
-                        break;
-                    case 2:
-                        System.out.println(listTitle2);
-                        break;
-                    case 3:
-                        System.out.println(listTitle3);
-                        break;
-                    case 4:
-                        System.out.println(listTitle4);
-                        break;
-                    case 5:
-                        System.out.println(listTitle5);
-                        break;
-                    case 6:
+                menuCheck = scanner.nextLine();
+                menuNo = Integer.parseInt(menuCheck);
+
+                if (menuNo >= 1 && menuNo <= menuTitles.length) {
+                    if (menuTitles[menuNo - 1].equals("종료")) {
                         System.out.println("종료합니다.");
-                        exit = false;
                         break;
-                    default:
-                        System.out.println("메뉴 번호가 옳지 않습니다.");
+                    } else {
+                        System.out.println(menuTitles[menuNo - 1]);
+                    }
+                } else {
+                    System.out.println("메뉴 번호가 옳지 않습니다.");
                 }
+
+            } catch (NumberFormatException e) {
+                System.out.println("숫자를 입력해주세요.");
             }
-        }catch (NumberFormatException e) {
-            System.out.println("숫자를 입력해주세요.");
         }
-        //사용을 완료한 자원은 반환해야 사용가능
-        //JVM을 종료하면 JVM이 사용한 모든 자원은 강제 회수
-        //OS 강제 회수
+
+        // 사용을 완료한 자원은 반환해야 사용가능
+        // JVM을 종료하면 JVM이 사용한 모든 자원은 강제 회수
+        // OS 강제 회수
         scanner.close();
     }
 }
