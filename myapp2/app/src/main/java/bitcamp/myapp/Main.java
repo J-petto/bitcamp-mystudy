@@ -4,13 +4,39 @@
 package bitcamp.myapp;
 
 import java.io.*;
-import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Main {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int a;
-        int b;
+        int[] doHomeworks = new int[28];
+        for(int i = 0; i < doHomeworks.length; i++){
+            doHomeworks[i] = Integer.parseInt(br.readLine());
+        }
+
+        Arrays.sort(doHomeworks);
+
+        int count = 1;
+        ArrayList<Integer> notHomeworks = new ArrayList<Integer>();
+
+        for(int doHomework : doHomeworks){
+            if(doHomework != count){
+                while (doHomework == count){
+                    notHomeworks.add(count);
+                    System.out.printf("doHomework : %d, count : %d \n", doHomework, count);
+                    System.out.println(notHomeworks);
+                }
+            }else {
+                count++;
+            }
+        }
+//
+//        for (int notHomework : notHomeworks){
+//            bw.write(notHomework + " ");
+//        }
+        bw.flush();
     }
 }
