@@ -12,31 +12,12 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-        int[] doHomeworks = new int[28];
-        for(int i = 0; i < doHomeworks.length; i++){
+        int[] doHomeworks = new int[30];
+
+        for(int i = 0; i < 28; i++){
             doHomeworks[i] = Integer.parseInt(br.readLine());
+
         }
-
-        Arrays.sort(doHomeworks);
-
-        int count = 1;
-        ArrayList<Integer> notHomeworks = new ArrayList<Integer>();
-
-        for(int doHomework : doHomeworks){
-            if(doHomework != count){
-                while (doHomework == count){
-                    notHomeworks.add(count);
-                    System.out.printf("doHomework : %d, count : %d \n", doHomework, count);
-                    System.out.println(notHomeworks);
-                }
-            }else {
-                count++;
-            }
-        }
-//
-//        for (int notHomework : notHomeworks){
-//            bw.write(notHomework + " ");
-//        }
         bw.flush();
     }
 }
