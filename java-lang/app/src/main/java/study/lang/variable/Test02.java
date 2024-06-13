@@ -13,5 +13,13 @@ public class Test02 {
     System.out.println(c2_1);
     System.out.println(c2_2);
     System.out.println(c3);
+
+    String s;
+    s = new String("aaa");
+
+    String s2 = new String("aaa");
+
+    System.out.println(s == s2); // 레퍼런스에 들어 있는 값을 비교
+
   }
 }
