@@ -5,43 +5,31 @@ package bitcamp.myapp;
 
 import java.io.*;
 import java.util.Arrays;
-import java.util.StringTokenizer;
 
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        StringTokenizer st;
 
-        int n = 0;
-        int m = 0;
-
-        st = new StringTokenizer(br.readLine());
-        n = Integer.parseInt(st.nextToken());
-        m = Integer.parseInt(st.nextToken());
-
-        int[] box = new int[n];
-        for (int x = 0; x < n; x++) {
-            box[x] = x + 1;
-        }
-
-        for (int x = 0; x < m; x++) {
-            st = new StringTokenizer(br.readLine());
-
-            int i = Integer.parseInt(st.nextToken());
-            int j = Integer.parseInt(st.nextToken());
-            System.out.println(i);
-            System.out.println(j);
-
-            for (int y = j; y > i; y--) {
-                System.out.printf("box[%d] : %d \n", y - 1, box[y - 1]);
-                int keeping = box[y - 1];
-                box[i] = box[y];
-                box[y] = keeping;
-                System.out.println(Arrays.toString(box));
-            }
-        }
-
+        System.out.print(Solution.solution(7));
+        System.out.print(Solution.solution(10));
+//        bw.write();
         bw.flush();
+    }
+
+    class Solution {
+        static public int solution(int n) {
+            int answer = 0;
+            if ((n ^ 2) == 0) {
+                for (int i = 2; i < n; i += 2) {
+                    answer += i;
+                }
+            }else {
+                for(int i = 1; i< n; i+=2){
+                    answer += i;
+                }
+            }
+            return answer;
+        }
     }
 }
