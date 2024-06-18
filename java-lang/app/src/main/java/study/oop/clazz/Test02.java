@@ -28,6 +28,7 @@ public class Test02 {
 
     Score s3 = new Score("유관순", 80, 70, 65);
     printScore(s3);
+
   }
 
   static void printScore(Score s) {

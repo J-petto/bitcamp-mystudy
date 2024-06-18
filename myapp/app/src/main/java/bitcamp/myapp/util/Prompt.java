@@ -1,16 +1,16 @@
-package bitcamp.myapp;
+package bitcamp.myapp.util;
 
 import java.util.Scanner;
 
 public class Prompt {
     static Scanner scanner = new Scanner(System.in);
 
-    static String prompt(String comment) {
+    public static String prompt(String comment) {
         System.out.print(comment);
         return scanner.nextLine();
     }
 
-    static void closeScanner(){
+    public static void closeScanner(){
         scanner.close();
     }
 }

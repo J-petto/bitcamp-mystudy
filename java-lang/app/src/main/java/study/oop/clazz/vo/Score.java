@@ -13,7 +13,7 @@ public class Score {
     this.kor = kor;
     this.eng = eng;
     this.math = math;
-    this.compute();
+    compute();
   }
 
   public void compute() {
@@ -61,3 +61,4 @@ public class Score {
     return this.aver;
   }
 }
+
