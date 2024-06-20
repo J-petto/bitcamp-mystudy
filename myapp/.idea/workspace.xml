@@ -5,18 +5,41 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ff50e196-db5a-4d21-bedb-075fb37dce0c" name="변경" comment="">
-      <change beforePath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/oop/clazz/Calculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/oop/clazz/util/Calculator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/oop/clazz/Test01.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/oop/clazz/Test01.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/oop/clazz/Test02.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/oop/clazz/Test02.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/oop/clazz/vo/Score.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/oop/clazz/vo/Score.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/oop/clazz/vo/Score2.java" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/command/BoardCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/command/BoardList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/command/ProjectCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/command/ProjectList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/command/UserList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/vo/Board.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/vo/Project.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../myapp2/README copy.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../myapp2/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../myapp2/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../myapp2/src/main/java/bitcamp/myapp/App.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../myapp2/src/main/java/bitcamp/myapp/command/ProjectCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../myapp2/src/main/java/bitcamp/myapp/command/UserCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../myapp2/src/main/java/bitcamp/myapp/util/Prompt.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../myapp2/src/main/java/bitcamp/myapp/vo/Project.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../myapp2/src/main/java/bitcamp/myapp/vo/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../myapp2/src/main/resources/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../myapp2/src/test/java/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../myapp2/src/test/resources/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../programmers_test/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../programmers_test/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../programmers_test/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../programmers_test/.idea/programmers_test.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../programmers_test/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../programmers_test/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/Prompt.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/util/Prompt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/Team.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/TeamCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/vo/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/UserCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/command/UserCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/command/UserCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/command/UserCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/util/Prompt.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/util/Prompt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/vo/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/vo/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myapp2/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myapp2/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp2/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myapp2/app/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myapp2/app/src/main/java/bitcamp/myapp/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myapp2/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp2/settings.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,6 +75,9 @@
   &quot;associatedIndex&quot;: 1
 }</component>
   <component name="ProjectId" id="2hrXXLxTbbzXKle3tn2C4BEn8Mu" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -70,11 +96,18 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="bitcamp.myapp.command" />
+    </key>
     <key name="MoveMembersDialog.RECENTS_KEY">
+      <recent name="bitcamp.myapp.command.UserList" />
       <recent name="bitcamp.myapp.Prompt" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="bitcamp.myapp.command" />
     </key>
   </component>
   <component name="RunManager">

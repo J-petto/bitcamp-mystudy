@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="70fafeb6-9f47-4a9f-9dae-815d930e5cac" name="변경" comment="">
+      <change afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/command/BoardCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/command/BoardList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/command/ProjectCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/command/ProjectList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/command/UserList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/vo/Board.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/vo/Project.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README copy.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bitcamp/myapp/App.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bitcamp/myapp/command/ProjectCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bitcamp/myapp/command/UserCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bitcamp/myapp/util/Prompt.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bitcamp/myapp/vo/Project.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bitcamp/myapp/vo/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../programmers_test/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../programmers_test/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../programmers_test/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../programmers_test/.idea/programmers_test.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../programmers_test/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../programmers_test/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myapp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/command/UserCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/command/UserCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/util/Prompt.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/util/Prompt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/vo/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app/src/main/java/bitcamp/myapp/vo/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/app">
+          <activation />
+        </task>
+        <task path="~/git/bitcamp-mystudy/myapp2/app">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="myapp" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2hS8bVhcXH78YxkbFt8tfjNzyEm" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Gradle.myapp2 [:App.main()].executor": "Run",
+    "Gradle.myapp2 [app:run].executor": "Run",
+    "Gradle.myapp2 [run].executor": "Run",
+    "Gradle.myapp2:app [:app:App.main()].executor": "Run",
+    "Gradle.myapp2:app [:app:Main.main()].executor": "Run",
+    "Gradle.myapp2:app [:app:Main1.main()].executor": "Run",
+    "Gradle.myapp2:app [run].executor": "Run",
+    "Gradle.~/git/bitcamp-mystudy/myapp2/app [run].executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/jeppetto/git/bitcamp-mystudy/myapp2"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="bitcamp.myapp.command" />
+      <recent name="bitcamp.myapp" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="myapp2 [run]" type="GradleRunConfiguration" factoryName="Gradle" nameIsGenerated="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="run" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="myapp2" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="myapp2" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="애플리케이션 수준" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="디폴트 작업">
+      <changelist id="70fafeb6-9f47-4a9f-9dae-815d930e5cac" name="변경" comment="" />
+      <created>1717576189569</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1717576189569</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+</project>

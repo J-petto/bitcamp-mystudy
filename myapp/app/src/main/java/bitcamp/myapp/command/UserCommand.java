@@ -1,120 +1,96 @@
 package bitcamp.myapp.command;
 
-import bitcamp.myapp.vo.User;
 import bitcamp.myapp.util.Prompt;
+import bitcamp.myapp.vo.User;
 
 public class UserCommand {
-    static final int MAX_LENGTH = 50;
-    static User[] users = new User[MAX_LENGTH];
-    static int userLength = 0;
 
-    public static void autoCreateUser() {
-        for(int i = 0; i < 5; i++){
-            User user = new User();
-            user.setName(String.valueOf(i+1));
-            user.setEmail(String.format("%d@%d.com", i+1, i+1));
-            user.setPassword(String.format("%d%d%d%d",i+1, i+1, i+1, i+1));
-            user.setTel(String.format("010-1111-111%d", i+1));
-            users[userLength++] = user;
+    static public void autoAddUser() {
+        for (int i = 1; i < 6; i++) {
+            User u = new User();
+            u.setName(String.valueOf(i));
+            u.setEmail(String.format("%s@test.com", i));
+            u.setPassword(String.valueOf(i));
+            u.setTel(String.format("010-%d%d%d%d-%d%d%d%d", i, i, i, i, i, i, i, i));
+            u.setNo(User.getNextSeqNo());
+            UserList.add(u);
         }
     }
 
-    public static void executeUserCommand(String subMenuTitle) {
-        switch (subMenuTitle) {
+    public static void executeUserCommand(String command) {
+        System.out.printf("[%s]\n", command);
+        switch (command) {
             case "등록":
-                UserCommand.addUser();
-                break;
-            case "목록":
-                UserCommand.listUser();
+                addUser();
                 break;
             case "조회":
-                UserCommand.searchUser();
+                viewUser();
+                break;
+            case "목록":
+                listUser();
                 break;
             case "변경":
-                UserCommand.updateUser();
+                updateUser();
                 break;
             case "삭제":
-                UserCommand.deleteUser();
+                deleteUser();
                 break;
         }
     }
 
     private static void addUser() {
         User user = new User();
-        user.setName(Prompt.prompt("이름? "));
-        user.setEmail(Prompt.prompt("이메일? "));
-        user.setPassword(Prompt.prompt("암호? "));
-        user.setTel(Prompt.prompt("연락처? "));
-        users[userLength++] = user;
+        user.setName(Prompt.input("이름?"));
+        user.setEmail(Prompt.input("이메일?"));
+        user.setPassword(Prompt.input("암호?"));
+        user.setTel(Prompt.input("연락처?"));
+        user.setNo(User.getNextSeqNo());
+        UserList.add(user);
     }
+
+
 
     private static void listUser() {
         System.out.println("번호 이름 이메일");
-        for (int i = 0; i < userLength; i++) {
-            User user = users[i];
-            System.out.printf("%d %s %s\n", i + 1, user.getName(), user.getEmail());
+        for (User user : UserList.toArray()) {
+            System.out.printf("%d %s %s\n", user.getNo(), user.getName(), user.getEmail());
         }
     }
 
-    private static void searchUser() {
-        User user;
-        while (true) {
-            try {
-                int userNo = Integer.parseInt(Prompt.prompt("회원번호? "));
-                if (userNo > userLength) {
-                    System.out.println("없는 회원입니다.");
-                    break;
-                }
-                user = users[userNo - 1];
-                System.out.printf("이름 : %s\n", user.getName());
-                System.out.printf("이메일 : %s\n", user.getEmail());
-                System.out.printf("연락처 : %s\n", user.getTel());
-                break;
-            } catch (NumberFormatException e) {
-                System.out.println("숫자를 입력해주세요.");
-            }
+    private static void viewUser() {
+        int userNo = Prompt.inputInt("회원번호?");
+        User user = UserList.findByNo(userNo);
+        if (user == null) {
+            System.out.println("없는 회원입니다.");
+            return;
         }
+        System.out.printf("이름: %s\n", user.getName());
+        System.out.printf("이메일: %s\n", user.getEmail());
+        System.out.printf("연락처: %s\n", user.getTel());
     }
 
     private static void updateUser() {
-        User user;
-        while (true) {
-            try {
-                int userNo = Integer.parseInt(Prompt.prompt("회원번호? "));
-                if (userNo > userLength) {
-                    System.out.println("없는 회원입니다.");
-                    break;
-                }
-                user = users[userNo - 1];
-                user.setName(Prompt.prompt(String.format("이름(%s)? ", user.getName())));
-                user.setEmail(Prompt.prompt(String.format("이메일(%s)? ", user.getEmail())));
-                user.setPassword(Prompt.prompt("암호? "));
-                user.setPassword(Prompt.prompt(String.format("연락처(%s)? ", user.getPassword())));
-                System.out.println("변경 했습니다.");
-                break;
-            } catch (NumberFormatException e) {
-                System.out.println("숫자를 입력해주세요.");
-            }
+        int userNo = Prompt.inputInt("회원번호?");
+        User user = UserList.findByNo(userNo);
+        if (user == null) {
+            System.out.println("없는 회원입니다.");
+            return;
         }
+        user.setName(Prompt.input("이름(%s)?", user.getName()));
+        user.setEmail(Prompt.input("이메일(%s)?", user.getEmail()));
+        user.setPassword(Prompt.input("암호?"));
+        user.setTel(Prompt.input("연락처(%s)?", user.getTel()));
+        System.out.println("변경 했습니다.");
     }
 
     private static void deleteUser() {
-        while (true) {
-            try {
-                int userNo = Integer.parseInt(Prompt.prompt("회원번호? "));
-                if (userNo > userLength) {
-                    System.out.println("없는 회원입니다.");
-                    break;
-                }
-                users[userNo - 1] = users[userNo];
-                users[userNo] = null;
-                userLength--;
-                System.out.println("삭제 했습니다.");
-                break;
-            } catch (NumberFormatException e) {
-                System.out.println("숫자를 입력해주세요.");
-            }
+        int userNo = Prompt.inputInt("회원번호?");
+        User deleteduser = UserList.delete(userNo);
+        if(deleteduser != null){
+            System.out.printf("%s 회원을 삭제했습니다.\n", deleteduser.getName());
+            return;
         }
+        System.out.println("삭제 했습니다.");
     }
 
 }
