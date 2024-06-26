@@ -1,27 +1,35 @@
 package bitcamp.myapp;
 
+import bitcamp.myapp.command.BoardCommand;
 import bitcamp.myapp.command.ProjectCommand;
 import bitcamp.myapp.command.UserCommand;
 import bitcamp.myapp.util.Prompt;
+import bitcamp.myapp.vo.User;
 
 public class App {
-    static String[] mainMenus = new String[]{"회원", "프로젝트", "게시판", "도움말", "종료"};
+    static String[] mainMenus = new String[]{"회원", "프로젝트", "게시판", "공지사항", "도움말", "종료"};
     static String[][] subMenus = {
+            {"등록", "목록", "조회", "변경", "삭제"},
             {"등록", "목록", "조회", "변경", "삭제"},
             {"등록", "목록", "조회", "변경", "삭제"},
             {"등록", "목록", "조회", "변경", "삭제"},
     };
 
+    UserCommand userCommand = new UserCommand();
+    ProjectCommand projectCommand = new ProjectCommand(userCommand.getUserList());
+    BoardCommand boardCommand = new BoardCommand();
+    BoardCommand noticeCommand = new BoardCommand();
+
     public static void main(String[] args) {
-        UserCommand.autoUser();
-        ProjectCommand.autoProject();
+        new App().execute();
+    }
 
+    void execute() {
         printMenu(); // 메서드에 묶인 코드를 실행하는 것을 "메서드를 호출(call)한다"라고 부른다.
-
         String command;
         while (true) {
             try {
-                command = Prompt.prompt("메인>");
+                command = Prompt.input("메인>");
 
                 if (command.equals("menu")) {
                     printMenu();
@@ -50,7 +58,7 @@ public class App {
         Prompt.close();
     }
 
-    static void printMenu() {
+    void printMenu() {
         String boldAnsi = "\033[1m";
         String redAnsi = "\033[31m";
         String resetAnsi = "\033[0m";
@@ -72,7 +80,7 @@ public class App {
         System.out.println(boldAnsi + line + resetAnsi);
     }
 
-    static void printSubMenu(String menuTitle, String[] menus) {
+    void printSubMenu(String menuTitle, String[] menus) {
         System.out.printf("[%s]\n", menuTitle);
         for (int i = 0; i < menus.length; i++) {
             System.out.printf("%d. %s\n", (i + 1), menus[i]);
@@ -80,18 +88,18 @@ public class App {
         System.out.println("9. 이전");
     }
 
-    static boolean isValidateMenu(int menuNo, String[] menus) {
+    boolean isValidateMenu(int menuNo, String[] menus) {
         return menuNo >= 1 && menuNo <= menus.length;
     }
 
-    static String getMenuTitle(int menuNo, String[] menus) {
+    String getMenuTitle(int menuNo, String[] menus) {
         return isValidateMenu(menuNo, menus) ? menus[menuNo - 1] : null;
     }
 
-    static void processMenu(String menuTitle, String[] menus) {
+    void processMenu(String menuTitle, String[] menus) {
         printSubMenu(menuTitle, menus);
         while (true) {
-            String command = Prompt.prompt("메인/%s>", menuTitle);
+            String command = Prompt.input("메인/%s>", menuTitle);
             if (command.equals("menu")) {
                 printSubMenu(menuTitle, menus);
                 continue;
@@ -106,10 +114,19 @@ public class App {
                     System.out.println("유효한 메뉴 번호가 아닙니다.");
                 } else {
                     System.out.printf("[%s]\n", subMenuTitle);
-                    switch (menuTitle){
-                        case "회원" : UserCommand.userProcess(subMenuTitle); break;
-                        case "프로젝트" :
-                            ProjectCommand.userProcess(subMenuTitle); break;
+                    switch (menuTitle) {
+                        case "회원":
+                            userCommand.executeUserCommand(subMenuTitle);
+                            break;
+                        case "프로젝트":
+                            projectCommand.executeProjectCommand(subMenuTitle);
+                            break;
+                        case "게시판":
+                            boardCommand.executeBoardCommand(subMenuTitle);
+                            break;
+                        case "공지사항":
+                            noticeCommand.executeBoardCommand(subMenuTitle);
+                            break;
                     }
                 }
             } catch (NumberFormatException ex) {
