@@ -2,21 +2,23 @@ package bitcamp.myapp;
 
 import bitcamp.myapp.command.*;
 import bitcamp.myapp.util.*;
+import bitcamp.myapp.vo.Board;
+import bitcamp.myapp.vo.Project;
+import bitcamp.myapp.vo.User;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class App {
     String[] mainMenus = new String[]{"회원", "프로젝트", "게시판", "도움말", "명령 내역", "종료"};
 
-    Stack menuPath = new Stack();
+    Stack<String> menuPath = new Stack<>();
 
     Map<String, Command> commandMap = new HashMap<>();
 
     public App(){
-        List userList = new ArrayList();
-        List projectList = new LinkedList();
-        List boardList = new LinkedList();
+        List<User> userList = new ArrayList<>();
+        List<Project> projectList = new LinkedList<>();
+        List<Board> boardList = new LinkedList<>();
 
         UserCommand userCommand= new UserCommand("회원", userList);
         commandMap.put("회원", userCommand);
@@ -103,13 +105,13 @@ public class App {
         command.execute(menuPath);
     }
 
-    private String getMenuPathTitle(Stack menuPath){
+    private String getMenuPathTitle(Stack<String> menuPath){
         StringBuilder stringBuilder = new StringBuilder();
-        for (int i = 0; i < menuPath.size(); i++){
-            if(!stringBuilder.isEmpty()){
+        for (String string : menuPath) {
+            if (!stringBuilder.isEmpty()) {
                 stringBuilder.append("/");
             }
-            stringBuilder.append(menuPath.get(i));
+            stringBuilder.append(string);
         }
         return stringBuilder.toString();
     }
