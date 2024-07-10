@@ -14,7 +14,8 @@ public abstract class AbstractList implements List {
 
     @Override
     public Iterator iterator() {
-        class ListIterator implements Iterator{
+        // anonymous class
+        return new Iterator(){
             // 컴파일러가 바깥 클래스의 인스턴스 주소를 저장할 필드, 생성자 자동 생성
             private int cursor;
 
@@ -33,9 +34,6 @@ public abstract class AbstractList implements List {
                 // return AbstractList.this.get()
                 return get(cursor++);
             }
-        }
-
-        // 바깥 클래스의 인스턴스 주소를 전달하는 코드로 자동 변환
-        return new ListIterator();
+        };
     }
 }
