@@ -1,30 +1,17 @@
 package bitcamp.myapp.command;
 
 import bitcamp.myapp.util.LinkedList;
-import bitcamp.myapp.util.List;
 import bitcamp.myapp.util.Prompt;
 import bitcamp.myapp.vo.Board;
 import java.util.Date;
 
-public class BoardCommand extends AbstractCommand{
+public class BoardCommand implements Command {
 
-  private List boardList;
-  private String[] menus = {"등록", "목록", "조회", "변경", "삭제"};
+  LinkedList boardList = new LinkedList();
 
-  public BoardCommand(String menuTitle, List list){
-    super(menuTitle);
-    boardList = list;
-  }
-
-  @Override
-  protected String[] getMenus(){
-    return menus;
-  }
-
-  @Override
-  protected void processMenu(String menuName) {
-    System.out.printf("[%s]\n", menuName);
-    switch (menuName) {
+  public void execute(String name) {
+    System.out.printf("[%s]\n", name);
+    switch (name) {
       case "등록":
         this.addBoard();
         break;
