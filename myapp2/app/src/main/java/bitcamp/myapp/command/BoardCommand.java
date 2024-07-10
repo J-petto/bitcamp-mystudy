@@ -1,17 +1,31 @@
 package bitcamp.myapp.command;
 
-import bitcamp.myapp.util.LinkedList;
+import bitcamp.myapp.util.Iterator;
+import bitcamp.myapp.util.List;
+import bitcamp.myapp.util.ListIterator;
 import bitcamp.myapp.util.Prompt;
 import bitcamp.myapp.vo.Board;
 import java.util.Date;
 
-public class BoardCommand implements Command {
+public class BoardCommand extends AbstractCommand {
 
-  LinkedList boardList = new LinkedList();
+  private List boardList;
+  private String[] menus = {"등록", "목록", "조회", "변경", "삭제", "검색"};
 
-  public void execute(String name) {
-    System.out.printf("[%s]\n", name);
-    switch (name) {
+  public BoardCommand(String menuTitle, List list) {
+    super(menuTitle);
+    this.boardList = list;
+  }
+
+  @Override
+  protected String[] getMenus() {
+    return menus;
+  }
+
+  @Override
+  protected void processMenu(String menuName) {
+    System.out.printf("[%s]\n", menuName);
+    switch (menuName) {
       case "등록":
         this.addBoard();
         break;
@@ -72,8 +86,9 @@ public class BoardCommand implements Command {
 
   private void listBoard() {
     System.out.println("번호 제목 작성일 조회수");
-    for (Object obj : boardList.toArray()) {
-      Board board = (Board) obj;
+    Iterator iterator = new ListIterator();
+    while(iterator.hasNext()) {
+      Board board = (Board) iterator.next();
       System.out.printf("%d %s %tY-%3$tm-%3$td %d\n",
           board.getNo(), board.getTitle(), board.getCreatedDate(), board.getViewCount());
     }

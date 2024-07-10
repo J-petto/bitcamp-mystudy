@@ -1,22 +1,21 @@
 package bitcamp.myapp.command;
 
-import bitcamp.myapp.util.LinkedList;
+import bitcamp.myapp.util.Iterator;
 import bitcamp.myapp.util.List;
 import bitcamp.myapp.util.Prompt;
 import bitcamp.myapp.vo.Project;
 import bitcamp.myapp.vo.User;
 
-public class ProjectCommand extends AbstractCommand{
-
-  private String[] menus = {"등록", "목록", "조회", "변경", "삭제"};
+public class ProjectCommand extends AbstractCommand {
 
   private List projectList;
   private List userList;
+  private String[] menus = {"등록", "목록", "조회", "변경", "삭제"};
 
-  public ProjectCommand(String menuTitle, List userList, List projectList) {
+  public ProjectCommand(String menuTitle, List projectList, List userList) {
     super(menuTitle);
-    this.userList = userList;
     this.projectList = projectList;
+    this.userList = userList;
   }
 
   @Override
@@ -84,6 +83,7 @@ public class ProjectCommand extends AbstractCommand{
     }
   }
 
+
   private void addProject() {
     Project project = new Project();
     project.setTitle(Prompt.input("프로젝트명?"));
@@ -103,10 +103,11 @@ public class ProjectCommand extends AbstractCommand{
 
   private void listProject() {
     System.out.println("번호 프로젝트 기간");
-    for (Object obj : projectList.toArray()) {
-      Project project = (Project) obj;
+    Iterator iterator = projectList.iterator();
+    while (iterator.hasNext()) {
+      Project project = (Project) iterator.next();
       System.out.printf("%d %s %s ~ %s\n",
-          project.getNo(), project.getTitle(), project.getStartDate(), project.getEndDate());
+              project.getNo(), project.getTitle(), project.getStartDate(), project.getEndDate());
     }
   }
 
@@ -122,8 +123,9 @@ public class ProjectCommand extends AbstractCommand{
     System.out.printf("설명: %s\n", project.getDescription());
     System.out.printf("기간: %s ~ %s\n", project.getStartDate(), project.getEndDate());
     System.out.println("팀원:");
-    for (int i = 0; i < project.getMembers().size(); i++) {
-      User user = (User) project.getMembers().get(i);
+    Iterator memberIterator = project.getMembers().iterator();
+    while (memberIterator.hasNext()){
+      User user = (User) memberIterator.next();
       System.out.printf("- %s\n", user.getName());
     }
   }

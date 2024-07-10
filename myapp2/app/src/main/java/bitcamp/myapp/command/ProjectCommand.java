@@ -1,17 +1,49 @@
 package bitcamp.myapp.command;
 
-import bitcamp.myapp.util.LinkedList;
+import bitcamp.myapp.util.Iterator;
+import bitcamp.myapp.util.List;
+import bitcamp.myapp.util.ListIterator;
 import bitcamp.myapp.util.Prompt;
 import bitcamp.myapp.vo.Project;
 import bitcamp.myapp.vo.User;
 
-public class ProjectCommand implements Command {
+public class ProjectCommand extends AbstractCommand {
 
-  LinkedList projectList = new LinkedList();
-  LinkedList userList;
+  private List projectList;
+  private List userList;
+  private String[] menus = {"등록", "목록", "조회", "변경", "삭제"};
 
-  public ProjectCommand(LinkedList userList) {
+  public ProjectCommand(String menuTitle, List projectList, List userList) {
+    super(menuTitle);
+    this.projectList = projectList;
     this.userList = userList;
+  }
+
+  @Override
+  protected String[] getMenus() {
+    return menus;
+  }
+
+  @Override
+  protected void processMenu(String menuName) {
+    System.out.printf("[%s]\n", menuName);
+    switch (menuName) {
+      case "등록":
+        this.addProject();
+        break;
+      case "조회":
+        this.viewProject();
+        break;
+      case "목록":
+        this.listProject();
+        break;
+      case "변경":
+        this.updateProject();
+        break;
+      case "삭제":
+        this.deleteProject();
+        break;
+    }
   }
 
   private void addMembers(Project project) {
@@ -38,38 +70,20 @@ public class ProjectCommand implements Command {
   }
 
   private void deleteMembers(Project project) {
-    for (int i = 0; i < project.getMembers().size(); i++) {
-      User user = (User) project.getMembers().get(i);
-      String str = Prompt.input("팀원(%s) 삭제?", user.getName());
+    Object[] members = project.getMembers().toArray();
+    for (Object obj : members) {
+      int index = project.getMembers().indexOf(obj);
+      User member = (User) obj;
+      String str = Prompt.input("팀원(%s) 삭제?", member.getName());
       if (str.equalsIgnoreCase("y")) {
-        project.getMembers().remove(i);
-        System.out.printf("'%s' 팀원을 삭제합니다.\n", user.getName());
+        project.getMembers().remove(index);
+        System.out.printf("'%s' 팀원을 삭제합니다.\n", member.getName());
       } else {
-        System.out.printf("'%s' 팀원을 유지합니다.\n", user.getName());
+        System.out.printf("'%s' 팀원을 유지합니다.\n", member.getName());
       }
     }
   }
 
-  public void execute(String name) {
-    System.out.printf("[%s]\n", name);
-    switch (name) {
-      case "등록":
-        this.addProject();
-        break;
-      case "조회":
-        this.viewProject();
-        break;
-      case "목록":
-        this.listProject();
-        break;
-      case "변경":
-        this.updateProject();
-        break;
-      case "삭제":
-        this.deleteProject();
-        break;
-    }
-  }
 
   private void addProject() {
     Project project = new Project();
@@ -90,8 +104,9 @@ public class ProjectCommand implements Command {
 
   private void listProject() {
     System.out.println("번호 프로젝트 기간");
-    for (Object obj : projectList.toArray()) {
-      Project project = (Project) obj;
+    Iterator iterator = new ListIterator();
+    while (iterator.hasNext()) {
+      Project project = (Project) iterator.next();
       System.out.printf("%d %s %s ~ %s\n",
           project.getNo(), project.getTitle(), project.getStartDate(), project.getEndDate());
     }
@@ -109,8 +124,9 @@ public class ProjectCommand implements Command {
     System.out.printf("설명: %s\n", project.getDescription());
     System.out.printf("기간: %s ~ %s\n", project.getStartDate(), project.getEndDate());
     System.out.println("팀원:");
-    for (int i = 0; i < project.getMembers().size(); i++) {
-      User user = (User) project.getMembers().get(i);
+    Iterator iterator = new ListIterator();
+    while (iterator.hasNext()) {
+      User user = (User) iterator.next();
       System.out.printf("- %s\n", user.getName());
     }
   }

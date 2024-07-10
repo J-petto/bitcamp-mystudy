@@ -12,10 +12,11 @@ public class Project {
   private String description;
   private String startDate;
   private String endDate;
-  private ArrayList members = new ArrayList();
+  private ArrayList members;
+
+  {members = new ArrayList();}
 
   public Project() {
-
   }
 
   public Project(int no) {

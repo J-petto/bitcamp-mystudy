@@ -2,12 +2,11 @@ package bitcamp.myapp.util;
 
 import java.util.Arrays;
 
-public class ArrayList implements List {
+public class ArrayList extends AbstractList {
 
   private static final int MAX_SIZE = 3;
 
   private Object[] list = new Object[MAX_SIZE];
-  private int size = 0;
 
   @Override // 재정의 또는 추상메서드 구현을 의미
   public void add(Object obj) {
@@ -69,16 +68,10 @@ public class ArrayList implements List {
   }
 
   @Override
-  public int size() {
-    return size;
-  }
-
-  @Override
   public Object get(int index) {
     if (index < 0 || index >= size) {
       return null;
     }
-    java.util.ArrayList l;
     return list[index];
   }
 

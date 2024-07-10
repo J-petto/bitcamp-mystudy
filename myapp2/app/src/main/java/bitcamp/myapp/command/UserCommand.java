@@ -1,16 +1,30 @@
 package bitcamp.myapp.command;
 
-import bitcamp.myapp.util.LinkedList;
+import bitcamp.myapp.util.Iterator;
+import bitcamp.myapp.util.List;
+import bitcamp.myapp.util.ListIterator;
 import bitcamp.myapp.util.Prompt;
 import bitcamp.myapp.vo.User;
 
-public class UserCommand implements Command {
+public class UserCommand extends AbstractCommand {
 
-  LinkedList userList = new LinkedList();
+  private List userList;
+  private String[] menus = {"등록", "목록", "조회", "변경", "삭제"};
 
-  public void execute(String name) {
-    System.out.printf("[%s]\n", name);
-    switch (name) {
+  public UserCommand(String menuTitle, List list) {
+    super(menuTitle);
+    this.userList = list;
+  }
+
+  @Override
+  protected String[] getMenus() {
+    return menus;
+  }
+
+  @Override
+  protected void processMenu(String menuName) {
+    System.out.printf("[%s]\n", menuName);
+    switch (menuName) {
       case "등록":
         this.addUser();
         break;
@@ -41,8 +55,9 @@ public class UserCommand implements Command {
 
   private void listUser() {
     System.out.println("번호 이름 이메일");
-    for (Object obj : userList.toArray()) {
-      User user = (User) obj;
+    Iterator iterator = new ListIterator();
+    while (iterator.hasNext()) {
+      User user = (User) iterator.next();
       System.out.printf("%d %s %s\n", user.getNo(), user.getName(), user.getEmail());
     }
   }
@@ -85,9 +100,4 @@ public class UserCommand implements Command {
       System.out.println("없는 회원입니다.");
     }
   }
-
-  public LinkedList getUserList() {
-    return userList;
-  }
-
 }
