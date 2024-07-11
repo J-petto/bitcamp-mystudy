@@ -6,12 +6,17 @@ import bitcamp.myapp.command.HelpCommand;
 import bitcamp.myapp.command.HistoryCommand;
 import bitcamp.myapp.command.ProjectCommand;
 import bitcamp.myapp.command.UserCommand;
+import bitcamp.myapp.util.ArrayList;
+import bitcamp.myapp.util.LinkedList;
+import bitcamp.myapp.util.List;
 import bitcamp.myapp.util.Prompt;
+import bitcamp.myapp.util.Stack;
 import bitcamp.myapp.vo.Board;
 import bitcamp.myapp.vo.Project;
 import bitcamp.myapp.vo.User;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 
 public class App {
 
@@ -111,14 +116,14 @@ public class App {
     command.execute(menuPath);
   }
 
-  private String getMenuPathTitle(Stack<String> menuPath) {
+  private String getMenuPathTitle(Stack menuPath) {
     StringBuilder strBuilder = new StringBuilder();
-      for (Object object : menuPath) {
-          if (!strBuilder.isEmpty()) {
-              strBuilder.append("/");
-          }
-          strBuilder.append(object);
+    for (int i = 0; i < menuPath.size(); i++) {
+      if (!strBuilder.isEmpty()) {
+        strBuilder.append("/");
       }
+      strBuilder.append(menuPath.get(i));
+    }
     return strBuilder.toString();
   }
 }

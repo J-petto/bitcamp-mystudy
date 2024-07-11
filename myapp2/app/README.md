@@ -1,14 +1,12 @@
-# 21. 스택과 큐 다루기
+# 23. 특정 클래스에서만 사용되는 의존 객체는 중첩 클래스로 정의하기
 
 ## 학습목표
 
-- 스택과 큐의 구동 원리를 이해하고 구현할 수 있다.
-- 스택과 큐를 활용할 수 있다.
+- 중첩 클래스의 구동 원리를 이해하고 사용할 수 있다.
 
 ## 요구사항
 
-- 프롬프트에서 메뉴 경로를 breadcrumb 방식으로 다루기
-- 사용자가 입력한 명령어 내역을 다루기 
+- 특정 클래스에서만 사용되는 클래스가 있다면 중첩 클래스로 코드를 정리하기
 
 ## 실행 결과
 
@@ -16,36 +14,29 @@
 
 ## 작업
 
-### 스택 구현
+### Node 클래스를 중첩 클래스로 전환
 
-- LinkedList를 상속 받아 스택을 구현한다.
-  - Stack 클래스 추가
-- 프롬프트 메뉴 경로를 출력할 때 스택을 적용한다.
-  - App 클래스 변경
-    - 메뉴 경로를 저장하는 스택 객체 준비
-    - 메인 메뉴 이름을 스택에 저장
-  - AbstractCommand 클래스 변경
-    - 서브 메뉴 이름을 스택에 보관 및 꺼내기
-    - 메뉴 경로를 리턴하는 메서드 추가: getMenuPath()
+- LinkedList 클래스 변경
+  - Node 클래스를 LinkedList의 static nested class 로 옮긴다.
+  
+### ListIterator 클래스를 중첩 클래스로 전환
 
-### 큐 구현
-
-- LinkedList를 상속 받아 큐를 구현한다.
-  - Queue 클래스 추가
-- 사용자가 입력한 내역을 큐를 이용하여 저장한다.
-  - Prompt 클래스 변경
-    - 사용자가 입력한 내용을 큐에 순서대로 저장
-    - 입력한 내역을 출력: printHistory()
-- 사용자가 입력한 내역을 출력한다.
-  - HistoryCommand 클래스 추가
-  - App 클래스 변경 
-    - "명령내역" 메뉴 추가
-
-
+- AbstractList 클래스 변경
+  - ListIterator 클래스를 이 클래스의 static nested class로 옮긴다.
+    - AbstractList01 클래스 참고
+  - ListIterator 클래스를 non-static nested class로 변경한다.
+    - AbstractList02 클래스 참고
+  - ListIterator 클래스를 local class로 변경한다.
+    - AbstractList03 클래스 참고
+  - ListIterator 클래스를 anonymous class로 변경한다.
+    - AbstractList 클래스 참고
+    
 ## 소스 파일
 
-- Stack.java
-- Queue.java
-- AbstractCommand.java
-- Prompt.java
-- App.java
+- Node.java (삭제)
+- LinkedList.java
+- ListIterator.java(삭제)
+- AbstractList.java
+  - AbstractList01.java
+  - AbstractList02.java
+  - AbstractList03.java
