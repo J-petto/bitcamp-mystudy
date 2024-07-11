@@ -9,11 +9,11 @@ import java.util.List;
 public class BoardCommand extends AbstractCommand {
 
     private List<Board> boardList;
-    private String[] menus = {"등록", "목록", "조회", "변경", "삭제"};
+    private String[] menus = {"등록", "목록", "조회", "변경", "삭제", "검색"};
 
     public BoardCommand(String menuTitle, List<Board> list) {
         super(menuTitle);
-        boardList = list;
+        this.boardList = list;
     }
 
     @Override
@@ -48,6 +48,7 @@ public class BoardCommand extends AbstractCommand {
         int index = boardList.indexOf(new Board(boardNo));
         if (index == -1) {
             System.out.println("없는 게시글입니다.");
+            return;
         }
 
         Board deletedBoard = boardList.remove(index);
@@ -59,9 +60,11 @@ public class BoardCommand extends AbstractCommand {
         int index = boardList.indexOf(new Board(boardNo));
         if (index == -1) {
             System.out.println("없는 게시글입니다.");
+            return;
         }
 
         Board board = boardList.get(index);
+
         board.setViewCount(board.getViewCount() + 1);
         board.setTitle(Prompt.input("제목(%s)?", board.getTitle()));
         board.setContent(Prompt.input("내용(%s)?", board.getContent()));
@@ -73,9 +76,11 @@ public class BoardCommand extends AbstractCommand {
         int index = boardList.indexOf(new Board(boardNo));
         if (index == -1) {
             System.out.println("없는 게시글입니다.");
+            return;
         }
 
         Board board = boardList.get(index);
+
         board.setViewCount(board.getViewCount() + 1);
         System.out.printf("제목: %s\n", board.getTitle());
         System.out.printf("내용: %s\n", board.getContent());

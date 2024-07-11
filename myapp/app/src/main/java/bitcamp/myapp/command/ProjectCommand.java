@@ -4,6 +4,7 @@ import bitcamp.myapp.util.Prompt;
 import bitcamp.myapp.vo.Project;
 import bitcamp.myapp.vo.User;
 
+import java.util.Iterator;
 import java.util.List;
 
 public class ProjectCommand extends AbstractCommand {
@@ -59,7 +60,6 @@ public class ProjectCommand extends AbstractCommand {
             }
 
             User user = userList.get(index);
-
             if (project.getMembers().contains(user)) {
                 System.out.printf("'%s'은 현재 팀원입니다.\n", user.getName());
                 continue;
@@ -76,7 +76,7 @@ public class ProjectCommand extends AbstractCommand {
             User member = (User) obj;
             String str = Prompt.input("팀원(%s) 삭제?", member.getName());
             if (str.equalsIgnoreCase("y")) {
-                project.getMembers().remove(obj);
+                project.getMembers().remove(member);
                 System.out.printf("'%s' 팀원을 삭제합니다.\n", member.getName());
             } else {
                 System.out.printf("'%s' 팀원을 유지합니다.\n", member.getName());
@@ -104,7 +104,9 @@ public class ProjectCommand extends AbstractCommand {
 
     private void listProject() {
         System.out.println("번호 프로젝트 기간");
-        for (Project project : projectList) {
+        Iterator<Project> iterator = projectList.iterator();
+        while (iterator.hasNext()) {
+            Project project = iterator.next();
             System.out.printf("%d %s %s ~ %s\n",
                     project.getNo(), project.getTitle(), project.getStartDate(), project.getEndDate());
         }
@@ -153,7 +155,6 @@ public class ProjectCommand extends AbstractCommand {
 
     private void deleteProject() {
         int projectNo = Prompt.inputInt("프로젝트 번호?");
-
         int index = projectList.indexOf(new Project(projectNo));
         if (index == -1) {
             System.out.println("없는 프로젝트입니다.");

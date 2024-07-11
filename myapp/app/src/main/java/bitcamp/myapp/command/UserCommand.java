@@ -3,6 +3,7 @@ package bitcamp.myapp.command;
 import bitcamp.myapp.util.Prompt;
 import bitcamp.myapp.vo.User;
 
+import java.util.Iterator;
 import java.util.List;
 
 public class UserCommand extends AbstractCommand {
@@ -12,7 +13,7 @@ public class UserCommand extends AbstractCommand {
 
     public UserCommand(String menuTitle, List<User> list) {
         super(menuTitle);
-        userList = list;
+        this.userList = list;
     }
 
     @Override
@@ -67,7 +68,7 @@ public class UserCommand extends AbstractCommand {
             return;
         }
 
-        User user = (User) userList.get(index);
+        User user = userList.get(index);
 
         System.out.printf("이름: %s\n", user.getName());
         System.out.printf("이메일: %s\n", user.getEmail());

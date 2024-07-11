@@ -1,7 +1,5 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.HashSet;
 
 public class Main {
     public static void main(String[] args) {
@@ -21,8 +19,7 @@ class Solution {
             giftRate.put(friend, giftRate(friend, gifts));
         }
 
-        HashMap<String, Integer> giftCount = new HashMap<>();
-        hashMaker(friends, gifts, giftCount);
+        HashMap<String,Integer> giftCount = hashMaker(friends, gifts);
         for(String s : giftCount.keySet()){
             System.out.println(s + ": " + giftCount.get(s));
         }
@@ -44,23 +41,40 @@ class Solution {
         return giveGifts - getGifts;
     }
 
-    private int test(String giftsSet, String[] gifts){
+    private int countGiveGet(String giveFriend, String getFriend, String[] gifts){
         int counter = 0;
-        for(String gift : gifts){
-            if(gift.equals(giftsSet)){
-                counter++;
+        if(!giveFriend.equals(getFriend)){
+            String giveSet = String.format("%s %s", giveFriend, getFriend);
+            String getSet = String.format("%s %s", getFriend, giveSet);
+
+            for(String gift : gifts){
+                if(gift.equals(giveSet)){
+                    counter++;
+                }
+                if (gift.equals(getSet)){
+                    counter--;
+                }
             }
         }
+
         return counter;
     }
 
-    private void hashMaker(String[] friends, String[] gifts, HashMap<String, Integer> giftCount){
+    private HashMap<String, Integer> hashMaker(String[] friends, String[] gifts){
+        HashMap<String, Integer> giftCount = new HashMap<>();
         for(String giveFriend : friends){
             for(String getFriend : friends){
-                if(giveFriend.equals(getFriend)) continue;
-                String giftsSet = String.format("%s %s", giveFriend, getFriend);
-                giftCount.put(giftsSet, test(giftsSet, gifts));
+
+                countGiveGet(giveFriend, getFriend, gifts);
             }
         }
+
+        return giftCount;
+    }
+
+    private int result(HashMap<String, Integer> giftRate, HashMap<String, Integer> giftCount) {
+        ArrayList<Integer> arr = new ArrayList<>();
+//        for(String gift)
+        return 0;
     }
 }
