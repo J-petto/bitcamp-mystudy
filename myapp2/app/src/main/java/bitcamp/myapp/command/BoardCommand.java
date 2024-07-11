@@ -1,15 +1,14 @@
 package bitcamp.myapp.command;
 
-import bitcamp.myapp.util.Iterator;
-import bitcamp.myapp.util.List;
 import bitcamp.myapp.util.Prompt;
 import bitcamp.myapp.vo.Board;
 import java.util.Date;
+import java.util.List;
 
 public class BoardCommand extends AbstractCommand {
 
-  private List<Board> boardList;
-  private String[] menus = {"등록", "목록", "조회", "변경", "삭제", "검색"};
+  private final List<Board> boardList;
+  private final String[] menus = {"등록", "목록", "조회", "변경", "삭제", "검색"};
 
   public BoardCommand(String menuTitle, List<Board> list) {
     super(menuTitle);
@@ -90,12 +89,10 @@ public class BoardCommand extends AbstractCommand {
 
   private void listBoard() {
     System.out.println("번호 제목 작성일 조회수");
-    Iterator<Board> iterator = boardList.iterator();
-    while (iterator.hasNext()) {
-      Board board = iterator.next();
-      System.out.printf("%d %s %tY-%3$tm-%3$td %d\n",
-          board.getNo(), board.getTitle(), board.getCreatedDate(), board.getViewCount());
-    }
+      for (Board board : boardList) {
+          System.out.printf("%d %s %tY-%3$tm-%3$td %d\n",
+                  board.getNo(), board.getTitle(), board.getCreatedDate(), board.getViewCount());
+      }
   }
 
   private void addBoard() {
