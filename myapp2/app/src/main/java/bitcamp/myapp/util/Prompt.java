@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Prompt {
 
   static Scanner keyboardScanner = new Scanner(System.in);
-  
+
   // Queue는 java.util.Collection을 상속 받았음.
 // LinkedList는 Deque를 구현함 Deque는 Queue를 상속받기 때문에 또 상위인 Collection을 상속 받음
 // 결국 Queue와 LinkedList는 Collection의 자식 클래스로 포함이 됨

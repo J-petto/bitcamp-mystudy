@@ -1,84 +1,157 @@
 package bitcamp.myapp.vo;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.Date;
 import java.util.Objects;
 
 public class Board {
 
-  private static int seqNo;
+    private static int seqNo;
 
-  private int no;
-  private String title;
-  private String content;
-  private Date createdDate;
-  private int viewCount;
+    private int no;
+    private String title;
+    private String content;
+    private Date createdDate;
+    private int viewCount;
 
-  public Board() {
+    public Board() {
 
-  }
-
-  public Board(int no) {
-    this.no = no;
-  }
-
-  public static int getNextSeqNo() {
-    return ++seqNo;
-  }
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public Board(int no) {
+        this.no = no;
     }
-    Board board = (Board) o;
-    return no == board.no;
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hashCode(no);
-  }
+    public static int getNextSeqNo() {
+        return ++seqNo;
+    }
 
-  public int getNo() {
-    return no;
-  }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Board board = (Board) o;
+        return no == board.no;
+    }
 
-  public void setNo(int no) {
-    this.no = no;
-  }
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(no);
+    }
 
-  public String getTitle() {
-    return title;
-  }
+    public int getNo() {
+        return no;
+    }
 
-  public void setTitle(String title) {
-    this.title = title;
-  }
+    public void setNo(int no) {
+        this.no = no;
+    }
 
-  public String getContent() {
-    return content;
-  }
+    public String getTitle() {
+        return title;
+    }
 
-  public void setContent(String content) {
-    this.content = content;
-  }
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-  public Date getCreatedDate() {
-    return createdDate;
-  }
+    public String getContent() {
+        return content;
+    }
 
-  public void setCreatedDate(Date createdDate) {
-    this.createdDate = createdDate;
-  }
+    public void setContent(String content) {
+        this.content = content;
+    }
 
-  public int getViewCount() {
-    return viewCount;
-  }
+    public Date getCreatedDate() {
+        return createdDate;
+    }
 
-  public void setViewCount(int viewCount) {
-    this.viewCount = viewCount;
-  }
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
+    }
+
+    public int getViewCount() {
+        return viewCount;
+    }
+
+    public void setViewCount(int viewCount) {
+        this.viewCount = viewCount;
+    }
+
+    public byte[] getBytes() throws IOException {
+        try (ByteArrayOutputStream out = new ByteArrayOutputStream();) {
+            out.write(no >> 24);
+            out.write(no >> 16);
+            out.write(no >> 8);
+            out.write(no);
+
+            byte[] bytes = title.getBytes(StandardCharsets.UTF_8);
+            out.write(bytes.length >> 8);
+            out.write(bytes.length);
+            out.write(bytes);
+
+            bytes = content.getBytes(StandardCharsets.UTF_8);
+            out.write(bytes.length >> 8);
+            out.write(bytes.length);
+            out.write(bytes);
+
+            long date = createdDate.getTime();
+            out.write((int) (date >> 56));
+            out.write((int) (date >> 48));
+            out.write((int) (date >> 40));
+            out.write((int) (date >> 32));
+            out.write((int) (date >> 24));
+            out.write((int) (date >> 16));
+            out.write((int) (date >> 8));
+            out.write((int) date);
+
+            out.write(viewCount >> 24);
+            out.write(viewCount >> 16);
+            out.write(viewCount >> 8);
+            out.write(viewCount);
+
+
+            return out.toByteArray();
+        }
+    }
+
+    public static Board valueOf(byte[] bytes) throws IOException {
+        try (ByteArrayInputStream in = new ByteArrayInputStream(bytes)) {
+            Board board = new Board();
+            board.setNo(in.read() << 24 | in.read() << 16 | in.read() << 8 | in.read());
+
+            byte[] buf = new byte[1000];
+
+            int len = in.read() << 8 | in.read();
+            in.read(buf, 0, len);
+            board.setTitle(new String(buf, 0, len, StandardCharsets.UTF_8));
+
+            len = in.read() << 8 | in.read();
+            in.read(buf, 0, len);
+            board.setContent(new String(buf, 0, len, StandardCharsets.UTF_8));
+
+            board.setCreatedDate(new Date(
+                    (long) in.read() << 56 |(long) in.read() << 48 |
+                    (long) in.read() << 40 |(long) in.read() << 32 |
+                    (long) in.read() << 24 | (long) in.read() << 16 |
+                    (long) in.read() << 8 | (long) in.read())
+            );
+
+            board.setViewCount(in.read() << 24 | in.read() << 16 | in.read() << 8 | in.read());
+
+            return board;
+        }
+    }
+
+    public static void initSeqNo(int no) {
+        seqNo = no;
+    }
 }

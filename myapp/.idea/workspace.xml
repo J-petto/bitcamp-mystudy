@@ -5,8 +5,40 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ff50e196-db5a-4d21-bedb-075fb37dce0c" name="변경" comment="">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/menu/AbstractMenu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/menu/Menu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/menu/MenuGroup.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/menu/MenuItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/menu/TestMenu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/command/Board/BoardDeleteCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/command/Board/BoardListCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/command/Board/BoardUpdateCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/command/Board/BoardViewCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/command/Project/ProjectDeleteCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/command/Project/ProjectListCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/command/Project/ProjectMemberHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/command/Project/ProjectUpdateCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/command/Project/ProjectViewCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/command/User/UserDeleteCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/command/User/UserListCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/command/User/UserUpdateCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/command/User/UserViewCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/command/AbstractCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/command/BoardCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/command/Board/BoardAddCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/command/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/command/Command.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/command/HelpCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/command/HelpCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/command/HistoryCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/command/HistoryCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/command/ProjectCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/command/Project/ProjectAddCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/command/UserCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/command/User/UserAddCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/util/Prompt.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/util/Prompt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/vo/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/vo/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/vo/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/vo/Project.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/vo/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/vo/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../myapp2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp2/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../myapp2/app/src/main/java/bitcamp/myapp/util/Prompt.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp2/app/src/main/java/bitcamp/myapp/util/Prompt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../programmers_test/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../programmers_test/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,23 +92,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Gradle.myapp [run].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.myapp.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.myapp:app [:app:App.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.myapp:app [:app:LinkedList.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.myapp:app [:app:Queue.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.myapp:app [:app:Stack.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.myapp:app [:app:UserList.main()].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;모듈&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.myapp [run].executor": "Debug",
+    "Gradle.myapp.executor": "Run",
+    "Gradle.myapp:app [:app:App.main()].executor": "Run",
+    "Gradle.myapp:app [:app:LinkedList.main()].executor": "Run",
+    "Gradle.myapp:app [:app:Queue.main()].executor": "Run",
+    "Gradle.myapp:app [:app:Stack.main()].executor": "Run",
+    "Gradle.myapp:app [:app:TestMenu.main()].executor": "Run",
+    "Gradle.myapp:app [:app:UserList.main()].executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "project.structure.last.edited": "모듈",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="bitcamp.myapp.command" />
@@ -89,6 +122,10 @@
       <recent name="" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="bitcamp.myapp.command.Project" />
+      <recent name="bitcamp.myapp.command.User" />
+      <recent name="bitcamp.myapp.command.Board" />
+      <recent name="bitcamp.menu" />
       <recent name="bitcamp.myapp.command" />
     </key>
   </component>
@@ -134,6 +171,11 @@
           <properties class="java.util.NoSuchElementException" package="java.util" />
           <option name="timeStamp" value="1" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/App.java</url>
+          <line>166</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
