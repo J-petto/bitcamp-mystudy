@@ -12,9 +12,7 @@ import bitcamp.myapp.vo.Board;
 import bitcamp.myapp.vo.Project;
 import bitcamp.myapp.vo.User;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.util.*;
 
 public class App {
@@ -26,12 +24,10 @@ public class App {
 
     List<User> userList;
     List<Project> projectList;
-    List<Board> boardList;
+    List<Board> boardList = new ArrayList<>();
 
     public App() {
-        userList = new ArrayList<>();
-        projectList = new LinkedList<>();
-        boardList = new LinkedList<>();
+        loadData();
 
         helpCommand = new HelpCommand();
         historyCommand = new HistoryCommand();
@@ -76,10 +72,10 @@ public class App {
         String line = "----------------------------------";
 
         try {
-            loadData();
             mainMenu.execute();
         } catch (Exception ex) {
             System.out.println("실행 오류");
+            ex.printStackTrace();
         } finally {
             saveData();
         }
@@ -89,30 +85,27 @@ public class App {
         Prompt.close();
     }
 
-    private void loadData(){
+    private void loadData() {
         loadUsers();
         loadProjects();
         loadBoards();
         System.out.println("데이터를 로딩했습니다.");
     }
 
+    private void saveData() {
+        saveUsers();
+        saveProjects();
+        saveBoards();
+        System.out.println("데이터를 저장했습니다.");
+    }
+
     private void loadUsers() {
-        try(FileInputStream in = new FileInputStream("user.data")) {
+        try (ObjectInputStream in = new ObjectInputStream(new FileInputStream("user.data"))) {
             // User 데이터 개수 : 파일에서 2바이트를 읽음
-            int userLength = (in.read() << 8) | in.read();
+            userList = (List<User>) in.readObject();
 
             int maxUserNo = 0;
-            for(int i = 0; i < userLength; i++){
-                // 한 개의 User 데이터 바이트 배열 크기 : 파일에서  2바이트 읽음
-                int len = (in.read() << 8) | in.read();
-                // 한 개의 User 데이터 바이트 배열 : 위에서 지정한 갯수만큼 바이트 배열 읽음
-                byte[] bytes = new byte[len];
-                in.read(bytes);
-
-                // User 바이트 배열을 가지고 User 객체 생성
-                User user = User.valueOf(bytes);
-                userList.add(user);
-
+            for (User user : userList) {
                 if(user.getNo() > maxUserNo){
                     maxUserNo = user.getNo();
                 }
@@ -120,128 +113,84 @@ public class App {
 
             User.initSeqNo(maxUserNo);
 
-        }catch (IOException e){
+        } catch (IOException | ClassNotFoundException e) {
             System.out.println("회원 정보 로딩 중 오류 발생");
-
+//            e.printStackTrace();
+            userList = new ArrayList<>();
         }
     }
 
     private void loadProjects() {
-        try(FileInputStream in = new FileInputStream("project.data")) {
-            // User 데이터 개수 : 파일에서 2바이트를 읽음
-            int projectLength = (in.read() << 8) | in.read();
+        try (ObjectInputStream in = new ObjectInputStream(new FileInputStream("project.data"))) {
+
+            projectList = (List<Project>) in.readObject();
 
             int maxProjectNo = 0;
-            for(int i = 0; i < projectLength; i++){
-                // 한 개의 User 데이터 바이트 배열 크기 : 파일에서  2바이트 읽음
-                int len = (in.read() << 8) | in.read();
-                // 한 개의 User 데이터 바이트 배열 : 위에서 지정한 갯수만큼 바이트 배열 읽음
-                byte[] bytes = new byte[len];
-                in.read(bytes);
-
-                // User 바이트 배열을 가지고 User 객체 생성
-                Project project = Project.valueOf(bytes);
-                projectList.add(project);
-
-                if(project.getNo() > maxProjectNo){
+            for (Project project : projectList) {
+                if (project.getNo() > maxProjectNo) {
                     maxProjectNo = project.getNo();
                 }
             }
             Project.initSeqNo(maxProjectNo);
 
-        }catch (IOException e){
-            System.out.println("게시판 정보 로딩 중 오류 발생");
+        } catch (IOException | ClassNotFoundException e) {
+            System.out.println("프로젝트 정보 로딩 중 오류 발생");
+//            e.printStackTrace();
+            projectList = new LinkedList<>();
         }
     }
 
     private void loadBoards() {
-        try(FileInputStream in = new FileInputStream("board.data")) {
+        try (ObjectInputStream in = new ObjectInputStream(new FileInputStream("board.data"))) {
             // User 데이터 개수 : 파일에서 2바이트를 읽음
-            int boardLength = (in.read() << 8) | in.read();
+            boardList = (List<Board>) in.readObject();
 
             int maxBoardNo = 0;
-            for(int i = 0; i < boardLength; i++){
-                // 한 개의 User 데이터 바이트 배열 크기 : 파일에서  2바이트 읽음
-                int len = (in.read() << 8) | in.read();
-                // 한 개의 User 데이터 바이트 배열 : 위에서 지정한 갯수만큼 바이트 배열 읽음
-                byte[] bytes = new byte[len];
-                in.read(bytes);
-
-                // User 바이트 배열을 가지고 User 객체 생성
-                Board board = Board.valueOf(bytes);
-                boardList.add(board);
-
-                if(board.getNo() > maxBoardNo){
+            for (Board board : boardList) {
+                if (board.getNo() > maxBoardNo) {
                     maxBoardNo = board.getNo();
                 }
             }
 
             Board.initSeqNo(maxBoardNo);
 
-        }catch (IOException e){
+        } catch (IOException | ClassNotFoundException e) {
             System.out.println("게시판 정보 로딩 중 오류 발생");
+//            e.printStackTrace();
         }
     }
 
-    private void saveData(){
-        saveUsers();
-        saveProjects();
-        saveBoards();
-        System.out.println("데이터를 저장했습니다.");
-    }
-
-    private void saveUsers(){
+    private void saveUsers() {
         // try 시 괄호 안의 객체는 자동 close 해줌
-        try (FileOutputStream out = new FileOutputStream("user.data")){
-            // 몇 개의 데이터를 읽을지 알려주기 위해 저장 데이터의 개수 출력
-            out.write(userList.size() >> 8);
-            out.write(userList.size());
+        try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("user.data"))) {
 
-            for(User user : userList){
-                byte[] bytes = user.getBytes();
-                // user 객체에 저장된 값을 꺼내 파일로 출력
-                // User 데이터의 바이트 배열 크기 출력
-                // Why? 읽을 때 한 개 분량의 User 바이트 배열을 읽기 위해
-                out.write(bytes.length >> 8);
-                out.write(bytes.length);
-                out.write(bytes);
-            }
-        }catch (IOException e){
+            out.writeObject(userList);
+
+        } catch (IOException e) {
             System.out.println("회원 정보 저장 중 오류 발생");
+            e.printStackTrace();
         }
     }
 
-    private void saveProjects(){
-        try (FileOutputStream out = new FileOutputStream("project.data")){
-            out.write(projectList.size() >> 8);
-            out.write(projectList.size());
+    private void saveProjects() {
+        try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("project.data"))) {
 
-            for (Project project : projectList) {
-                byte[] bytes = project.getBytes();
-                // user 객체에 저장된 값을 꺼내 파일로 출력
-                out.write(bytes.length >> 8);
-                out.write(bytes.length);
-                out.write(bytes);
-            }
-        }catch (IOException e){
-            System.out.println("게시판 정보 저장 중 오류 발생");
+            out.writeObject(projectList);
+
+        } catch (IOException e) {
+            System.out.println("프로젝트 정보 저장 중 오류 발생");
+            e.printStackTrace();
         }
     }
 
-    private void saveBoards(){
-        try (FileOutputStream out = new FileOutputStream("board.data")){
-            out.write(boardList.size() >> 8);
-            out.write(boardList.size());
+    private void saveBoards() {
+        try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("board.data"))) {
 
-            for (Board board : boardList) {
-                byte[] bytes = board.getBytes();
-                // user 객체에 저장된 값을 꺼내 파일로 출력
-                out.write(bytes.length >> 8);
-                out.write(bytes.length);
-                out.write(bytes);
-            }
-        }catch (IOException e){
+            out.writeObject(boardList);
+
+        } catch (IOException e) {
             System.out.println("게시판 정보 저장 중 오류 발생");
+            e.printStackTrace();
         }
     }
 }
