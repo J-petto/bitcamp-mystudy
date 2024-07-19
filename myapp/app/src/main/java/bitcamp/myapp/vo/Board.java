@@ -1,11 +1,11 @@
 package bitcamp.myapp.vo;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 import java.io.Serializable;
-import java.nio.charset.StandardCharsets;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
 public class Board implements Serializable {
@@ -20,6 +20,23 @@ public class Board implements Serializable {
 
     public Board() {
 
+    }
+
+    public String toCSVString() {
+        return new StringBuilder().append(no).append(",").append(title).append(",").append(content).
+                append(",").append(createdDate.getTime()).append(",").append(viewCount).toString();
+    }
+
+    public static Board valueOf(String csv) {
+        String[] values = csv.split(",");
+        Board board = new Board();
+        board.setNo(Integer.parseInt(values[0]));
+        board.setTitle(values[1]);
+        board.setContent(values[2]);
+        board.setCreatedDate(new Date(Long.parseLong(values[3])));
+        board.setViewCount(Integer.parseInt(values[4]));
+
+        return board;
     }
 
     public Board(int no) {

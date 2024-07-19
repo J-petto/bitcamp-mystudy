@@ -1,10 +1,6 @@
 package bitcamp.myapp.vo;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 import java.io.Serializable;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -25,6 +21,43 @@ public class Project implements Serializable {
     }
 
     public Project() {
+    }
+
+    public String toCSVString() {
+        StringBuilder memberAll = new StringBuilder();
+        for(User member : members){
+            if(!memberAll.isEmpty()){
+                memberAll.append("#");
+            }
+            memberAll.append(Objects.requireNonNull(member).toCSVString().replaceAll(",", "_"));
+        }
+
+        return no + "," + title + "," + description +
+                "," + startDate + "," + endDate + "," + memberAll;
+    }
+
+    public static Project valueOf(String csv) {
+        String[] values = csv.split(",");
+
+        Project project = new Project();
+        project.setNo(Integer.parseInt(values[0]));
+        project.setTitle(values[1]);
+        project.setDescription(values[2]);
+        project.setStartDate(values[3]);
+        project.setEndDate(values[4]);
+
+        String[] memberList = values[5].split("#");
+        for (String s : memberList) {
+            String[] member = s.split("_");
+            User user = new User();
+            user.setNo(Integer.parseInt(member[0]));
+            user.setName(member[1]);
+            user.setEmail(member[2]);
+            user.setPassword(member[3]);
+            user.setTel(member[4]);
+            project.members.add(user);
+        }
+        return project;
     }
 
     public Project(int no) {

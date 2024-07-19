@@ -22,9 +22,9 @@ public class App {
     HelpCommand helpCommand;
     HistoryCommand historyCommand;
 
-    List<User> userList;
-    List<Project> projectList;
-    List<Board> boardList = new ArrayList<>();
+    List<User> userList = new ArrayList<>();
+    List<Project> projectList = new LinkedList<>();
+    List<Board> boardList = new LinkedList<>();
 
     public App() {
         loadData();
@@ -100,20 +100,26 @@ public class App {
     }
 
     private void loadUsers() {
-        try (ObjectInputStream in = new ObjectInputStream(new FileInputStream("user.data"))) {
-            // User 데이터 개수 : 파일에서 2바이트를 읽음
-            userList = (List<User>) in.readObject();
+        try (Scanner in = new Scanner(new FileReader("user.csv"))) {
+            while (true) {
+                try {
+                    String csv = in.nextLine();
+                    userList.add(User.valueOf(csv));
+                } catch (Exception e) {
+                    break;
+                }
+            }
 
             int maxUserNo = 0;
             for (User user : userList) {
-                if(user.getNo() > maxUserNo){
+                if (user.getNo() > maxUserNo) {
                     maxUserNo = user.getNo();
                 }
             }
 
             User.initSeqNo(maxUserNo);
 
-        } catch (IOException | ClassNotFoundException e) {
+        } catch (IOException e) {
             System.out.println("회원 정보 로딩 중 오류 발생");
 //            e.printStackTrace();
             userList = new ArrayList<>();
@@ -121,9 +127,15 @@ public class App {
     }
 
     private void loadProjects() {
-        try (ObjectInputStream in = new ObjectInputStream(new FileInputStream("project.data"))) {
-
-            projectList = (List<Project>) in.readObject();
+        try (Scanner in = new Scanner(new FileReader("project.csv"))) {
+            while (true){
+                try {
+                    String csv = in.nextLine();
+                    projectList.add(Project.valueOf(csv));
+                }catch (Exception e){
+                    break;
+                }
+            }
 
             int maxProjectNo = 0;
             for (Project project : projectList) {
@@ -133,7 +145,7 @@ public class App {
             }
             Project.initSeqNo(maxProjectNo);
 
-        } catch (IOException | ClassNotFoundException e) {
+        } catch (IOException e) {
             System.out.println("프로젝트 정보 로딩 중 오류 발생");
 //            e.printStackTrace();
             projectList = new LinkedList<>();
@@ -141,9 +153,16 @@ public class App {
     }
 
     private void loadBoards() {
-        try (ObjectInputStream in = new ObjectInputStream(new FileInputStream("board.data"))) {
-            // User 데이터 개수 : 파일에서 2바이트를 읽음
-            boardList = (List<Board>) in.readObject();
+        try (Scanner in = new Scanner(new FileReader("board.csv"))) {
+
+            while (true){
+                try {
+                    String csv = in.nextLine();
+                    boardList.add(Board.valueOf(csv));
+                }catch (Exception e){
+                    break;
+                }
+            }
 
             int maxBoardNo = 0;
             for (Board board : boardList) {
@@ -154,7 +173,7 @@ public class App {
 
             Board.initSeqNo(maxBoardNo);
 
-        } catch (IOException | ClassNotFoundException e) {
+        } catch (IOException e) {
             System.out.println("게시판 정보 로딩 중 오류 발생");
 //            e.printStackTrace();
         }
@@ -162,9 +181,11 @@ public class App {
 
     private void saveUsers() {
         // try 시 괄호 안의 객체는 자동 close 해줌
-        try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("user.data"))) {
+        try (FileWriter out = new FileWriter("user.csv")) {
 
-            out.writeObject(userList);
+            for (User user : userList) {
+                out.write(user.toCSVString() + "\n");
+            }
 
         } catch (IOException e) {
             System.out.println("회원 정보 저장 중 오류 발생");
@@ -173,10 +194,10 @@ public class App {
     }
 
     private void saveProjects() {
-        try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("project.data"))) {
-
-            out.writeObject(projectList);
-
+        try (FileWriter out = new FileWriter("project.csv")) {
+            for(Project project : projectList){
+                out.write(project.toCSVString()+"\n");
+            }
         } catch (IOException e) {
             System.out.println("프로젝트 정보 저장 중 오류 발생");
             e.printStackTrace();
@@ -184,9 +205,11 @@ public class App {
     }
 
     private void saveBoards() {
-        try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("board.data"))) {
+        try (FileWriter out = new FileWriter("board.csv")) {
 
-            out.writeObject(boardList);
+            for (Board board : boardList) {
+                out.write(board.toCSVString() + "\n");
+            }
 
         } catch (IOException e) {
             System.out.println("게시판 정보 저장 중 오류 발생");

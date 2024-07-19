@@ -11,7 +11,6 @@
       <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/vo/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/vo/Board.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/vo/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/vo/Project.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/vo/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/vo/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/user.data" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -73,7 +72,7 @@
   "keyToString": {
     "Gradle.myapp [run].executor": "Run",
     "Gradle.myapp.executor": "Run",
-    "Gradle.myapp:app [:app:App.main()].executor": "Run",
+    "Gradle.myapp:app [:app:App.main()].executor": "Debug",
     "Gradle.myapp:app [:app:LinkedList.main()].executor": "Run",
     "Gradle.myapp:app [:app:Queue.main()].executor": "Run",
     "Gradle.myapp:app [:app:Stack.main()].executor": "Run",
@@ -142,6 +141,17 @@
     </task>
     <servers />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
@@ -153,6 +163,11 @@
           <properties class="java.io.NotSerializableException" package="java.io" />
           <option name="timeStamp" value="8" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/App.java</url>
+          <line>89</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
