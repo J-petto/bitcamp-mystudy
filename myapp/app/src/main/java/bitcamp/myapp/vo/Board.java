@@ -1,5 +1,7 @@
 package bitcamp.myapp.vo;
 
+import java.io.DataInputStream;
+import java.io.FilterInputStream;
 import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

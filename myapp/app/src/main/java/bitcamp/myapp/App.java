@@ -11,8 +11,12 @@ import bitcamp.util.Prompt;
 import bitcamp.myapp.vo.Board;
 import bitcamp.myapp.vo.Project;
 import bitcamp.myapp.vo.User;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 
 import java.io.*;
+import java.lang.reflect.Type;
 import java.util.*;
 
 public class App {
@@ -100,15 +104,21 @@ public class App {
     }
 
     private void loadUsers() {
-        try (Scanner in = new Scanner(new FileReader("user.csv"))) {
-            while (true) {
-                try {
-                    String csv = in.nextLine();
-                    userList.add(User.valueOf(csv));
-                } catch (Exception e) {
-                    break;
-                }
+        try (BufferedReader in = new BufferedReader(new FileReader("user.json"))) {
+
+            StringBuilder stringBuilder = new StringBuilder();
+            String line;
+            while ((line = in.readLine()) != null){
+                stringBuilder.append(line);
             }
+
+//            class MyTypeToken extends TypeToken<ArrayList<User>>{ }
+//            TypeToken<ArrayList<User>> collectionType = new MyTypeToken();
+
+//            TypeToken<ArrayList<User>> collectionType = new TypeToken<>(){};
+
+            userList.addAll(new Gson()
+                    .fromJson(stringBuilder.toString(), new TypeToken<ArrayList<User>>(){}));
 
             int maxUserNo = 0;
             for (User user : userList) {
@@ -127,15 +137,14 @@ public class App {
     }
 
     private void loadProjects() {
-        try (Scanner in = new Scanner(new FileReader("project.csv"))) {
-            while (true){
-                try {
-                    String csv = in.nextLine();
-                    projectList.add(Project.valueOf(csv));
-                }catch (Exception e){
-                    break;
-                }
+        try (BufferedReader in = new BufferedReader(new FileReader("project.json"))) {
+
+            StringBuilder stringBuilder = new StringBuilder();
+            String line;
+            while ((line = in.readLine()) != null){
+                stringBuilder.append(line);
             }
+            projectList.addAll(new Gson().fromJson(stringBuilder.toString(), new TypeToken<ArrayList<Project>>(){}));
 
             int maxProjectNo = 0;
             for (Project project : projectList) {
@@ -153,16 +162,18 @@ public class App {
     }
 
     private void loadBoards() {
-        try (Scanner in = new Scanner(new FileReader("board.csv"))) {
+        try (BufferedReader in = new BufferedReader(new FileReader("board.json"))) {
 
-            while (true){
-                try {
-                    String csv = in.nextLine();
-                    boardList.add(Board.valueOf(csv));
-                }catch (Exception e){
-                    break;
-                }
+            StringBuilder stringBuilder = new StringBuilder();
+            String line;
+            while ((line = in.readLine()) != null){
+                stringBuilder.append(line);
             }
+
+            boardList.addAll(new GsonBuilder()
+                    .setDateFormat("yyyy-MM-dd HH:mm:ss")
+                    .create()
+                    .fromJson(stringBuilder.toString(), new TypeToken<ArrayList<Board>>(){}));
 
             int maxBoardNo = 0;
             for (Board board : boardList) {
@@ -181,11 +192,9 @@ public class App {
 
     private void saveUsers() {
         // try 시 괄호 안의 객체는 자동 close 해줌
-        try (FileWriter out = new FileWriter("user.csv")) {
+        try (FileWriter out = new FileWriter("user.json")) {
 
-            for (User user : userList) {
-                out.write(user.toCSVString() + "\n");
-            }
+            out.write(new Gson().toJson(userList));
 
         } catch (IOException e) {
             System.out.println("회원 정보 저장 중 오류 발생");
@@ -194,10 +203,10 @@ public class App {
     }
 
     private void saveProjects() {
-        try (FileWriter out = new FileWriter("project.csv")) {
-            for(Project project : projectList){
-                out.write(project.toCSVString()+"\n");
-            }
+        try (FileWriter out = new FileWriter("project.json")) {
+
+            out.write(new Gson().toJson(projectList));
+
         } catch (IOException e) {
             System.out.println("프로젝트 정보 저장 중 오류 발생");
             e.printStackTrace();
@@ -205,11 +214,12 @@ public class App {
     }
 
     private void saveBoards() {
-        try (FileWriter out = new FileWriter("board.csv")) {
+        try (FileWriter out = new FileWriter("board.json")) {
 
-            for (Board board : boardList) {
-                out.write(board.toCSVString() + "\n");
-            }
+            out.write(new GsonBuilder()
+                    .setDateFormat("yyyy-MM-dd HH:mm:ss")
+                    .create()
+                    .toJson(boardList));
 
         } catch (IOException e) {
             System.out.println("게시판 정보 저장 중 오류 발생");
