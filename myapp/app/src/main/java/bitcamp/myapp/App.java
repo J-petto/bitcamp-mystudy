@@ -7,6 +7,7 @@ import bitcamp.myapp.command.HelpCommand;
 import bitcamp.myapp.command.HistoryCommand;
 import bitcamp.myapp.command.Project.*;
 import bitcamp.myapp.command.User.*;
+import bitcamp.myapp.vo.SequenceNo;
 import bitcamp.util.Prompt;
 import bitcamp.myapp.vo.Board;
 import bitcamp.myapp.vo.Project;
@@ -16,7 +17,8 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.*;
-import java.lang.reflect.Type;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.*;
 
 public class App {
@@ -90,140 +92,75 @@ public class App {
     }
 
     private void loadData() {
-        loadUsers();
-        loadProjects();
-        loadBoards();
+        loadJson(userList, "user.json", User.class);
+        loadJson(projectList, "project.json", Project.class);
+        loadJson(boardList, "board.json", Board.class);
+
         System.out.println("데이터를 로딩했습니다.");
     }
 
     private void saveData() {
-        saveUsers();
-        saveProjects();
-        saveBoards();
+        saveJson(userList, "user.json");
+        saveJson(projectList, "project.json");
+        saveJson(boardList, "board.json");
         System.out.println("데이터를 저장했습니다.");
     }
 
-    private void loadUsers() {
-        try (BufferedReader in = new BufferedReader(new FileReader("user.json"))) {
-
-            StringBuilder stringBuilder = new StringBuilder();
-            String line;
-            while ((line = in.readLine()) != null){
-                stringBuilder.append(line);
-            }
-
-//            class MyTypeToken extends TypeToken<ArrayList<User>>{ }
-//            TypeToken<ArrayList<User>> collectionType = new MyTypeToken();
-
-//            TypeToken<ArrayList<User>> collectionType = new TypeToken<>(){};
-
-            userList.addAll(new Gson()
-                    .fromJson(stringBuilder.toString(), new TypeToken<ArrayList<User>>(){}));
-
-            int maxUserNo = 0;
-            for (User user : userList) {
-                if (user.getNo() > maxUserNo) {
-                    maxUserNo = user.getNo();
-                }
-            }
-
-            User.initSeqNo(maxUserNo);
-
-        } catch (IOException e) {
-            System.out.println("회원 정보 로딩 중 오류 발생");
-//            e.printStackTrace();
-            userList = new ArrayList<>();
-        }
-    }
-
-    private void loadProjects() {
-        try (BufferedReader in = new BufferedReader(new FileReader("project.json"))) {
-
-            StringBuilder stringBuilder = new StringBuilder();
-            String line;
-            while ((line = in.readLine()) != null){
-                stringBuilder.append(line);
-            }
-            projectList.addAll(new Gson().fromJson(stringBuilder.toString(), new TypeToken<ArrayList<Project>>(){}));
-
-            int maxProjectNo = 0;
-            for (Project project : projectList) {
-                if (project.getNo() > maxProjectNo) {
-                    maxProjectNo = project.getNo();
-                }
-            }
-            Project.initSeqNo(maxProjectNo);
-
-        } catch (IOException e) {
-            System.out.println("프로젝트 정보 로딩 중 오류 발생");
-//            e.printStackTrace();
-            projectList = new LinkedList<>();
-        }
-    }
-
-    private void loadBoards() {
-        try (BufferedReader in = new BufferedReader(new FileReader("board.json"))) {
-
-            StringBuilder stringBuilder = new StringBuilder();
-            String line;
-            while ((line = in.readLine()) != null){
-                stringBuilder.append(line);
-            }
-
-            boardList.addAll(new GsonBuilder()
-                    .setDateFormat("yyyy-MM-dd HH:mm:ss")
-                    .create()
-                    .fromJson(stringBuilder.toString(), new TypeToken<ArrayList<Board>>(){}));
-
-            int maxBoardNo = 0;
-            for (Board board : boardList) {
-                if (board.getNo() > maxBoardNo) {
-                    maxBoardNo = board.getNo();
-                }
-            }
-
-            Board.initSeqNo(maxBoardNo);
-
-        } catch (IOException e) {
-            System.out.println("게시판 정보 로딩 중 오류 발생");
-//            e.printStackTrace();
-        }
-    }
-
-    private void saveUsers() {
-        // try 시 괄호 안의 객체는 자동 close 해줌
-        try (FileWriter out = new FileWriter("user.json")) {
-
-            out.write(new Gson().toJson(userList));
-
-        } catch (IOException e) {
-            System.out.println("회원 정보 저장 중 오류 발생");
-            e.printStackTrace();
-        }
-    }
-
-    private void saveProjects() {
-        try (FileWriter out = new FileWriter("project.json")) {
-
-            out.write(new Gson().toJson(projectList));
-
-        } catch (IOException e) {
-            System.out.println("프로젝트 정보 저장 중 오류 발생");
-            e.printStackTrace();
-        }
-    }
-
-    private void saveBoards() {
-        try (FileWriter out = new FileWriter("board.json")) {
+    private void saveJson(Object obj, String filename) {
+        try (FileWriter out = new FileWriter(filename)) {
 
             out.write(new GsonBuilder()
                     .setDateFormat("yyyy-MM-dd HH:mm:ss")
                     .create()
-                    .toJson(boardList));
+                    .toJson(obj));
 
         } catch (IOException e) {
-            System.out.println("게시판 정보 저장 중 오류 발생");
+            System.out.printf("%s 파일 저장 중 오류 발생\n", filename);
             e.printStackTrace();
+        }
+    }
+
+    private <E> void initSeqNo(List<E> list, Class<E> elementType) throws Exception /*NoSuchMethodException, InvocationTargetException, IllegalAccessException*/ {
+        int maxSeqNo = 0;
+        for (Object element : list) {
+            SequenceNo seqObj = (SequenceNo) element;
+            if (seqObj.getNo() > maxSeqNo) {
+                maxSeqNo = seqObj.getNo();
+            }
+        }
+        Method method = elementType.getMethod("initSeqNo", int.class);
+        method.invoke(null, maxSeqNo);
+    }
+
+    private <E> void loadJson(List<E> list, String filename, Class<E> elementType) {
+        try (BufferedReader in = new BufferedReader(new FileReader(filename))) {
+
+            StringBuilder stringBuilder = new StringBuilder();
+            String line;
+            while ((line = in.readLine()) != null) {
+                stringBuilder.append(line);
+            }
+
+            list.addAll((List<E>) new GsonBuilder()
+                    .setDateFormat("yyyy-MM-dd HH:mm:ss")
+                    .create().fromJson(
+                            stringBuilder.toString(),
+                            TypeToken.getParameterized(List.class, elementType)));
+
+            // 읽어들인 객체의 타입이 SequenceNo 구현체라면
+            // 일련 번호를 객체 식별 번호로 사용한다는 것이기 때문에
+            // 목록에 저장된 객체 중에서 가장 큰 일련 번호를 알아내서 클래스의 스태틱 필드에 설정해야 함
+            for (Class<?> type : elementType.getInterfaces()) {
+                if (type == SequenceNo.class) {
+                    initSeqNo(list, elementType);
+                    break;
+                }
+            }
+
+        } catch (Exception e) {
+            System.out.printf("%s 파일 로딩 중 오류 발생\n", filename);
+//            e.printStackTrace();
+            userList = new ArrayList<>();
         }
     }
 }

@@ -12,7 +12,7 @@ import java.util.StringTokenizer;
 // Serializable 인터페이스를 구현해  serializable 허락함
 // Serializable 인터페이스는 직렬화/역 직렬화 승인 표시 용도이기 때문에 내부에 구현되어있는 추상 메서드가 없음.
 // 유사한 예) Cloneable 인터페이스
-public class User implements Serializable {
+public class User implements Serializable, SequenceNo {
 
     private static int seqNo;
 
@@ -67,6 +67,7 @@ public class User implements Serializable {
         return Objects.hashCode(no);
     }
 
+    @Override
     public int getNo() {
         return no;
     }
