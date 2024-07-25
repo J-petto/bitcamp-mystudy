@@ -5,13 +5,14 @@ import bitcamp.myapp.vo.User;
 import bitcamp.util.Prompt;
 
 import java.util.List;
+import java.util.Map;
 
 public class UserUpdateCommand implements Command {
 
-    private List<User> userList;
+    private Map<Integer, User> userMap;
 
-    public UserUpdateCommand(List<User> list) {
-        this.userList = list;
+    public UserUpdateCommand(Map<Integer, User> userMap) {
+        this.userMap = userMap;
     }
 
     @Override
@@ -19,13 +20,11 @@ public class UserUpdateCommand implements Command {
         System.out.printf("[%s]\n", menuName);
 
         int userNo = Prompt.inputInt("회원번호?");
-        int index = userList.indexOf(new User(userNo));
-        if (index == -1) {
+        User user = userMap.get(userNo);
+        if (user == null) {
             System.out.println("없는 회원입니다.");
             return;
         }
-
-        User user = userList.get(index);
 
         user.setName(Prompt.input("이름(%s)?", user.getName()));
         user.setEmail(Prompt.input("이메일(%s)?", user.getEmail()));
