@@ -1,10 +1,11 @@
 package bitcamp.myapp.vo;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class Project {
+public class Project implements Serializable, SequenceNo {
 
   private static int seqNo;
 
@@ -13,7 +14,7 @@ public class Project {
   private String description;
   private String startDate;
   private String endDate;
-  private final List<User> members;
+  private List<User> members;
 
   { // 인스턴스 블록
     members = new ArrayList<>();
@@ -28,6 +29,59 @@ public class Project {
 
   public static int getNextSeqNo() {
     return ++seqNo;
+  }
+
+  public static void initSeqNo(int no) {
+    seqNo = no;
+  }
+
+  public static int getSeqNo() {
+    return seqNo;
+  }
+
+  public static Project valueOf(String csv) {
+    String[] values = csv.split(",");
+
+    Project project = new Project();
+    project.setNo(Integer.parseInt(values[0]));
+    project.setTitle(values[1]);
+    project.setDescription(values[2]);
+    project.setStartDate(values[3]);
+    project.setEndDate(values[4]);
+
+    String[] members = values[5].split("#");
+    for (String member : members) {
+      String[] items = member.split("_");
+      User user = new User();
+      user.setNo(Integer.parseInt(items[0]));
+      user.setName(items[1]);
+      user.setEmail(items[2]);
+      user.setPassword(items[3]);
+      user.setTel(items[4]);
+      project.getMembers().add(user);
+    }
+
+    return project;
+  }
+
+  public String toCsvString() {
+
+    StringBuilder membersBuilder = new StringBuilder();
+    for (User member : members) {
+      if (membersBuilder.length() > 0) {
+        membersBuilder.append("#");
+      }
+      membersBuilder.append(member.toCsvString().replaceAll(",", "_"));
+    }
+
+    return new StringBuilder()
+        .append(no).append(",")
+        .append(title).append(",")
+        .append(description).append(",")
+        .append(startDate).append(",")
+        .append(endDate).append(",")
+        .append(membersBuilder.toString())
+        .toString();
   }
 
   @Override
@@ -47,6 +101,7 @@ public class Project {
     return Objects.hashCode(no);
   }
 
+  @Override
   public int getNo() {
     return no;
   }
