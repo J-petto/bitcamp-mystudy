@@ -1,6 +1,7 @@
 package bitcamp.myapp.command.User;
 
 import bitcamp.myapp.command.Command;
+import bitcamp.myapp.dao.UserDao;
 import bitcamp.myapp.vo.User;
 
 import java.util.List;
@@ -8,12 +9,10 @@ import java.util.Map;
 
 public class UserListCommand implements Command {
 
-    private Map<Integer, User> userMap;
-    private List<Integer> userNoList;
+    private UserDao userDao;
 
-    public UserListCommand(Map<Integer, User> userMap, List<Integer> userNoList) {
-        this.userMap = userMap;
-        this.userNoList = userNoList;
+    public UserListCommand(UserDao userDao) {
+        this.userDao = userDao;
     }
 
     @Override
@@ -21,9 +20,13 @@ public class UserListCommand implements Command {
         System.out.printf("[%s]\n", menuName);
 
         System.out.println("번호 이름 이메일");
-        for (Integer no : userNoList) {
-            User user = userMap.get(no);
-            System.out.printf("%d %s %s\n", user.getNo(), user.getName(), user.getEmail());
+        try {
+            for (User user : userDao.list()) {
+                System.out.printf("%d %s %s\n", user.getNo(), user.getName(), user.getEmail());
+            }
+        } catch (Exception e) {
+            System.out.println("유저 목록 조회 중 오류 발생");
         }
+
     }
 }

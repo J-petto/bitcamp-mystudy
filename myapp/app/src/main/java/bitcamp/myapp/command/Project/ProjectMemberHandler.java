@@ -1,5 +1,6 @@
 package bitcamp.myapp.command.Project;
 
+import bitcamp.myapp.dao.UserDao;
 import bitcamp.myapp.vo.Project;
 import bitcamp.myapp.vo.User;
 import bitcamp.util.Prompt;
@@ -9,10 +10,10 @@ import java.util.Map;
 
 public class ProjectMemberHandler {
 
-    private Map<Integer, User> userMap;
+    UserDao userDao;
 
-    public ProjectMemberHandler(Map<Integer, User> userMap) {
-        this.userMap = userMap;
+    public ProjectMemberHandler(UserDao userDao) {
+        this.userDao = userDao;
     }
 
     public void addMembers(Project project) {
@@ -22,19 +23,23 @@ public class ProjectMemberHandler {
                 break;
             }
 
-            User user = userMap.get(userNo);
-            if (user == null) {
-                System.out.println("없는 팀원입니다.");
-                continue;
+            try {
+                User user = userDao.findBy(userNo);
+                if (user == null) {
+                    System.out.println("없는 팀원입니다.");
+                    continue;
+                }
+
+                if (project.getMembers().contains(user)) {
+                    System.out.printf("'%s'은 현재 팀원입니다.\n", user.getName());
+                    continue;
+                }
+                project.getMembers().add(user);
+                System.out.printf("'%s'을 추가했습니다.\n", user.getName());
+            }catch (Exception e){
+                System.out.println("멤버 추가 중 오류 발생");
             }
 
-            if (project.getMembers().contains(user)) {
-                System.out.printf("'%s'은 현재 팀원입니다.\n", user.getName());
-                continue;
-            }
-
-            project.getMembers().add(user);
-            System.out.printf("'%s'을 추가했습니다.\n", user.getName());
         }
     }
 

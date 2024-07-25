@@ -12,9 +12,9 @@ import java.util.StringTokenizer;
 // Serializable 인터페이스를 구현해  serializable 허락함
 // Serializable 인터페이스는 직렬화/역 직렬화 승인 표시 용도이기 때문에 내부에 구현되어있는 추상 메서드가 없음.
 // 유사한 예) Cloneable 인터페이스
-public class User implements Serializable, SequenceNo {
+public class User implements Serializable {
 
-    private static int seqNo;
+    private static final long serialVersionUID = 1L;
 
     private int no;
     private String name;
@@ -27,27 +27,6 @@ public class User implements Serializable, SequenceNo {
 
     public User(int no) {
         this.no = no;
-    }
-
-    public static int getNextSeqNo() {
-        return ++seqNo;
-    }
-
-    public String toCSVString() {
-        return new StringBuilder().append(no).append(",").append(name).append(",").append(email).
-                append(",").append(password).append(",").append(tel).toString();
-    }
-
-    public static User valueOf(String csv){
-        String[] values = csv.split(",");
-        User user = new User();
-        user.setNo(Integer.parseInt(values[0]));
-        user.setName(values[1]);
-        user.setEmail(values[2]);
-        user.setPassword(values[3]);
-        user.setTel(values[4]);
-
-        return user;
     }
 
     @Override
@@ -67,7 +46,6 @@ public class User implements Serializable, SequenceNo {
         return Objects.hashCode(no);
     }
 
-    @Override
     public int getNo() {
         return no;
     }
@@ -108,11 +86,4 @@ public class User implements Serializable, SequenceNo {
         this.tel = tel;
     }
 
-    public static void initSeqNo(int no) {
-        seqNo = no;
-    }
-
-    public static int getSeqNo() {
-        return seqNo;
-    }
 }

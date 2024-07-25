@@ -5,9 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class Project implements Serializable, SequenceNo {
-
-    private static int seqNo;
+public class Project implements Serializable {
 
     private int no;
     private String title;
@@ -21,19 +19,6 @@ public class Project implements Serializable, SequenceNo {
     }
 
     public Project() {
-    }
-
-    public String toCSVString() {
-        StringBuilder memberAll = new StringBuilder();
-        for(User member : members){
-            if(!memberAll.isEmpty()){
-                memberAll.append("#");
-            }
-            memberAll.append(Objects.requireNonNull(member).toCSVString().replaceAll(",", "_"));
-        }
-
-        return no + "," + title + "," + description +
-                "," + startDate + "," + endDate + "," + memberAll;
     }
 
     public static Project valueOf(String csv) {
@@ -64,14 +49,6 @@ public class Project implements Serializable, SequenceNo {
         this.no = no;
     }
 
-    public static int getNextSeqNo() {
-        return ++seqNo;
-    }
-
-    public static void initSeqNo(int no) {
-        seqNo = no;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -89,7 +66,6 @@ public class Project implements Serializable, SequenceNo {
         return Objects.hashCode(no);
     }
 
-    @Override
     public int getNo() {
         return no;
     }

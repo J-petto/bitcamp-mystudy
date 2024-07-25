@@ -1,6 +1,7 @@
 package bitcamp.myapp.command.Project;
 
 import bitcamp.myapp.command.Command;
+import bitcamp.myapp.dao.ProjectDao;
 import bitcamp.myapp.vo.Board;
 import bitcamp.myapp.vo.Project;
 import bitcamp.myapp.vo.User;
@@ -12,13 +13,11 @@ import java.util.Map;
 
 public class ProjectAddCommand implements Command {
 
-    private Map<Integer, Project> projectMap;
-    private List<Integer> projectNoList;
+    private ProjectDao projectDao;
     private ProjectMemberHandler memberHandler;
 
-    public ProjectAddCommand(Map<Integer, Project> projectMap, List<Integer> projectNoList, ProjectMemberHandler memberHandler) {
-        this.projectMap = projectMap;
-        this.projectNoList = projectNoList;
+    public ProjectAddCommand(ProjectDao projectDao, ProjectMemberHandler memberHandler) {
+        this.projectDao = projectDao;
         this.memberHandler = memberHandler;
     }
 
@@ -35,10 +34,11 @@ public class ProjectAddCommand implements Command {
         System.out.println("팀원:");
         memberHandler.addMembers(project);
 
-        project.setNo(Project.getNextSeqNo());
-
-        projectMap.put(project.getNo(), project);
-        projectNoList.add(project.getNo());
+        try {
+            projectDao.insert(project);
+        }catch (Exception e){
+            System.out.println("프로젝트 추가 중 오류 발생");
+        }
 
         System.out.println("등록했습니다.");
     }
