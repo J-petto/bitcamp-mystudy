@@ -19,10 +19,11 @@ public class ProjectUpdateCommand implements Command {
 
     @Override
     public void execute(String menuName) {
-        System.out.printf("[%s]\n", menuName);
-
-        int projectNo = Prompt.inputInt("프로젝트 번호?");
         try {
+            System.out.printf("[%s]\n", menuName);
+
+            int projectNo = Prompt.inputInt("프로젝트 번호?");
+
             Project project = projectDao.findBy(projectNo);
             if (project == null) {
                 System.out.println("없는 프로젝트입니다.");
@@ -38,13 +39,10 @@ public class ProjectUpdateCommand implements Command {
             memberHandler.deleteMembers(project);
             memberHandler.addMembers(project);
 
-            if(projectDao.update(project)){
-                System.out.println("변경 완료");
-            }else {
-                System.out.println("변경 실패");
-            }
+            projectDao.update(project);
+            System.out.println("변경 완료");
 
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println("프로젝트 변경 중 오류 발생");
         }
 

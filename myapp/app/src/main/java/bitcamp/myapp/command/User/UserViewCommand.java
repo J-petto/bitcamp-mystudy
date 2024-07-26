@@ -18,10 +18,11 @@ public class UserViewCommand implements Command {
 
     @Override
     public void execute(String menuName) {
-        System.out.printf("[%s]\n", menuName);
-
-        int userNo = Prompt.inputInt("회원번호?");
         try {
+            System.out.printf("[%s]\n", menuName);
+
+            int userNo = Prompt.inputInt("회원번호?");
+
             User user = userDao.findBy(userNo);
 
             if (user == null) {
@@ -33,7 +34,7 @@ public class UserViewCommand implements Command {
             System.out.printf("이메일: %s\n", user.getEmail());
             System.out.printf("연락처: %s\n", user.getTel());
 
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println("유저 조회 중 오류 발생");
         }
     }

@@ -18,10 +18,11 @@ public class UserUpdateCommand implements Command {
 
     @Override
     public void execute(String menuName) {
-        System.out.printf("[%s]\n", menuName);
-
-        int userNo = Prompt.inputInt("회원번호?");
         try {
+            System.out.printf("[%s]\n", menuName);
+
+            int userNo = Prompt.inputInt("회원번호?");
+
             User user = userDao.findBy(userNo);
             if (user == null) {
                 System.out.println("없는 회원입니다.");
@@ -33,13 +34,10 @@ public class UserUpdateCommand implements Command {
             user.setPassword(Prompt.input("암호?"));
             user.setTel(Prompt.input("연락처(%s)?", user.getTel()));
 
-            if(userDao.update(user)){
-                System.out.println("변경 완료");
-            }else {
-                System.out.println("변경 실패");
-            }
+            userDao.update(user);
+            System.out.println("변경 완료");
 
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println("유저 데이터 변경 중 오류 발생");
         }
     }

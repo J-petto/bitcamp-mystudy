@@ -19,14 +19,14 @@ public class BoardAddCommand implements Command {
 
     @Override
     public void execute(String menuName) {
-        System.out.printf("[%s]\n", menuName);
-
-        Board board = new Board();
-        board.setTitle(Prompt.input("제목?"));
-        board.setContent(Prompt.input("내용?"));
-        board.setCreatedDate(new Date());
-
         try {
+            System.out.printf("[%s]\n", menuName);
+
+            Board board = new Board();
+            board.setTitle(Prompt.input("제목?"));
+            board.setContent(Prompt.input("내용?"));
+            board.setCreatedDate(new Date());
+
             boardDao.insert(board);
         }catch (Exception e){
             System.out.println("보드 정보 추가 중 에러 발생");

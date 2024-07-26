@@ -18,10 +18,11 @@ public class ProjectViewCommand implements Command {
 
     @Override
     public void execute(String menuName) {
-        System.out.printf("[%s]\n", menuName);
-
-        int projectNo = Prompt.inputInt("프로젝트 번호?");
         try {
+            System.out.printf("[%s]\n", menuName);
+
+            int projectNo = Prompt.inputInt("프로젝트 번호?");
+
             Project project = projectDao.findBy(projectNo);
             if (project == null) {
                 System.out.println("없는 프로젝트입니다.");
@@ -35,7 +36,7 @@ public class ProjectViewCommand implements Command {
             for (User user : project.getMembers()) {
                 System.out.printf("- %s\n", user.getName());
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println("프로젝트 조회 중 오류 발생");
         }
 

@@ -17,10 +17,11 @@ public class BoardViewCommand implements Command {
 
     @Override
     public void execute(String menuName) {
-        System.out.printf("[%s]\n", menuName);
-
-        int boardNo = Prompt.inputInt("게시글 번호?");
         try {
+            System.out.printf("[%s]\n", menuName);
+
+            int boardNo = Prompt.inputInt("게시글 번호?");
+
             Board board = boardDao.findBy(boardNo);
             if (board == null) {
                 System.out.println("없는 게시글입니다.");
@@ -33,7 +34,7 @@ public class BoardViewCommand implements Command {
             System.out.printf("작성일: %1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS\n", board.getCreatedDate());
             System.out.printf("조회수: %d\n", board.getViewCount());
 
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println("보드 조회 중 오류 발생");
         }
 

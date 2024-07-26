@@ -17,10 +17,11 @@ public class UserListCommand implements Command {
 
     @Override
     public void execute(String menuName) {
-        System.out.printf("[%s]\n", menuName);
-
-        System.out.println("번호 이름 이메일");
         try {
+            System.out.printf("[%s]\n", menuName);
+
+            System.out.println("번호 이름 이메일");
+
             for (User user : userDao.list()) {
                 System.out.printf("%d %s %s\n", user.getNo(), user.getName(), user.getEmail());
             }
