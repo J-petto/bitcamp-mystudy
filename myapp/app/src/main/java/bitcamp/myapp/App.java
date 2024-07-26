@@ -31,9 +31,9 @@ public class App {
         helpCommand = new HelpCommand();
         historyCommand = new HistoryCommand();
 
-        userDao = new MapUserDao("data.xlsx");
-        boardDao = new MapBoardDao("data.xlsx");
-        projectDao = new MapProjectDao("data.xlsx", userDao);
+        userDao = new ListUserDao("data.xlsx");
+        boardDao = new ListBoardDao("data.xlsx");
+        projectDao = new ListProjectDao("data.xlsx", userDao);
 
         MenuGroup userMenu = new MenuGroup("회원");
         userMenu.add(new MenuItem("등록", new UserAddCommand(userDao)));
@@ -87,9 +87,9 @@ public class App {
 
     private void saveData() {
         try {
-            ((MapUserDao) userDao).save();
-            ((MapProjectDao) projectDao).save();
-            ((MapBoardDao) boardDao).save();
+            ((ListUserDao) userDao).save();
+            ((ListProjectDao) projectDao).save();
+            ((ListBoardDao) boardDao).save();
 
             System.out.println("데이터를 저장했습니다.");
         } catch (Exception e) {
