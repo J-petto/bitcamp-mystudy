@@ -1,5 +1,6 @@
 package bitcamp.myapp.command.user;
 
+import bitcamp.dao.UserDao;
 import bitcamp.myapp.command.Command;
 import bitcamp.myapp.vo.User;
 import bitcamp.util.Prompt;
@@ -7,10 +8,10 @@ import java.util.List;
 
 public class UserAddCommand implements Command {
 
-  private List<User> userList;
+  private UserDao userDao;
 
-  public UserAddCommand(List<User> list) {
-    this.userList = list;
+  public UserAddCommand(UserDao userDao) {
+    this.userDao = userDao;
   }
 
   @Override
@@ -22,6 +23,6 @@ public class UserAddCommand implements Command {
     user.setPassword(Prompt.input("암호?"));
     user.setTel(Prompt.input("연락처?"));
     user.setNo(User.getNextSeqNo());
-    userList.add(user);
+    userDao.insert(user);
   }
 }

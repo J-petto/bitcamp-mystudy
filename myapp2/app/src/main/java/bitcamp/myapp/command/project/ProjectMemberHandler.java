@@ -1,5 +1,6 @@
 package bitcamp.myapp.command.project;
 
+import bitcamp.dao.UserDao;
 import bitcamp.myapp.vo.Project;
 import bitcamp.myapp.vo.User;
 import bitcamp.util.Prompt;
@@ -7,10 +8,10 @@ import java.util.List;
 
 public class ProjectMemberHandler {
 
-  private List<User> userList;
+  private UserDao userDao;
 
-  public ProjectMemberHandler(List<User> userList) {
-    this.userList = userList;
+  public ProjectMemberHandler(UserDao userDao) {
+    this.userDao = userDao;
   }
 
   public void addMembers(Project project) {
@@ -20,13 +21,12 @@ public class ProjectMemberHandler {
         break;
       }
 
-      int index = userList.indexOf(new User(userNo));
-      if (index == -1) {
+      User user = userDao.findBy(userNo);
+      if (user == null) {
         System.out.println("없는 팀원입니다.");
         continue;
       }
 
-      User user = userList.get(index);
       if (project.getMembers().contains(user)) {
         System.out.printf("'%s'은 현재 팀원입니다.\n", user.getName());
         continue;

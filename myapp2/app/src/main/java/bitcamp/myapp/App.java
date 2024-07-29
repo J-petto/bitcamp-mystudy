@@ -1,5 +1,6 @@
 package bitcamp.myapp;
 
+import bitcamp.dao.*;
 import bitcamp.menu.MenuGroup;
 import bitcamp.menu.MenuItem;
 import bitcamp.myapp.command.HelpCommand;
@@ -25,9 +26,6 @@ import bitcamp.myapp.vo.Project;
 import bitcamp.myapp.vo.SequenceNo;
 import bitcamp.myapp.vo.User;
 import bitcamp.util.Prompt;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.reflect.TypeToken;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -35,19 +33,17 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import java.io.*;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Scanner;
 
 public class App {
 
-
     MenuGroup mainMenu = new MenuGroup("메인");
 
-    List<User> userList = new ArrayList<>();
+    UserDao userDao = new ListUserDao("data.xlsx");
+    ProjectDao projectDao = new ListProjectDao("data.xlsx", userDao);
+    BoardDao boardDao = new ListBoardDao("data.xlsx");
     List<Project> projectList = new LinkedList<>();
     List<Board> boardList = new LinkedList<>();
 
@@ -56,15 +52,15 @@ public class App {
         loadData();
 
         MenuGroup userMenu = new MenuGroup("회원");
-        userMenu.add(new MenuItem("등록", new UserAddCommand(userList)));
-        userMenu.add(new MenuItem("목록", new UserListCommand(userList)));
-        userMenu.add(new MenuItem("조회", new UserViewCommand(userList)));
-        userMenu.add(new MenuItem("변경", new UserUpdateCommand(userList)));
-        userMenu.add(new MenuItem("삭제", new UserDeleteCommand(userList)));
+        userMenu.add(new MenuItem("등록", new UserAddCommand(userDao)));
+        userMenu.add(new MenuItem("목록", new UserListCommand(userDao)));
+        userMenu.add(new MenuItem("조회", new UserViewCommand(userDao)));
+        userMenu.add(new MenuItem("변경", new UserUpdateCommand(userDao)));
+        userMenu.add(new MenuItem("삭제", new UserDeleteCommand(userDao)));
         mainMenu.add(userMenu);
 
         MenuGroup projectMenu = new MenuGroup("프로젝트");
-        ProjectMemberHandler memberHandler = new ProjectMemberHandler(userList);
+        ProjectMemberHandler memberHandler = new ProjectMemberHandler(userDao);
         projectMenu.add(new MenuItem("등록", new ProjectAddCommand(projectList, memberHandler)));
         projectMenu.add(new MenuItem("목록", new ProjectListCommand(projectList)));
         projectMenu.add(new MenuItem("조회", new ProjectViewCommand(projectList)));
@@ -85,7 +81,6 @@ public class App {
 
         mainMenu.setExitMenuTitle("종료");
     }
-
 
     public static void main(String[] args) {
         new App().execute();
@@ -115,7 +110,7 @@ public class App {
         try{
             XSSFWorkbook workbook = new XSSFWorkbook("data.xlsx");
 
-            loadUsers(workbook);
+//            loadUsers(workbook);
             loadProjects(workbook);
             loadBoards(workbook);
 
@@ -127,117 +122,11 @@ public class App {
     }
 
     private void loadBoards(XSSFWorkbook workbook) {
-        XSSFSheet sheet = workbook.getSheet("boards");
 
-        for(int i = 1; i <= sheet.getLastRowNum(); i++){
-            Row row = sheet.getRow(i);
-
-            Board board = new Board();
-            board.setNo(Integer.parseInt(row.getCell(0).getStringCellValue()));
-            board.setTitle(row.getCell(1).getStringCellValue());
-            board.setContent(row.getCell(2).getStringCellValue());
-            try {
-                SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-                board.setCreatedDate(format.parse(row.getCell(3).getStringCellValue()));
-            }catch (ParseException e){
-                System.out.println("보드 날짜 포맷 적용 중 오류 발생");
-            }
-            board.setViewCount(Integer.parseInt(row.getCell(4).getStringCellValue()));
-
-            boardList.add(board);
-
-            try {
-                initSeqNo(boardList, Board.class);
-            }catch (InvocationTargetException | NoSuchMethodException | IllegalAccessException e){
-                System.out.println("Board 시퀀스 넘버 설정 중 오류 발생");
-            }
-        }
     }
 
     private void loadProjects(XSSFWorkbook workbook) {
-        XSSFSheet sheet = workbook.getSheet("projects");
 
-        for(int i = 1; i <= sheet.getLastRowNum(); i++){
-            Row row = sheet.getRow(i);
-
-            Project project = new Project();
-            project.setNo(Integer.parseInt(row.getCell(0).getStringCellValue()));
-            project.setTitle(row.getCell(1).getStringCellValue());
-            project.setDescription(row.getCell(2).getStringCellValue());
-            project.setStartDate(row.getCell(3).getStringCellValue());
-            project.setEndDate(row.getCell(4).getStringCellValue());
-
-            String[] memberNo = row.getCell(5).getStringCellValue().split(",");
-            for(String no : memberNo){
-                User user = getUserByNo(Integer.parseInt(no));
-                if(user != null){
-                    project.getMembers().add(user);
-                }
-            }
-
-            projectList.add(project);
-
-            try {
-                initSeqNo(projectList, Project.class);
-            }catch (InvocationTargetException | NoSuchMethodException | IllegalAccessException e){
-                System.out.println("Project 시퀀스 넘버 설정 중 오류 발생");
-            }
-        }
-    }
-
-    private User getUserByNo(int no){
-        for(User user : userList){
-            if(user.getNo() == no){
-                return user;
-            }
-        }
-        return null;
-    }
-
-    private void loadUsers(XSSFWorkbook workbook) {
-        XSSFSheet sheet = workbook.getSheet("users");
-
-        for(int i = 1; i <= sheet.getLastRowNum(); i++){
-            Row row = sheet.getRow(i);
-
-            User user = new User();
-            user.setNo(Integer.parseInt(row.getCell(0).getStringCellValue()));
-            user.setName(row.getCell(1).getStringCellValue());
-            user.setEmail(row.getCell(2).getStringCellValue());
-            user.setPassword(row.getCell(3).getStringCellValue());
-            user.setTel(row.getCell(4).getStringCellValue());
-
-            userList.add(user);
-        }
-
-        try {
-            initSeqNo(userList, User.class);
-        }catch (InvocationTargetException | NoSuchMethodException | IllegalAccessException e){
-            System.out.println("User 시퀀스 넘버 설정 중 오류 발생");
-        }
-    }
-
-    private <E> void loadJson(String filename, List<E> list, Class<E> type) {
-        try (BufferedReader in = new BufferedReader(new FileReader(filename))) {
-
-            StringBuilder stringBuilder = new StringBuilder();
-            String line;
-            while ((line = in.readLine()) != null) {
-                stringBuilder.append(line);
-            }
-
-            list.addAll((List<E>) new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss").create().fromJson(stringBuilder.toString(), TypeToken.getParameterized(List.class, type)));
-
-            for (Class<?> classType : type.getInterfaces()) {
-                if (classType == SequenceNo.class) {
-                    initSeqNo(list, type);
-                }
-            }
-
-        } catch (Exception e) {
-            System.out.println("회원 정보 로딩 중 오류 발생!");
-            // e.printStackTrace();
-        }
     }
 
     private <E> void initSeqNo(List<E> list, Class<E> elementType) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
@@ -256,7 +145,7 @@ public class App {
         try {
             XSSFWorkbook workbook = new XSSFWorkbook();
 
-            saveUsers(workbook);
+//            saveUsers(workbook);
             saveProjects(workbook);
             saveBoards(workbook);
 
@@ -320,36 +209,6 @@ public class App {
         }
     }
 
-    private void saveUsers(XSSFWorkbook workbook) {
-        XSSFSheet sheet = workbook.createSheet("users");
 
-        Row row = sheet.createRow(0);
-        String[] header = {"no", "name", "email", "password", "tel"};
-        for (int i = 0; i < header.length; i++) {
-            row.createCell(i).setCellValue(header[i]);
-        }
-
-        for (int i = 0; i < userList.size(); i++) {
-            row = sheet.createRow(i + 1);
-            User user = userList.get(i);
-
-            row.createCell(0).setCellValue(Integer.toString(user.getNo()));
-            row.createCell(1).setCellValue(user.getName());
-            row.createCell(2).setCellValue(user.getEmail());
-            row.createCell(3).setCellValue(user.getPassword());
-            row.createCell(4).setCellValue(user.getTel());
-        }
-    }
-
-    private void saveJson(String filename, Object obj) {
-        try (FileWriter out = new FileWriter(filename)) {
-
-            out.write(new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss").create().toJson(obj));
-
-        } catch (IOException e) {
-            System.out.printf("%s 저장 중 오류 발생!", filename);
-            e.printStackTrace();
-        }
-    }
 
 }
