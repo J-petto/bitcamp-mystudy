@@ -24,7 +24,6 @@ public class ListBoardDao implements BoardDao{
     String path;
     String dataName;
 
-
     private static final String DEFAULT_DATA_NAME = "boards";
 
     public ListBoardDao(String path){
@@ -109,7 +108,7 @@ public class ListBoardDao implements BoardDao{
 
     @Override
     public List<Board> list() throws Exception {
-        return boardList;
+        return boardList.stream().toList();
     }
 
     @Override

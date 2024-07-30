@@ -1,12 +1,10 @@
 package bitcamp.myapp.command.Project;
 
-import bitcamp.myapp.command.Command;
+import bitcamp.command.Command;
 import bitcamp.myapp.dao.ProjectDao;
 import bitcamp.myapp.vo.Project;
 import bitcamp.myapp.vo.User;
 import bitcamp.util.Prompt;
-
-import java.util.Map;
 
 public class ProjectViewCommand implements Command {
 

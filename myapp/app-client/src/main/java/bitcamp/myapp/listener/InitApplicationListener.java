@@ -10,6 +10,13 @@ import bitcamp.myapp.command.HistoryCommand;
 import bitcamp.myapp.command.Project.*;
 import bitcamp.myapp.command.User.*;
 import bitcamp.myapp.dao.*;
+import bitcamp.myapp.dao.stub.BoardDaoStub;
+import bitcamp.myapp.dao.stub.ProjectDaoStub;
+import bitcamp.myapp.dao.stub.UserDaoStub;
+
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.net.Socket;
 
 public class InitApplicationListener implements ApplicationListener {
 
@@ -18,10 +25,13 @@ public class InitApplicationListener implements ApplicationListener {
     ProjectDao projectDao;
 
     @Override
-    public void onStart(ApplicationContext appCtx) {
-        userDao = new ListUserDao("data.xlsx");
-        boardDao = new ListBoardDao("data.xlsx");
-        projectDao = new ListProjectDao("data.xlsx", userDao);
+    public void onStart(ApplicationContext appCtx) throws Exception{
+        ObjectInputStream in = (ObjectInputStream) appCtx.getAttribute("inputStream");
+        ObjectOutputStream out = (ObjectOutputStream) appCtx.getAttribute("outputStream");
+
+        userDao = new UserDaoStub(in, out, "users");
+        boardDao = new BoardDaoStub(in, out,"boards");
+        projectDao = new ProjectDaoStub(in, out, "projects");
 
         MenuGroup mainMenu = appCtx.getMainMenu();
 
@@ -54,21 +64,5 @@ public class InitApplicationListener implements ApplicationListener {
         mainMenu.add(new MenuItem("명령내역", new HistoryCommand()));
 
         mainMenu.setExitTitle("종료");
-    }
-
-    @Override
-    public void onShutdown(ApplicationContext appCtx) {
-        try {
-
-            ((ListUserDao) userDao).save();
-            ((ListProjectDao) projectDao).save();
-            ((ListBoardDao) boardDao).save();
-
-            System.out.println("데이터를 저장했습니다.");
-        } catch (Exception e) {
-            System.out.println("데이터 저장 중 오류 발생");
-            e.printStackTrace();
-            System.out.println();
-        }
     }
 }

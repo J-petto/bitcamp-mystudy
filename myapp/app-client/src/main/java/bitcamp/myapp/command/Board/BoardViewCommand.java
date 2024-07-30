@@ -1,11 +1,9 @@
 package bitcamp.myapp.command.Board;
 
-import bitcamp.myapp.command.Command;
+import bitcamp.command.Command;
 import bitcamp.myapp.dao.BoardDao;
 import bitcamp.myapp.vo.Board;
 import bitcamp.util.Prompt;
-
-import java.util.Map;
 
 public class BoardViewCommand implements Command {
 

@@ -1,11 +1,8 @@
 package bitcamp.myapp.command.User;
 
-import bitcamp.myapp.command.Command;
+import bitcamp.command.Command;
 import bitcamp.myapp.dao.UserDao;
 import bitcamp.myapp.vo.User;
-
-import java.util.List;
-import java.util.Map;
 
 public class UserListCommand implements Command {
 

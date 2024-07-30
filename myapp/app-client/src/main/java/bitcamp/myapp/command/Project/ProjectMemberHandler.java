@@ -5,9 +5,6 @@ import bitcamp.myapp.vo.Project;
 import bitcamp.myapp.vo.User;
 import bitcamp.util.Prompt;
 
-import java.util.List;
-import java.util.Map;
-
 public class ProjectMemberHandler {
 
     UserDao userDao;
