@@ -72,9 +72,18 @@ public class Server0110 {
         e.printStackTrace();
 
       } finally {
-        try {out.close();} catch (Exception e) {}
-        try {in.close();} catch (Exception e) {}
-        try {socket.close();} catch (Exception e) {}
+        try {
+          out.close();
+        } catch (Exception e) {
+        }
+        try {
+          in.close();
+        } catch (Exception e) {
+        }
+        try {
+          socket.close();
+        } catch (Exception e) {
+        }
         System.out.println("클라이언트와의 연결을 끊었음.");
       }
 
@@ -86,7 +95,10 @@ public class Server0110 {
     } finally {
       System.out.println("키보드 자원 해제 및 서버 소켓 자원 해제!");
       keyboard.close();
-      try { serverSocket.close();} catch (IOException e) {}
+      try {
+        serverSocket.close();
+      } catch (IOException e) {
+      }
     }
     System.out.println("서버 종료!");
   }

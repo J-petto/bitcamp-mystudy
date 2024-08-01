@@ -16,8 +16,9 @@ public class Server0430 {
     while (true) {
       System.out.print("> ");
       String input = keyboard.nextLine(); // 사용자가 엔터를 칠 때까지 리턴하지 않는다.
-      if (input.equalsIgnoreCase("q"))
+      if (input.equalsIgnoreCase("q")) {
         break;
+      }
 
       // 대기열에서 꺼내는 순간 대기열은 한 칸 빈다.
       // 즉 다른 클라이언트 연결을 수용할 수 있다.

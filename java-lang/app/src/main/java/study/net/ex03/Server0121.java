@@ -29,7 +29,7 @@ public class Server0121 {
 
         byte[] buf = new byte[100];
         for (int i = 0; i < buf.length; i++) {
-          buf[i] =  (byte) i;
+          buf[i] = (byte) i;
         }
 
         // 클라이언트에서 받은 바이트 개수 만큼 배열을 출력한다.

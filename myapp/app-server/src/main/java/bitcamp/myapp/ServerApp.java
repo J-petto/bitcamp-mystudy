@@ -53,7 +53,6 @@ public class ServerApp {
             }
         }
 
-        // 서버에서 사용할 Dao Skeloton 객체를 준비한다.
         userDaoSkel = (UserDaoSkel) appCtx.getAttribute("userDaoSkel");
         boardDaoSkel = (BoardDaoSkel) appCtx.getAttribute("boardDaoSkel");
         projectDaoSkel = (ProjectDaoSkel) appCtx.getAttribute("projectDaoSkel");
@@ -64,7 +63,13 @@ public class ServerApp {
             System.out.println("서버 실행 중...");
 
             while (true) {
-                processRequest(serverSocket.accept());
+                Socket socket = serverSocket.accept();
+                new Thread() {
+                    @Override
+                    public void run() {
+                        ServerApp.this.processRequest(socket);
+                    }
+                }.start();
             }
 
         } catch (Exception e) {
@@ -84,19 +89,19 @@ public class ServerApp {
         }
     }
 
-    void processRequest(Socket s) {
+    void processRequest(Socket socket) {
         String remoteHost = null;
         int port = 0;
 
-        try (Socket socket = s) {
+        try (Socket s = socket) {
             InetSocketAddress addr = (InetSocketAddress) s.getRemoteSocketAddress();
             remoteHost = addr.getHostString();
             port = addr.getPort();
 
-            System.out.printf("%s:%d 클라이언트와 연결되었음!\n",remoteHost , port);
+            System.out.printf("%s:%d 클라이언트와 연결되었음!\n", remoteHost, port);
 
-            ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
-            ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
+            ObjectInputStream in = new ObjectInputStream(s.getInputStream());
+            ObjectOutputStream out = new ObjectOutputStream(s.getOutputStream());
 
             String dataName = in.readUTF();
             switch (dataName) {
@@ -112,7 +117,8 @@ public class ServerApp {
                 default:
             }
         } catch (Exception e) {
-            System.out.printf("%s:%d 클라이언트의 요청 처리중 오류 발생!\n", remoteHost , port);
+            System.out.printf("%s:%d 클라이언트의 요청 처리중 오류 발생!\n", remoteHost, port);
         }
     }
+
 }
