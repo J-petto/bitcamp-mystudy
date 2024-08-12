@@ -25,11 +25,9 @@ public class BoardUpdateCommand implements Command {
         return;
       }
 
-      board.setViewCount(board.getViewCount() + 1);
       board.setTitle(Prompt.input("제목(%s)?", board.getTitle()));
       board.setContent(Prompt.input("내용(%s)?", board.getContent()));
 
-      boardDao.update(board);
       System.out.println("변경 했습니다.");
 
     } catch (Exception e) {

@@ -30,8 +30,8 @@ public class ProjectUpdateCommand implements Command {
 
       project.setTitle(Prompt.input("프로젝트명(%s)?", project.getTitle()));
       project.setDescription(Prompt.input("설명(%s)?", project.getDescription()));
-      project.setStartDate(Prompt.input("시작일(%s)?", project.getStartDate()));
-      project.setEndDate(Prompt.input("종료일(%s)?", project.getEndDate()));
+      project.setStartDate(Prompt.inputDate("시작일(%s)?", project.getStartDate()));
+      project.setEndDate(Prompt.inputDate("종료일(%s)?", project.getEndDate()));
 
       System.out.println("팀원:");
       memberHandler.deleteMembers(project);
@@ -42,6 +42,7 @@ public class ProjectUpdateCommand implements Command {
 
     } catch (Exception e) {
       System.out.println("변경 중 오류 발생!");
+      e.printStackTrace();
     }
   }
 

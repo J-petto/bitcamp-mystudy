@@ -64,12 +64,7 @@ public class ServerApp {
 
             while (true) {
                 Socket socket = serverSocket.accept();
-                new Thread() {
-                    @Override
-                    public void run() {
-                        ServerApp.this.processRequest(socket);
-                    }
-                }.start();
+                new Thread(() -> ServerApp.this.processRequest(socket)).start();
             }
 
         } catch (Exception e) {

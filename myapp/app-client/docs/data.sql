@@ -1,0 +1,26 @@
+-- 회원 데이터 등록
+insert into myapp_users(user_id, name, email, pwd) values
+   (1, 'user1', 'user1@test.com', sha1('1111')),
+   (2, 'user2', 'user2@test.com', sha1('2222')),
+   (3, 'user3', 'user3@test.com', sha1('3333')),
+   (4, 'user4', 'user4@test.com', sha1('4444')),
+   (5, 'user5', 'user5@test.com', sha1('5555')),
+   (6, 'user6', 'user6@test.com', sha1('6666')),
+   (7, 'user7', 'user7@test.com', sha1('7777')),
+   (8, 'user8', 'user8@test.com', sha1('8888')),
+   (9, 'user9', 'user9@test.com', sha1('9999')),
+   (10, 'user10', 'user10@test.com', sha1('1010'));
+
+insert into myapp_boards(board_id, title, content) values
+   (1, 'title1', 'content1'),
+   (2, 'title2', 'content2'),
+   (3, 'title3', 'content3'),
+   (4, 'title4', 'content4'),
+   (5, 'title5', 'content5'),
+   (6, 'title6', 'content6'),
+   (7, 'title7', 'content7');
+
+insert into myapp_projects(project_id, title, description, start_date, end_date, members) values
+   (101, '프로젝트1', '설명1', '2024-1-1', '2025-1-1', '1,2,5'),
+   (102, '프로젝트2', '설명2', '2024-2-1', '2025-2-1', '6,7,9'),
+   (103, '프로젝트3', '설명3', '2024-3-1', '2025-3-1', '1,10,11');
