@@ -52,7 +52,7 @@ public class InitApplicationListener implements ApplicationListener {
 
         userDao = new UserDaoImpl(con);
         boardDao = new BoardDaoImpl(con);
-        projectDao = new ProjectDaoImpl(con, userDao);
+        projectDao = new ProjectDaoImpl(con);
 
         MenuGroup mainMenu = ctx.getMainMenu();
 
@@ -65,7 +65,7 @@ public class InitApplicationListener implements ApplicationListener {
         mainMenu.add(userMenu);
 
         MenuGroup projectMenu = new MenuGroup("프로젝트");
-        ProjectMemberHandler memberHandler = new ProjectMemberHandler(userDao);
+        ProjectMemberHandler memberHandler = new ProjectMemberHandler(con, userDao);
         projectMenu.add(
                 new MenuItem("등록", new ProjectAddCommand(projectDao, memberHandler)));
         projectMenu.add(new MenuItem("목록", new ProjectListCommand(projectDao)));

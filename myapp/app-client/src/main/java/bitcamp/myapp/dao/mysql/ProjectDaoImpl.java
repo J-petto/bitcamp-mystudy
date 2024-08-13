@@ -7,6 +7,7 @@ import bitcamp.myapp.vo.User;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -19,11 +20,9 @@ import java.util.stream.Collectors;
 public class ProjectDaoImpl implements ProjectDao {
 
     private Connection con;
-    private UserDao userDao;
 
-    public ProjectDaoImpl(Connection con, UserDao userDao) {
+    public ProjectDaoImpl(Connection con) {
         this.con = con;
-        this.userDao = userDao;
     }
 
     @Override
@@ -31,9 +30,18 @@ public class ProjectDaoImpl implements ProjectDao {
         try (// SQL을 서버에 전달할 객체 준비
              Statement stmt = con.createStatement()) {
 
-            stmt.executeUpdate(String.format("insert into myapp_projects(title, description, start_date, end_date, members) values ('%s', '%s', '%s', '%s', '%s')",
-                    project.getTitle(), project.getDescription(), project.getStartDate(), project.getEndDate(), members(project)));
+            stmt.executeUpdate(
+                    String.format("insert into myapp_projects(title, description, start_date, end_date) values ('%s', '%s', '%s', '%s')",
+                    project.getTitle(), project.getDescription(), project.getStartDate(), project.getEndDate()),
+                    Statement.RETURN_GENERATED_KEYS // insert 후 자동 생성된 PK 값 가져옴
+            );
 
+            ResultSet keyRS = stmt.getGeneratedKeys(); // 리턴한 ResultSet 받기
+
+            keyRS.next(); // ResultSet에서 PK 가져옴(1개가 생성되었기에 1개...)
+
+            int projectNo = keyRS.getInt(1);
+            project.setNo(projectNo);
             return true;
         }
     }
@@ -70,13 +78,7 @@ public class ProjectDaoImpl implements ProjectDao {
                 project.setDescription(rs.getString("description"));
                 project.setStartDate(rs.getDate("start_date"));
                 project.setEndDate(rs.getDate("end_date"));
-                for (String memberNo : rs.getString("members").split(",")) {
-                    if(memberNo.isEmpty()){
-                        break;
-                    }
-                    User member = userDao.findBy(Integer.parseInt(memberNo));
-                    project.getMembers().add(member);
-                }
+                createMemberList(project);
                 return project;
             }
             return null;
@@ -89,8 +91,10 @@ public class ProjectDaoImpl implements ProjectDao {
              Statement stmt = con.createStatement()) {
 
             int count = stmt.executeUpdate(String.format("update myapp_projects set" +
-                            " title='%s', description='%s', start_date='%s', end_date='%s', members='%s' where project_id='%d'",
-                    project.getTitle(), project.getDescription(), project.getStartDate(), project.getEndDate(), members(project), project.getNo()));
+                            " title='%s', description='%s', start_date='%s', end_date='%s' where project_id='%d'",
+                    project.getTitle(), project.getDescription(), project.getStartDate(), project.getEndDate(), project.getNo()));
+
+            deleteMembers(project.getNo(), project.getMembers());
 
             return count > 0;
         }
@@ -101,13 +105,60 @@ public class ProjectDaoImpl implements ProjectDao {
         try (// SQL을 서버에 전달할 객체 준비
              Statement stmt = con.createStatement()) {
 
-            int count = stmt.executeUpdate(String.format("delete from myapp_projects where project_id='%d'", no));
+            stmt.executeUpdate(String.format("delete from myapp_project_members where project_id=%d", no));
 
+            int count = stmt.executeUpdate(String.format("delete from myapp_projects where project_id='%d'", no));
             return count > 0;
         }
     }
 
-    private String members(Project project){
-        return project.getMembers().stream().map(user -> String.valueOf(user.getNo())).collect(Collectors.joining(","));
+//    private String members(Project project) {
+//        return project.getMembers().stream().map(user -> String.valueOf(user.getNo())).collect(Collectors.joining(","));
+//    }
+
+    @Override
+    public void createMemberList(Project project) {
+        try (Statement stmt = con.createStatement();
+             ResultSet rs = stmt.executeQuery(String.format("select m.user_id, u.name, u.email, u.pwd, u.tel, m.project_id" +
+                     " from myapp_project_members m" +
+                     " join myapp_users u on m.user_id = u.user_id" +
+                     " where m.project_id = %d;", project.getNo()))) {
+
+            while (rs.next()) {
+                User user = new User();
+                user.setNo(rs.getInt("user_id"));
+                user.setName(rs.getString("name"));
+                user.setEmail(rs.getString("email"));
+                user.setPassword(rs.getString("pwd"));
+                user.setTel(rs.getString("tel"));
+
+                project.getMembers().add(user);
+            }
+        } catch (SQLException e) {
+            System.out.println("멤버 리스트 생성 중 오류 발생");
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void insertMembers(int projectNo, List<User> members) throws Exception {
+        try (// SQL을 서버에 전달할 객체 준비
+             Statement stmt = con.createStatement()) {
+            for (User member : members) {
+                stmt.executeUpdate(String.format("insert into myapp_project_members(user_id, project_id) values ('%s', '%s')", member.getNo(), projectNo));
+            }
+        }
+    }
+
+    @Override
+    public void deleteMembers(int projectNo, List<User> members){
+        try (Statement stmt = con.createStatement()) {
+            stmt.executeUpdate(String.format("delete from myapp_project_members where project_id=%d", projectNo));
+            for(User member : members){
+                stmt.executeUpdate(String.format("insert into myapp_project_members(user_id, project_id) values ('%s', '%s')", member.getNo(), projectNo));
+            }
+        } catch (SQLException e) {
+            System.out.println("멤버 삭제 중 오류 발생");
+        }
     }
 }

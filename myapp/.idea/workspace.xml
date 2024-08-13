@@ -6,12 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="ff50e196-db5a-4d21-bedb-075fb37dce0c" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-client/src/main/java/bitcamp/myapp/command/Board/BoardViewCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-client/src/main/java/bitcamp/myapp/command/Board/BoardViewCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-client/src/main/java/bitcamp/myapp/dao/BoardDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-client/src/main/java/bitcamp/myapp/dao/BoardDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-client/src/main/java/bitcamp/myapp/dao/mysql/BoardDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-client/src/main/java/bitcamp/myapp/dao/mysql/BoardDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-client/docs/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/app-client/docs/data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-client/docs/ddl.sql" beforeDir="false" afterPath="$PROJECT_DIR$/app-client/docs/ddl.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-client/src/main/java/bitcamp/myapp/dao/ProjectDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-client/src/main/java/bitcamp/myapp/dao/ProjectDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app-client/src/main/java/bitcamp/myapp/dao/mysql/ProjectDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-client/src/main/java/bitcamp/myapp/dao/mysql/ProjectDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-client/src/main/java/bitcamp/myapp/vo/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-client/src/main/java/bitcamp/myapp/vo/Project.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-common/src/main/java/bitcamp/util/Prompt.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-common/src/main/java/bitcamp/util/Prompt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-client/src/main/java/bitcamp/myapp/listener/InitApplicationListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-client/src/main/java/bitcamp/myapp/listener/InitApplicationListener.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -20,7 +20,12 @@ insert into myapp_boards(board_id, title, content) values
    (6, 'title6', 'content6'),
    (7, 'title7', 'content7');
 
-insert into myapp_projects(project_id, title, description, start_date, end_date, members) values
-   (101, '프로젝트1', '설명1', '2024-1-1', '2025-1-1', '1,2,5'),
-   (102, '프로젝트2', '설명2', '2024-2-1', '2025-2-1', '6,7,9'),
-   (103, '프로젝트3', '설명3', '2024-3-1', '2025-3-1', '1,10,11');
+insert into myapp_projects(project_id, title, description, start_date, end_date) values
+   (101, '프로젝트1', '설명1', '2024-1-1', '2025-1-1'),
+   (102, '프로젝트2', '설명2', '2024-2-1', '2025-2-1'),
+   (103, '프로젝트3', '설명3', '2024-3-1', '2025-3-1');
+
+insert into myapp_project_members(project_id, user_id) values
+   (101, 1), (101, 2), (101, 5),
+   (102, 5), (102, 6), (102, 9),
+   (103, 4), (103, 7), (103, 9);
