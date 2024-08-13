@@ -10,8 +10,11 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 public class ProjectDaoImpl implements ProjectDao {
 
@@ -29,7 +32,7 @@ public class ProjectDaoImpl implements ProjectDao {
              Statement stmt = con.createStatement()) {
 
             stmt.executeUpdate(String.format("insert into myapp_projects(title, description, start_date, end_date, members) values ('%s', '%s', '%s', '%s', '%s')",
-                    project.getTitle(), project.getDescription(), date(project.getStartDate()), date(project.getEndDate()), members(project)));
+                    project.getTitle(), project.getDescription(), project.getStartDate(), project.getEndDate(), members(project)));
 
             return true;
         }
@@ -87,7 +90,7 @@ public class ProjectDaoImpl implements ProjectDao {
 
             int count = stmt.executeUpdate(String.format("update myapp_projects set" +
                             " title='%s', description='%s', start_date='%s', end_date='%s', members='%s' where project_id='%d'",
-                    project.getTitle(), project.getDescription(), date(project.getStartDate()), date(project.getEndDate()), members(project), project.getNo()));
+                    project.getTitle(), project.getDescription(), project.getStartDate(), project.getEndDate(), members(project), project.getNo()));
 
             return count > 0;
         }
@@ -105,20 +108,6 @@ public class ProjectDaoImpl implements ProjectDao {
     }
 
     private String members(Project project){
-        StringBuilder str = new StringBuilder();
-
-        for (User user : project.getMembers()) {
-            System.out.println(user.getName());
-            if (!str.isEmpty()) {
-                str.append(",");
-            }
-            str.append(user.getNo());
-        }
-        return str.toString();
-    }
-
-    private String date(Date date){
-        SimpleDateFormat format = new SimpleDateFormat("yyy=MM-dd");
-        return format.format(date);
+        return project.getMembers().stream().map(user -> String.valueOf(user.getNo())).collect(Collectors.joining(","));
     }
 }

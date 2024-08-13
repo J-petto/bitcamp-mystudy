@@ -1,14 +1,16 @@
 package bitcamp.util;
 
+import java.sql.Date;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
+
+import static java.util.Date.*;
 
 public class Prompt {
 
@@ -33,9 +35,8 @@ public class Prompt {
         return Integer.parseInt(input(format, args));
     }
 
-    public static Date inputDate(String format, Object... args) throws ParseException {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyy-MM-dd");
-        return dateFormat.parse(input(format, args));
+    public static Date inputDate(String format, Object... args) {
+        return Date.valueOf(input(format, args));
     }
 
     public static void close() {

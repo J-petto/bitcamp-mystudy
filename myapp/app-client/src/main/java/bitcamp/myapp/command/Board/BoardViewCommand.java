@@ -25,7 +25,9 @@ public class BoardViewCommand implements Command {
         return;
       }
 
-//      board.setViewCount(board.getViewCount());
+      board.setViewCount(board.getViewCount() + 1);
+      boardDao.updateViewCount(board.getNo(), board.getViewCount());
+
       System.out.printf("제목: %s\n", board.getTitle());
       System.out.printf("내용: %s\n", board.getContent());
       System.out.printf("작성일: %1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS\n", board.getCreatedDate());

@@ -2,7 +2,6 @@ package bitcamp.myapp.dao.mysql;
 
 import bitcamp.myapp.dao.BoardDao;
 import bitcamp.myapp.vo.Board;
-import bitcamp.myapp.vo.User;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -60,8 +59,7 @@ public class BoardDaoImpl implements BoardDao {
                 board.setTitle(rs.getString("title"));
                 board.setContent(rs.getString("content"));
                 board.setCreatedDate(rs.getTimestamp("created_day"));
-                board.setViewCount(rs.getInt("view_count") + 1);
-                update(board);
+                board.setViewCount(rs.getInt("view_count"));
                 return board;
             }
             return null;
@@ -89,6 +87,18 @@ public class BoardDaoImpl implements BoardDao {
             int count = stmt.executeUpdate(String.format("delete from myapp_boards where board_id='%d'", no));
 
             return count > 0;
+        }
+    }
+
+    @Override
+    public void updateViewCount(int boardNo, int count) throws Exception {
+        try (// SQL을 서버에 전달할 객체 준비
+             Statement stmt = con.createStatement()) {
+
+            stmt.executeUpdate(String.format("update myapp_boards set" +
+                    " view_count='%d'" +
+                    " where board_id='%d'", count, boardNo));
+
         }
     }
 }
