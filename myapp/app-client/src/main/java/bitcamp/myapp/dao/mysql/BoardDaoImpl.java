@@ -2,6 +2,7 @@ package bitcamp.myapp.dao.mysql;
 
 import bitcamp.myapp.dao.BoardDao;
 import bitcamp.myapp.vo.Board;
+import bitcamp.myapp.vo.User;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -22,8 +23,8 @@ public class BoardDaoImpl implements BoardDao {
         try (// SQL을 서버에 전달할 객체 준비
              Statement stmt = con.createStatement()) {
 
-            stmt.executeUpdate(String.format("insert into myapp_boards(title, content) values ('%s', '%s')",
-                    board.getTitle(), board.getContent()));
+            stmt.executeUpdate(String.format("insert into myapp_boards(title, content, user_id) values ('%s', '%s', %d)",
+                    board.getTitle(), board.getContent(), board.getWriter().getNo()));
 
             return true;
         }
@@ -32,7 +33,16 @@ public class BoardDaoImpl implements BoardDao {
     @Override
     public List<Board> list() throws Exception {
         try (Statement stmt = con.createStatement();
-             ResultSet rs = stmt.executeQuery("select * from myapp_boards order by board_id asc")) {
+             ResultSet rs = stmt.executeQuery(
+                     "select"
+                             + " b.board_id,"
+                             + " b.title,"
+                             + " b.created_day,"
+                             + " b.view_count,"
+                             + " u.user_id,"
+                             + " u.name"
+                             + " from myapp_boards b inner join myapp_users u on b.user_id=u.user_id"
+                             + " order by b.board_id asc")) {
 
             ArrayList<Board> list = new ArrayList<>();
 
@@ -42,6 +52,12 @@ public class BoardDaoImpl implements BoardDao {
                 board.setTitle(rs.getString("title"));
                 board.setCreatedDate(rs.getDate("created_day"));
                 board.setViewCount(rs.getInt("view_count"));
+
+                User user = new User();
+                user.setNo(rs.getInt("user_id"));
+                user.setName(rs.getString("name"));
+                board.setWriter(user);
+
                 list.add(board);
             }
             return list;
@@ -51,7 +67,17 @@ public class BoardDaoImpl implements BoardDao {
     @Override
     public Board findBy(int no) throws Exception {
         try (Statement stmt = con.createStatement();
-             ResultSet rs = stmt.executeQuery(String.format("select * from myapp_boards where board_id='%d'", no))) {
+             ResultSet rs = stmt.executeQuery(String.format(
+                     "select"
+                             + " b.board_id,"
+                             + " b.title,"
+                             + " b.created_day,"
+                             + " b.content,"
+                             + " b.view_count,"
+                             + " u.user_id,"
+                             + " u.name"
+                             + " from myapp_boards b inner join myapp_users u on b.user_id=u.user_id"
+                             + " where b.board_id=%d", no))) {
 
             if (rs.next()) { // select 실행 결과에서 1개의 레코드를 가져옴
                 Board board = new Board();
@@ -60,6 +86,12 @@ public class BoardDaoImpl implements BoardDao {
                 board.setContent(rs.getString("content"));
                 board.setCreatedDate(rs.getTimestamp("created_day"));
                 board.setViewCount(rs.getInt("view_count"));
+
+                User user = new User();
+                user.setNo(rs.getInt("user_id"));
+                user.setName(rs.getString("name"));
+                board.setWriter(user);
+
                 return board;
             }
             return null;
