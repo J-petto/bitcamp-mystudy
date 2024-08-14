@@ -29,8 +29,10 @@ import bitcamp.myapp.dao.mysql.BoardDaoImpl;
 import bitcamp.myapp.dao.mysql.ProjectDaoImpl;
 import bitcamp.myapp.dao.mysql.UserDaoImpl;
 
+import java.io.FileReader;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.util.Properties;
 
 public class InitApplicationListener implements ApplicationListener {
 
@@ -43,9 +45,12 @@ public class InitApplicationListener implements ApplicationListener {
     @Override
     public void onStart(ApplicationContext ctx) throws Exception {
 
-        String url = (String) ctx.getAttribute("url");
-        String username = (String) ctx.getAttribute("username");
-        String password = (String) ctx.getAttribute("password");
+        Properties props = new Properties();
+        props.load(new FileReader("app.properties")); // app에 있는 properties
+
+        String url = props.getProperty("jdbc.url");
+        String username = props.getProperty("jdbc.username");
+        String password = props.getProperty("jdbc.password");
 
         // 1) JDBC Connection 객체 준비 -> DBMS에 연결
         con = DriverManager.getConnection(url, username, password);

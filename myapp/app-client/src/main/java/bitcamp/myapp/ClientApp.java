@@ -30,21 +30,14 @@ public class ClientApp {
   }
 
   void execute() {
-
     try {
-      appCtx.setAttribute("url", "jdbc:mysql://localhost/studydb");
-//      appCtx.setAttribute("url", Prompt.input("DBMS URL?"));
-      appCtx.setAttribute("username", "study");
-//      appCtx.setAttribute("username", Prompt.input("DBMS ID?"));
-      appCtx.setAttribute("password", "1111");
-//      appCtx.setAttribute("password", Prompt.input("DBMS PW?"));
-
       // 애플리케이션이 시작될 때 리스너에게 알린다.
       for (ApplicationListener listener : listeners) {
         try {
           listener.onStart(appCtx);
         } catch (Exception e) {
           System.out.println("리스너 실행 중 오류 발생!");
+          e.printStackTrace();
         }
       }
 
