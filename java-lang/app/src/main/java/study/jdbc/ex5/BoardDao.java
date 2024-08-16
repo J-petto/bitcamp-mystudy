@@ -3,7 +3,7 @@
 // => data 영속성(지속성)
 // - 데이터를 저장하고 유지하는 것.
 // - "데이터 퍼시스턴스(persistence)"라 부른다.
-package com.eomcs.jdbc.ex5;
+package study.jdbc.ex5;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -82,8 +82,9 @@ public class BoardDao {
       stmt.setString(1, no);
 
       try (ResultSet rs = stmt.executeQuery()) {
-        if (!rs.next())
+        if (!rs.next()) {
           return null;
+        }
 
         Board board = new Board();
         board.setNo(rs.getInt("board_id"));

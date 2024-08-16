@@ -6,9 +6,6 @@ import bitcamp.myapp.dao.BoardDao;
 import bitcamp.myapp.vo.Board;
 import bitcamp.myapp.vo.User;
 import bitcamp.util.Prompt;
-import org.checkerframework.checker.units.qual.A;
-
-import java.util.Date;
 
 public class BoardAddCommand implements Command {
 
@@ -16,6 +13,7 @@ public class BoardAddCommand implements Command {
   private ApplicationContext ctx;
 
   public BoardAddCommand(BoardDao boardDao, ApplicationContext ctx) {
+
     this.boardDao = boardDao;
     this.ctx = ctx;
   }

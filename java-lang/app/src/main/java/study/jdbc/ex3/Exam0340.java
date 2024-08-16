@@ -1,5 +1,5 @@
 // 게시판 관리 - 변경 + PreparedStatement 적용
-package com.eomcs.jdbc.ex3;
+package study.jdbc.ex3;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -24,10 +24,11 @@ public class Exam0340 {
       contents = keyScan.nextLine();
     }
 
-    try (Connection con = DriverManager.getConnection(
-        "jdbc:mysql://localhost:3306/studydb", "study", "Bitcamp!@#123");
-        PreparedStatement stmt = con.prepareStatement(
-            "update x_board set title = ?, contents = ? where board_id = ?")) {
+    try (
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/studydb", "study",
+            "Bitcamp!@#123");
+        PreparedStatement stmt =
+            con.prepareStatement("update x_board set title = ?, contents = ? where board_id = ?")) {
 
       stmt.setString(1, title);
       stmt.setString(2, contents);

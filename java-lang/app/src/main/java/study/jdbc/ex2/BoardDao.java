@@ -14,8 +14,10 @@ import java.util.List;
 
 public class BoardDao {
   public int delete(int no) throws Exception {
-    try (Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/studydb",
-        "study", "Bitcamp!@#123"); Statement stmt = con.createStatement()) {
+    try (
+        Connection con =
+            DriverManager.getConnection("jdbc:mysql://localhost:3306/studydb", "study", "1111");
+        Statement stmt = con.createStatement()) {
 
       // 첨부파일 삭제
       stmt.executeUpdate("delete from x_board_file where board_id = " + no);
@@ -27,8 +29,8 @@ public class BoardDao {
 
   public List<Board> findAll() throws Exception {
     try (
-        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/studydb", "study",
-            "Bitcamp!@#123");
+        Connection con =
+            DriverManager.getConnection("jdbc:mysql://localhost:3306/studydb", "study", "1111");
         Statement stmt = con.createStatement();
         ResultSet rs = stmt.executeQuery("select * from x_board order by board_id desc")) {
 
@@ -47,8 +49,10 @@ public class BoardDao {
   }
 
   public int insert(Board board) throws Exception {
-    try (Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/studydb",
-        "study", "Bitcamp!@#123"); Statement stmt = con.createStatement();) {
+    try (
+        Connection con =
+            DriverManager.getConnection("jdbc:mysql://localhost:3306/studydb", "study", "1111");
+        Statement stmt = con.createStatement();) {
 
       String sql = String.format("insert into x_board(title,contents) values('%s','%s')",
           board.getTitle(), board.getContent());
@@ -58,8 +62,10 @@ public class BoardDao {
   }
 
   public int update(Board board) throws Exception {
-    try (Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/studydb",
-        "study", "Bitcamp!@#123"); Statement stmt = con.createStatement()) {
+    try (
+        Connection con =
+            DriverManager.getConnection("jdbc:mysql://localhost:3306/studydb", "study", "1111");
+        Statement stmt = con.createStatement()) {
 
       String sql = String.format("update x_board set title='%s', contents='%s' where board_id=%d",
           board.getTitle(), board.getContent(), board.getNo());
@@ -70,8 +76,8 @@ public class BoardDao {
 
   public Board findBy(String no) throws Exception {
     try (
-        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/studydb", "study",
-            "Bitcamp!@#123");
+        Connection con =
+            DriverManager.getConnection("jdbc:mysql://localhost:3306/studydb", "study", "1111");
         Statement stmt = con.createStatement();
         ResultSet rs = stmt.executeQuery("select * from x_board where board_id = " + no)) {
 

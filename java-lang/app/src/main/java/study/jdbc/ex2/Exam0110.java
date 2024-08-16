@@ -39,8 +39,10 @@ public class Exam0110 {
       }
     }
 
-    try (Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/studydb",
-        "study", "Bitcamp!@#123"); Statement stmt = con.createStatement();) {
+    try (
+        Connection con =
+            DriverManager.getConnection("jdbc:mysql://localhost:3306/studydb", "study", "1111");
+        Statement stmt = con.createStatement();) {
 
       String sql =
           String.format("insert into x_board(title,contents) values('%s','%s')", title, contents);

@@ -2,7 +2,6 @@ package bitcamp.myapp.dao;
 
 import bitcamp.myapp.vo.Project;
 import bitcamp.myapp.vo.User;
-
 import java.util.List;
 
 public interface ProjectDao {
@@ -17,9 +16,9 @@ public interface ProjectDao {
 
   boolean delete(int no) throws Exception;
 
-  void createMemberList(Project project) throws Exception;
+  boolean insertMembers(int projectNo, List<User> members) throws Exception;
 
-  void insertMembers(int projectNo, List<User> members) throws Exception;
+  List<User> getMembers(int projectNo) throws Exception;
 
-  void deleteMembers(int projectNo, List<User> members) throws Exception;
+  boolean deleteMembers(int projectNo) throws Exception;
 }

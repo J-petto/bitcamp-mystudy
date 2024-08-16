@@ -28,7 +28,6 @@ import bitcamp.myapp.dao.UserDao;
 import bitcamp.myapp.dao.mysql.BoardDaoImpl;
 import bitcamp.myapp.dao.mysql.ProjectDaoImpl;
 import bitcamp.myapp.dao.mysql.UserDaoImpl;
-
 import java.io.FileReader;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -36,71 +35,72 @@ import java.util.Properties;
 
 public class InitApplicationListener implements ApplicationListener {
 
-    private Connection con;
+  Connection con;
 
-    @Override
-    public boolean onStart(ApplicationContext ctx) throws Exception {
+  @Override
+  public boolean onStart(ApplicationContext ctx) throws Exception {
 
-        Properties props = new Properties();
-        props.load(new FileReader("app.properties")); // app에 있는 properties
+    Properties props = new Properties();
+    props.load(new FileReader("app.properties"));
 
-        String url = props.getProperty("jdbc.url");
-        String username = props.getProperty("jdbc.username");
-        String password = props.getProperty("jdbc.password");
+    String url = props.getProperty("jdbc.url");
+    String username = props.getProperty("jdbc.username");
+    String password = props.getProperty("jdbc.password");
 
-        // 1) JDBC Connection 객체 준비 -> DBMS에 연결
-        con = DriverManager.getConnection(url, username, password);
+    // JDBC Connection 객체 준비
+    // => DBMS에 연결
+    con = DriverManager.getConnection(url, username, password);
 
-        UserDao userDao = new UserDaoImpl(con);
-        BoardDao boardDao = new BoardDaoImpl(con);
-        ProjectDao projectDao = new ProjectDaoImpl(con);
+    UserDao userDao = new UserDaoImpl(con);
+    BoardDao boardDao = new BoardDaoImpl(con);
+    ProjectDao projectDao = new ProjectDaoImpl(con);
 
-        ctx.setAttribute("userDao", userDao);
-        ctx.setAttribute("boardDao", boardDao);
-        ctx.setAttribute("projectDao", projectDao);
+    ctx.setAttribute("userDao", userDao);
+    ctx.setAttribute("boardDao", boardDao);
+    ctx.setAttribute("projectDao", projectDao);
 
-        MenuGroup mainMenu = ctx.getMainMenu();
+    MenuGroup mainMenu = ctx.getMainMenu();
 
-        MenuGroup userMenu = new MenuGroup("회원");
-        userMenu.add(new MenuItem("등록", new UserAddCommand(userDao)));
-        userMenu.add(new MenuItem("목록", new UserListCommand(userDao)));
-        userMenu.add(new MenuItem("조회", new UserViewCommand(userDao)));
-        userMenu.add(new MenuItem("변경", new UserUpdateCommand(userDao)));
-        userMenu.add(new MenuItem("삭제", new UserDeleteCommand(userDao)));
-        mainMenu.add(userMenu);
+    MenuGroup userMenu = new MenuGroup("회원");
+    userMenu.add(new MenuItem("등록", new UserAddCommand(userDao)));
+    userMenu.add(new MenuItem("목록", new UserListCommand(userDao)));
+    userMenu.add(new MenuItem("조회", new UserViewCommand(userDao)));
+    userMenu.add(new MenuItem("변경", new UserUpdateCommand(userDao)));
+    userMenu.add(new MenuItem("삭제", new UserDeleteCommand(userDao)));
+    mainMenu.add(userMenu);
 
-        MenuGroup projectMenu = new MenuGroup("프로젝트");
-        ProjectMemberHandler memberHandler = new ProjectMemberHandler(con, userDao);
-        projectMenu.add(
-                new MenuItem("등록", new ProjectAddCommand(projectDao, memberHandler)));
-        projectMenu.add(new MenuItem("목록", new ProjectListCommand(projectDao)));
-        projectMenu.add(new MenuItem("조회", new ProjectViewCommand(projectDao)));
-        projectMenu.add(new MenuItem("변경", new ProjectUpdateCommand(projectDao, memberHandler)));
-        projectMenu.add(new MenuItem("삭제", new ProjectDeleteCommand(projectDao)));
-        mainMenu.add(projectMenu);
+    MenuGroup projectMenu = new MenuGroup("프로젝트");
+    ProjectMemberHandler memberHandler = new ProjectMemberHandler(userDao);
+    projectMenu.add(
+        new MenuItem("등록", new ProjectAddCommand(projectDao, memberHandler, con)));
+    projectMenu.add(new MenuItem("목록", new ProjectListCommand(projectDao)));
+    projectMenu.add(new MenuItem("조회", new ProjectViewCommand(projectDao)));
+    projectMenu.add(new MenuItem("변경", new ProjectUpdateCommand(projectDao, memberHandler, con)));
+    projectMenu.add(new MenuItem("삭제", new ProjectDeleteCommand(projectDao, con)));
+    mainMenu.add(projectMenu);
 
-        MenuGroup boardMenu = new MenuGroup("게시판");
-        boardMenu.add(new MenuItem("등록", new BoardAddCommand(boardDao, ctx)));
-        boardMenu.add(new MenuItem("목록", new BoardListCommand(boardDao)));
-        boardMenu.add(new MenuItem("조회", new BoardViewCommand(boardDao)));
-        boardMenu.add(new MenuItem("변경", new BoardUpdateCommand(boardDao, ctx)));
-        boardMenu.add(new MenuItem("삭제", new BoardDeleteCommand(boardDao, ctx)));
-        mainMenu.add(boardMenu);
+    MenuGroup boardMenu = new MenuGroup("게시판");
+    boardMenu.add(new MenuItem("등록", new BoardAddCommand(boardDao, ctx)));
+    boardMenu.add(new MenuItem("목록", new BoardListCommand(boardDao)));
+    boardMenu.add(new MenuItem("조회", new BoardViewCommand(boardDao)));
+    boardMenu.add(new MenuItem("변경", new BoardUpdateCommand(boardDao, ctx)));
+    boardMenu.add(new MenuItem("삭제", new BoardDeleteCommand(boardDao, ctx)));
+    mainMenu.add(boardMenu);
 
-        mainMenu.add(new MenuItem("도움말", new HelpCommand()));
-        mainMenu.add(new MenuItem("명령내역", new HistoryCommand()));
+    mainMenu.add(new MenuItem("도움말", new HelpCommand()));
+    mainMenu.add(new MenuItem("명령내역", new HistoryCommand()));
 
-        mainMenu.setExitMenuTitle("종료");
+    mainMenu.setExitMenuTitle("종료");
 
-        return true;
+    return true;
+  }
+
+  @Override
+  public void onShutdown(ApplicationContext ctx) throws Exception {
+    try {
+      con.close();
+    } catch (Exception e) {
+      // DBMS에 연결을 끊는 중에 오류가 발생하면 그냥 무시한다!
     }
-
-    @Override
-    public void onShutdown(ApplicationContext ctx) throws Exception {
-        try {
-            con.close();
-        } catch (Exception e) {
-            // DBMS 연결을 끊는 도중 오류가 발생하면 무시.
-        }
-    }
+  }
 }

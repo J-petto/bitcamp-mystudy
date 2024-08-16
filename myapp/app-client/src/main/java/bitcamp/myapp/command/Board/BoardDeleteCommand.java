@@ -11,24 +11,27 @@ public class BoardDeleteCommand implements Command {
 
   private BoardDao boardDao;
   private ApplicationContext ctx;
+
   public BoardDeleteCommand(BoardDao boardDao, ApplicationContext ctx) {
+
     this.boardDao = boardDao;
     this.ctx = ctx;
   }
 
   @Override
   public void execute(String menuName) {
+    User loginUser = (User) ctx.getAttribute("loginUser");
+
     System.out.printf("[%s]\n", menuName);
     int boardNo = Prompt.inputInt("게시글 번호?");
 
-    User loginUser = (User) ctx.getAttribute("loginUser");
     try {
       Board deletedBoard = boardDao.findBy(boardNo);
       if (deletedBoard == null) {
         System.out.println("없는 게시글입니다.");
         return;
-      }else if(loginUser.getNo() > 10 && loginUser.getNo() != deletedBoard.getWriter().getNo()){
-        System.out.println("권한이 없습니다.");
+      } else if (loginUser.getNo() > 10 && deletedBoard.getWriter().getNo() != loginUser.getNo()) {
+        System.out.println("변경 권한이 없습니다.");
         return;
       }
 

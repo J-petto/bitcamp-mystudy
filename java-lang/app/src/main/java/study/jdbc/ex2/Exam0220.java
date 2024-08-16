@@ -9,7 +9,7 @@ public class Exam0220 {
     try {
       BoardDao boardDao = new BoardDao();
       List<Board> list = boardDao.findAll();
-      System.out.println("번호, 제목, 등록일, 조회수");
+      System.out.println("번호, 제목, 내용, 등록일, 조회수");
       for (Board b : list) {
         System.out.printf("%d, %s, %s, %s, %d\n", b.getNo(), b.getTitle(), b.getContent(),
             b.getRegisteredDate(), b.getViewCount());

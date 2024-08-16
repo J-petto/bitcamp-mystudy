@@ -13,25 +13,28 @@ public class BoardUpdateCommand implements Command {
   private ApplicationContext ctx;
 
   public BoardUpdateCommand(BoardDao boardDao, ApplicationContext ctx) {
+
     this.boardDao = boardDao;
     this.ctx = ctx;
   }
 
   @Override
   public void execute(String menuName) {
+    User loginUser = (User) ctx.getAttribute("loginUser");
+
     System.out.printf("[%s]\n", menuName);
     int boardNo = Prompt.inputInt("게시글 번호?");
 
-    User loginUser = (User) ctx.getAttribute("loginUser");
     try {
       Board board = boardDao.findBy(boardNo);
       if (board == null) {
         System.out.println("없는 게시글입니다.");
         return;
-      }else if(loginUser.getNo() > 10 && board.getWriter().getNo() != loginUser.getNo()){
+      } else if (loginUser.getNo() > 10 && board.getWriter().getNo() != loginUser.getNo()) {
         System.out.println("변경 권한이 없습니다.");
         return;
       }
+
       board.setTitle(Prompt.input("제목(%s)?", board.getTitle()));
       board.setContent(Prompt.input("내용(%s)?", board.getContent()));
 
