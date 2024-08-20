@@ -43,6 +43,7 @@ public class ClientApp {
           }
         } catch (Exception e) {
           System.out.println("리스너 실행 중 오류 발생!");
+          e.printStackTrace();
         }
       }
 
