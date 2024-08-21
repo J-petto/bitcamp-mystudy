@@ -6,6 +6,15 @@
     <!-- .properties 파일 로딩 -->
     <properties resource="jdbc.properties" />
 
+    <typeAliases>
+        <!--
+        <typeAlias type="bitcamp.myapp.vo.User" alias="user" />
+        <typeAlias type="bitcamp.myapp.vo.Project" alias="project" />
+        <typeAlias type="bitcamp.myapp.vo.Board" alias="board" />
+        -->
+        <package name="bitcamp.myapp.vo"/>
+    </typeAliases>
+
     <!-- DBMS 접속 정보 -->
     <environments default="development-local"> <!-- 이 안에 들어간 environment의 id를 찾아 사용함 -->
         <!-- 개발하는 동안 사용할 DBMS 접속 정보-->
@@ -45,5 +54,6 @@
     <mappers>
         <mapper resource="UserDaoMapper.xml"/>
         <mapper resource="BoardDaoMapper.xml"/>
+        <mapper resource="ProjectDaoMapper.xml"/>
     </mappers>
 </configuration>

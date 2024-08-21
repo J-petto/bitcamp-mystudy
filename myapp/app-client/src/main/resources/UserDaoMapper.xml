@@ -4,47 +4,55 @@
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="UserDao">
 
-    <insert id="insert" parameterType="bitcamp.myapp.vo.User">
+    <resultMap id="UserMap" type="user">
+        <id property="no" column="user_id" />
+        <result property="name" column="name" />
+        <result property="email" column="email" />
+        <result property="password" column="pwd" />
+        <result property="tel" column="tel" />
+    </resultMap>
+
+    <insert id="insert" parameterType="user">
         insert into myapp_users(name, email, pwd, tel)
         values (#{name}, #{email}, sha1(#{password}), #{tel})
     </insert>
 
-    <select id="list" resultType="bitcamp.myapp.vo.User">
+    <select id="list" resultMap="UserMap">
         select
-        user_id as no,
-        name,
-        email
+            user_id,
+            name,
+            email
         from
-        myapp_users
+            myapp_users
         order by
-        user_id asc
+            user_id asc
     </select>
 
-    <select id="findBy" resultType="bitcamp.myapp.vo.User" parameterType="int">
+    <select id="findBy" resultMap="UserMap" parameterType="int">
         select
-        user_id as no,
-        name,
-        email,
-        tel
+            user_id,
+            name,
+            email,
+            tel
         from
-        myapp_users
+            myapp_users
         where
-        user_id=#{ok}
+            user_id=#{ok}
     </select>
 
-    <select id="findByEmailAndPassword" resultType="bitcamp.myapp.vo.User" parameterType="map">
+    <select id="findByEmailAndPassword" resultMap="UserMap" parameterType="map">
         select
-        user_id as no,
-        name,
-        email,
-        tel
+            user_id,
+            name,
+            email,
+            tel
         from
-        myapp_users
+            myapp_users
         where
-        email=#{email} and pwd=sha1(#{password})
+            email=#{email} and pwd=sha1(#{password})
     </select>
 
-    <update id="update" parameterType="bitcamp.myapp.vo.User">
+    <update id="update" parameterType="user">
         update myapp_users set
         name=#{name},
         email=#{email},

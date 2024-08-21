@@ -4,54 +4,48 @@ import bitcamp.command.Command;
 import bitcamp.myapp.dao.ProjectDao;
 import bitcamp.myapp.vo.Project;
 import bitcamp.util.Prompt;
+import org.apache.ibatis.session.SqlSession;
+
 import java.sql.Connection;
 
 public class ProjectAddCommand implements Command {
 
-  private ProjectDao projectDao;
-  private ProjectMemberHandler memberHandler;
-  private Connection con;
+    private ProjectDao projectDao;
+    private ProjectMemberHandler memberHandler;
+    private SqlSession sqlSession;
 
-  public ProjectAddCommand(ProjectDao projectDao, ProjectMemberHandler memberHandler,
-      Connection con) {
-    this.projectDao = projectDao;
-    this.memberHandler = memberHandler;
-    this.con = con;
-  }
-
-  @Override
-  public void execute(String menuName) {
-    System.out.printf("[%s]\n", menuName);
-
-    try {
-      Project project = new Project();
-      project.setTitle(Prompt.input("프로젝트명?"));
-      project.setDescription(Prompt.input("설명?"));
-      project.setStartDate(Prompt.inputDate("시작일?(예: 2024-01-24)"));
-      project.setEndDate(Prompt.inputDate("종료일?(예: 2024-02-15)"));
-
-      System.out.println("팀원:");
-      memberHandler.addMembers(project);
-
-      con.setAutoCommit(false);
-      projectDao.insert(project);
-      projectDao.insertMembers(project.getNo(), project.getMembers());
-      con.commit();
-
-      System.out.println("등록했습니다.");
-
-    } catch (Exception e) {
-      try {
-        con.rollback();
-      } catch (Exception e2) {
-      }
-      System.out.println("등록 중 오류 발생!");
-      e.printStackTrace();
-    } finally {
-      try {
-        con.setAutoCommit(true);
-      } catch (Exception e) {
-      }
+    public ProjectAddCommand(ProjectDao projectDao, ProjectMemberHandler memberHandler, SqlSession sqlSession) {
+        this.projectDao = projectDao;
+        this.memberHandler = memberHandler;
+        this.sqlSession = sqlSession;
     }
-  }
+
+    @Override
+    public void execute(String menuName) {
+        System.out.printf("[%s]\n", menuName);
+
+        try {
+            Project project = new Project();
+            project.setTitle(Prompt.input("프로젝트명?"));
+            project.setDescription(Prompt.input("설명?"));
+            project.setStartDate(Prompt.inputDate("시작일?(예: 2024-01-24)"));
+            project.setEndDate(Prompt.inputDate("종료일?(예: 2024-02-15)"));
+
+            System.out.println("팀원:");
+            memberHandler.addMembers(project);
+
+            projectDao.insert(project);
+            if(project.getMembers() != null && !project.getMembers().isEmpty()){
+                projectDao.insertMembers(project.getNo(), project.getMembers());
+            }
+            sqlSession.commit();
+
+            System.out.println("등록했습니다.");
+
+        } catch (Exception e) {
+            sqlSession.rollback();
+            System.out.println("등록 중 오류 발생!");
+            e.printStackTrace();
+        }
+    }
 }

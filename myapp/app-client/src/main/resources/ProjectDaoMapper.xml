@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ProjectDao">
+
+    <resultMap id="ProjectMap" type="project">
+        <id property="no" column="project_id" />
+        <result property="title" column="title" />
+        <result property="description" column="description" />
+        <result property="startDate" column="start_date" />
+        <result property="endDate" column="end_date" />
+        <collection property="members" ofType="user">
+            <id property="no" column="user_id" />
+            <result property="name" column="name" />
+        </collection>
+    </resultMap>
+
+    <insert id="insert" parameterType="project" useGeneratedKeys="true" keyColumn="project_id" keyProperty="no">
+        insert into myapp_projects(title,description,start_date,end_date)
+        values (#{title}, #{description}, #{startDate}, #{endDate})
+    </insert>
+
+    <select id="list" resultMap="ProjectMap">
+        select
+            project_id,
+            title,
+            start_date,
+            end_date
+        from
+            myapp_projects
+        order by
+            project_id asc
+    </select>
+
+    <select id="findBy" resultMap="ProjectMap" parameterType="int">
+        select
+            p.project_id,
+            p.title,
+            p.description,
+            p.start_date,
+            p.end_date,
+            pm.user_id,
+            u.name
+        from
+            myapp_projects p
+            left outer join myapp_project_members pm on p.project_id=pm.project_id
+            left outer join myapp_users u on pm.user_id=u.user_id
+        where
+            p.project_id=#{no}
+    </select>
+
+    <update id="update" parameterType="project">
+        update myapp_projects set
+            title=#{title},
+            description=#{description},
+            start_date=#{startDate},
+            end_date=#{endDate}
+        where
+            project_id=#{no}
+    </update>
+
+    <delete id="delete" parameterType="int">
+        delete from myapp_projects
+        where project_id=#{no}
+    </delete>
+
+    <insert id="insertMembers" parameterType="map">
+        insert into myapp_project_members(project_id, user_id)
+        values
+        <foreach collection="members" item="member" separator=",">
+            (#{no}, #{member.no})
+        </foreach>
+    </insert>
+
+    <select id="getMembers" resultType="user" parameterType="int">
+        select
+            pm.user_id as no,
+            u.name
+        from
+            myapp_project_members pm
+            inner join myapp_users u on pm.user_id=u.user_id
+        where pm.project_id=#{no}
+        order by
+            u.name asc
+    </select>
+
+    <delete id="deleteMembers" parameterType="int">
+        delete from myapp_project_members
+        where project_id=#{no}
+    </delete>
+</mapper>

@@ -1,6 +1,6 @@
 -- 회원 데이터
 insert into myapp_users(user_id, name, email, pwd) values
-  (1, 'admin', 'admin@test.com', sha1('0000')),
+  (1, 'admin', 'admin', sha1('0000')),
   (11, 'user1', 'user1@test.com', sha1('1111')),
   (12, 'user2', 'user2@test.com', sha1('2222')),
   (13, 'user3', 'user3@test.com', sha1('3333')),
