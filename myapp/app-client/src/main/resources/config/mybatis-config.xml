@@ -4,7 +4,7 @@
         "https://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <!-- .properties 파일 로딩 -->
-    <properties resource="jdbc.properties" />
+    <properties resource="config/jdbc.properties" />
 
     <typeAliases>
         <!--
@@ -52,8 +52,8 @@
 
     <!-- SQL문 파일 위치 -->
     <mappers>
-        <mapper resource="UserDaoMapper.xml"/>
-        <mapper resource="BoardDaoMapper.xml"/>
-        <mapper resource="ProjectDaoMapper.xml"/>
+        <mapper resource="mappers/UserDaoMapper.xml"/>
+        <mapper resource="mappers/BoardDaoMapper.xml"/>
+        <mapper resource="mappers/ProjectDaoMapper.xml"/>
     </mappers>
 </configuration>

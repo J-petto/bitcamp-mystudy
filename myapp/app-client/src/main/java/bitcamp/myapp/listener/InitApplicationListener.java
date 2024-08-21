@@ -34,7 +34,6 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import java.io.InputStream;
-import java.sql.Connection;
 
 
 public class InitApplicationListener implements ApplicationListener {
@@ -42,7 +41,7 @@ public class InitApplicationListener implements ApplicationListener {
   @Override
   public boolean onStart(ApplicationContext ctx) throws Exception {
 
-    InputStream inputStream = Resources.getResourceAsStream("mybatis-config.xml");
+    InputStream inputStream = Resources.getResourceAsStream("config/mybatis-config.xml");
     SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
 
     SqlSession sqlSession = sqlSessionFactory.openSession(false);
