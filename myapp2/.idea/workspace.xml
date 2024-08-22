@@ -5,21 +5,185 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="67142782-81d3-4811-a5c7-3051548039a4" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/dao/BoardDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/dao/ListBoardDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/dao/ListProjectDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/dao/ListUserDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/dao/ProjectDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/dao/UserDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/annotation/ex1/Exam0110.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/annotation/ex1/Exam0120.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/annotation/ex1/MyAnnotation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/annotation/ex1/MyAnnotation2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/annotation/ex2/Exam0110.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/annotation/ex2/MyAnnotation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/annotation/ex2/MyAnnotation2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/annotation/ex2/MyAnnotation3.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/annotation/ex2/MyClass.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/annotation/ex3/MyAnnotation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/annotation/ex3/MyAnnotation2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/annotation/ex3/MyClass.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/annotation/ex4/MyAnnotation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/annotation/ex4/MyAnnotation2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/annotation/ex4/MyAnnotation3.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/annotation/ex4/MyClass.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/annotation/ex4/MyClass2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/annotation/ex4/MyClass3.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/annotation/ex5/Exam01.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/annotation/ex5/Exam02.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/annotation/ex5/Exam03.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/annotation/ex5/Exam04.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/annotation/ex5/Exam05.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/annotation/ex5/MyAnnotation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/annotation/ex5/MyAnnotation2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/annotation/ex5/MyAnnotation3.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/annotation/ex5/MyClass.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/annotation/ex5/MyClass2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/annotation/ex5/MyClass3.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/annotation/ex5/MyClass4.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/annotation/ex5/MyClass5.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/annotation/ex6/MyAnnotation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/annotation/ex6/MyAnnotation2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/annotation/ex6/MyAnnotation3.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/annotation/ex6/MyAnnotation4.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/annotation/ex6/MyAnnotation5.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/annotation/ex6/MyClass.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/annotation/ex6/MyClass2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/annotation/ex6/MyClass3.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/annotation/ex6/MyClass4.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/annotation/ex6/MyClass5.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/annotation/ex7/Company.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/annotation/ex7/Employee.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/annotation/ex7/Employees.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/annotation/ex7/MyClass.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/annotation/ex7/MyClass2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../myapp/app-client/src/main/java/bitcamp/myapp/dao/DaoFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../myapp/app-client/src/main/java/bitcamp/myapp/dao/Param.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-client/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-client/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-client/docs/data.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-client/docs/ddl.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-client/src/main/java/bitcamp/myapp/ClientApp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-client/src/main/java/bitcamp/myapp/TestApp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-client/src/main/java/bitcamp/myapp/command/board/BoardAddCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-client/src/main/java/bitcamp/myapp/command/board/BoardDeleteCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-client/src/main/java/bitcamp/myapp/command/board/BoardListCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-client/src/main/java/bitcamp/myapp/command/board/BoardUpdateCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-client/src/main/java/bitcamp/myapp/command/board/BoardViewCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-client/src/main/java/bitcamp/myapp/command/project/ProjectAddCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-client/src/main/java/bitcamp/myapp/command/project/ProjectDeleteCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-client/src/main/java/bitcamp/myapp/command/project/ProjectListCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-client/src/main/java/bitcamp/myapp/command/project/ProjectUpdateCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-client/src/main/java/bitcamp/myapp/command/project/ProjectViewCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-client/src/main/java/bitcamp/myapp/command/user/UserAddCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-client/src/main/java/bitcamp/myapp/command/user/UserDeleteCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-client/src/main/java/bitcamp/myapp/command/user/UserListCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-client/src/main/java/bitcamp/myapp/command/user/UserUpdateCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-client/src/main/java/bitcamp/myapp/command/user/UserViewCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-client/src/main/java/bitcamp/myapp/dao/BoardDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-client/src/main/java/bitcamp/myapp/dao/ProjectDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-client/src/main/java/bitcamp/myapp/dao/UserDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-client/src/main/java/bitcamp/myapp/dao/mysql/BoardDaoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-client/src/main/java/bitcamp/myapp/dao/mysql/DaoFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-client/src/main/java/bitcamp/myapp/dao/mysql/ProjectDaoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-client/src/main/java/bitcamp/myapp/dao/mysql/UserDaoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-client/src/main/java/bitcamp/myapp/listener/AuthApplicationListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-client/src/main/java/bitcamp/myapp/listener/InitApplicationListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-client/src/main/java/bitcamp/myapp/vo/Project.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-client/src/main/java/bitcamp/myapp/vo/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-client/src/main/resources/UserDaoMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-client/src/main/resources/app.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-client/src/main/resources/mybatis-config.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-common/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-common/src/main/java/bitcamp/bitbatis/SqlSession.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-common/src/main/java/bitcamp/context/ApplicationContext.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-common/src/main/java/bitcamp/listener/ApplicationListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-common/src/main/java/bitcamp/net/ResponseStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-common/src/main/resources/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-common/src/test/java/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-common/src/test/resources/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/reflect/ex06/a/A.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/reflect/ex06/a/A.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/reflect/ex06/a/B.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/reflect/ex06/a/B.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/reflect/ex06/a/C.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/reflect/ex06/a/C.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/reflect/ex06/a/Exam0110.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/reflect/ex06/a/Exam0110.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/reflect/ex06/a/Exam0120.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/reflect/ex06/a/Exam0120.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/reflect/ex06/a/Exam0121.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/reflect/ex06/a/Exam0121.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/reflect/ex06/a/MyInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/reflect/ex06/a/MyInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/reflect/ex06/a/MyInvocationHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/reflect/ex06/a/MyInvocationHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/reflect/ex06/b/Exam0110.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/reflect/ex06/b/Exam0110.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/reflect/ex06/b/MyInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/reflect/ex06/b/MyInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/reflect/ex06/b/MyInvocationHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/reflect/ex06/b/MyInvocationHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/reflect/ex06/c/Exam0110.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/reflect/ex06/c/Exam0110.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/reflect/ex06/c/MyInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/reflect/ex06/c/MyInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/reflect/ex06/c/MyInvocationHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/reflect/ex06/c/MyInvocationHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/reflect/ex06/d/Exam0110.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/reflect/ex06/d/Exam0110.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/reflect/ex06/d/MyInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/reflect/ex06/d/MyInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/reflect/ex06/d/MyInvocationHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/reflect/ex06/d/MyInvocationHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/reflect/ex06/e/Calculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/reflect/ex06/e/Calculator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/reflect/ex06/e/Calculator2.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/reflect/ex06/e/Calculator2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/reflect/ex06/e/Calculator3.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/reflect/ex06/e/Calculator3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/reflect/ex06/e/Exam0110.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/reflect/ex06/e/Exam0110.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/reflect/ex06/e/Exam0120.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/reflect/ex06/e/Exam0120.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/reflect/ex06/e/Exam0130.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/reflect/ex06/e/Exam0130.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/reflect/ex06/f/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/reflect/ex06/f/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/reflect/ex06/f/BoardDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/reflect/ex06/f/BoardDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/reflect/ex06/f/BoardDaoGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/reflect/ex06/f/BoardDaoGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/reflect/ex06/f/Exam01.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java-lang/app/src/main/java/study/reflect/ex06/f/Exam01.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../myapp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myapp/app-client/src/main/java/bitcamp/myapp/command/Board/BoardViewCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app-client/src/main/java/bitcamp/myapp/command/Board/BoardViewCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myapp/app-client/src/main/java/bitcamp/myapp/dao/BoardDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app-client/src/main/java/bitcamp/myapp/dao/BoardDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myapp/app-client/src/main/java/bitcamp/myapp/dao/ProjectDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app-client/src/main/java/bitcamp/myapp/dao/ProjectDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myapp/app-client/src/main/java/bitcamp/myapp/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app-client/src/main/java/bitcamp/myapp/dao/UserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myapp/app-client/src/main/java/bitcamp/myapp/dao/mysql/BoardDaoImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myapp/app-client/src/main/java/bitcamp/myapp/dao/mysql/ProjectDaoImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myapp/app-client/src/main/java/bitcamp/myapp/dao/mysql/UserDaoImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myapp/app-client/src/main/java/bitcamp/myapp/listener/AuthApplicationListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app-client/src/main/java/bitcamp/myapp/listener/AuthApplicationListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myapp/app-client/src/main/java/bitcamp/myapp/listener/InitApplicationListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app-client/src/main/java/bitcamp/myapp/listener/InitApplicationListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myapp/app-client/src/main/resources/mappers/BoardDaoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../myapp/app-client/src/main/resources/mappers/BoardDaoMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/command/project/ProjectMemberHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/command/project/ProjectMemberHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/command/user/UserAddCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/command/user/UserAddCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/command/user/UserDeleteCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/command/user/UserDeleteCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/command/user/UserListCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/command/user/UserListCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/command/user/UserUpdateCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/command/user/UserUpdateCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/command/user/UserViewCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/command/user/UserViewCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/board.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/board.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/data.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/project.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/dao/BoardDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/dao/ListBoardDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/dao/ListProjectDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/dao/ListUserDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/dao/ProjectDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/dao/UserDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/menu/AbstractMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-common/src/main/java/bitcamp/menu/AbstractMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/menu/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-common/src/main/java/bitcamp/menu/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/menu/MenuGroup.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-common/src/main/java/bitcamp/menu/MenuGroup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/menu/MenuItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-common/src/main/java/bitcamp/menu/MenuItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/menu/TestMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-common/src/main/java/bitcamp/menu/TestMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/App.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/command/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-common/src/main/java/bitcamp/command/Command.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/command/HelpCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-client/src/main/java/bitcamp/myapp/command/HelpCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/command/HistoryCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-client/src/main/java/bitcamp/myapp/command/HistoryCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/command/board/BoardAddCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/command/board/BoardDeleteCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/command/board/BoardListCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/command/board/BoardUpdateCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/command/board/BoardViewCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/command/project/ProjectAddCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/command/project/ProjectDeleteCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/command/project/ProjectListCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/command/project/ProjectMemberHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-client/src/main/java/bitcamp/myapp/command/project/ProjectMemberHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/command/project/ProjectUpdateCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/command/project/ProjectViewCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/command/user/UserAddCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/command/user/UserDeleteCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/command/user/UserListCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/command/user/UserUpdateCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/command/user/UserViewCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/vo/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-client/src/main/java/bitcamp/myapp/vo/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/vo/Project.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/vo/SequenceNo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/vo/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/util/Prompt.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-common/src/main/java/bitcamp/util/Prompt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/resources/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/app-client/src/main/resources/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/java/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/app-client/src/test/java/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/resources/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/app-client/src/test/resources/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/user.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/user.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,6 +248,9 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app-client/src/main/resources" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="bitcamp.dao" />
     </key>

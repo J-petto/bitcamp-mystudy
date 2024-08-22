@@ -1,4 +1,4 @@
-package com.eomcs.reflect.ex06.f;
+package study.reflect.ex06.f;
 
 import java.util.List;
 import java.util.Map;

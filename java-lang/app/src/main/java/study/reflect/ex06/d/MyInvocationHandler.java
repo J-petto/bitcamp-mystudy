@@ -1,4 +1,4 @@
-package com.eomcs.reflect.ex06.d;
+package study.reflect.ex06.d;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;

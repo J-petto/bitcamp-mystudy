@@ -1,4 +1,4 @@
-package com.eomcs.reflect.ex06.a;
+package study.reflect.ex06.a;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
@@ -10,11 +10,11 @@ public class Exam0120 {
     Class<?> clazz = Exam0120.class;
     ClassLoader classLoader = clazz.getClassLoader();
 
-    Class<?> aType = A.class; // A 인터페이스의 정보 = A의 타입 정보  = A의 타입
+    Class<?> aType = A.class; // A 인터페이스의 정보 = A의 타입 정보 = A의 타입
     Class<?> bType = B.class;
     Class<?> cType = C.class;
 
-    Class<?>[] interfaceTypes = new Class<?>[] {aType, bType, cType}; 
+    Class<?>[] interfaceTypes = new Class<?>[] {aType, bType, cType};
 
     InvocationHandler invocationHandler = new InvocationHandler() {
       @Override

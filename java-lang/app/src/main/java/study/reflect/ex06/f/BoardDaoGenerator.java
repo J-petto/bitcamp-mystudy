@@ -1,4 +1,4 @@
-package com.eomcs.reflect.ex06.f;
+package study.reflect.ex06.f;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
@@ -9,15 +9,14 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.beans.factory.FactoryBean;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public class BoardDaoGenerator implements FactoryBean<BoardDao>{
-  @Autowired SqlSessionFactory sqlSessionFactory;
+public class BoardDaoGenerator implements FactoryBean<BoardDao> {
+  @Autowired
+  SqlSessionFactory sqlSessionFactory;
 
   @Override
   public BoardDao getObject() throws Exception {
-    return (BoardDao) Proxy.newProxyInstance(
-        this.getClass().getClassLoader(),
-        new Class[] {BoardDao.class},
-        new InvocationHandler() {
+    return (BoardDao) Proxy.newProxyInstance(this.getClass().getClassLoader(),
+        new Class[] {BoardDao.class}, new InvocationHandler() {
           @Override
           public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
             Class<?> interfaceType = proxy.getClass().getInterfaces()[0];

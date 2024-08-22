@@ -1,4 +1,4 @@
-package com.eomcs.reflect.ex06.f;
+package study.reflect.ex06.f;
 
 import java.io.Serializable;
 import java.sql.Date;
