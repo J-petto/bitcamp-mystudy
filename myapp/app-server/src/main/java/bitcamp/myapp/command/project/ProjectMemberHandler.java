@@ -3,11 +3,9 @@ package bitcamp.myapp.command.project;
 import bitcamp.myapp.dao.UserDao;
 import bitcamp.myapp.vo.Project;
 import bitcamp.myapp.vo.User;
-import bitcamp.util.Prompt;
-import org.checkerframework.checker.units.qual.A;
+import bitcamp.net.Prompt;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class ProjectMemberHandler {
 
@@ -17,13 +15,13 @@ public class ProjectMemberHandler {
         this.userDao = userDao;
     }
 
-    public void addMembers(Project project) throws Exception {
+    public void addMembers(Project project, Prompt prompt) throws Exception {
         if (project.getMembers() == null) {
             project.setMembers(new ArrayList<>());
         }
 
         while (true) {
-            int userNo = Prompt.inputInt("추가할 팀원 번호?(종료: 0)");
+            int userNo = prompt.inputInt("추가할 팀원 번호?(종료: 0)");
             if (userNo == 0) {
                 break;
             }
@@ -44,7 +42,7 @@ public class ProjectMemberHandler {
         }
     }
 
-    public void deleteMembers(Project project) {
+    public void deleteMembers(Project project, Prompt prompt) throws Exception{
         if(project.getMembers() == null || project.getMembers().isEmpty()){
             return;
         }
@@ -52,7 +50,7 @@ public class ProjectMemberHandler {
         Object[] members = project.getMembers().toArray();
         for (Object obj : members) {
             User member = (User) obj;
-            String str = Prompt.input("팀원(%s) 삭제?", member.getName());
+            String str = prompt.input("팀원(%s) 삭제?", member.getName());
             if (str.equalsIgnoreCase("y")) {
                 project.getMembers().remove(member);
                 System.out.printf("'%s' 팀원을 삭제합니다.\n", member.getName());
