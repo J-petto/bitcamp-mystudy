@@ -15,7 +15,6 @@ public class UserViewCommand implements Command {
 
   @Override
   public void execute(String menuName, Prompt prompt) {
-
     try {
       prompt.printf("[%s]\n", menuName);
       int userNo = prompt.inputInt("회원번호?");

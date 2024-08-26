@@ -16,7 +16,6 @@ public class ProjectViewCommand implements Command {
 
   @Override
   public void execute(String menuName, Prompt prompt) {
-
     try {
       prompt.printf("[%s]\n", menuName);
       int projectNo = prompt.inputInt("프로젝트 번호?");
@@ -30,6 +29,7 @@ public class ProjectViewCommand implements Command {
       prompt.printf("프로젝트명: %s\n", project.getTitle());
       prompt.printf("설명: %s\n", project.getDescription());
       prompt.printf("기간: %s ~ %s\n", project.getStartDate(), project.getEndDate());
+
       prompt.println("팀원:");
       for (User user : project.getMembers()) {
         prompt.printf("- %s\n", user.getName());
