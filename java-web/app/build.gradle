@@ -1,6 +1,6 @@
 
 plugins {
-    id 'application'
+    id 'java'
     id 'eclipse' //Eclipse IDE 관련 작업을 수행할 수 있는 플러그인
 }
 
@@ -9,29 +9,11 @@ repositories {
 }
 
 dependencies {
-    // Oracle JDBC Driver
-    // implementation 'com.oracle.database.jdbc:ojdbc11:21.15.0.0'
-    
-    // MS-SQL JDBC Driver
-    // implementation 'com.microsoft.sqlserver:mssql-jdbc:12.8.0.jre11'
-    
-    // mySQL JDBC Driver
-    implementation 'com.mysql:mysql-connector-j:8.4.0'
-    
-    // mariaDB JDBC Driver
-    implementation 'org.mariadb.jdbc:mariadb-java-client:3.4.1'
-    
     // Tomcat Embedded Server 라이브러리
     implementation 'org.apache.tomcat.embed:tomcat-embed-jasper:9.0.93'
-    
-    implementation 'org.apache.poi:poi-ooxml:5.3.0'
-
-    implementation 'com.drewnoakes:metadata-extractor:2.19.0'
 
     testImplementation libs.junit.jupiter
-
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-
     implementation libs.guava
 }
 
@@ -48,7 +30,7 @@ tasks.named('test') {
 // eclipse 프로젝트 이름을 설정하기
 eclipse {
     project {
-        name = "java-lang" //프로젝트 이름을 지정하지 않으면 폴더 이름(ex. app)을 사용한다.
+        name = "java-web" //프로젝트 이름을 지정하지 않으면 폴더 이름(ex. app)을 사용한다.
     }
     jdt {
       sourceCompatibility = 21
