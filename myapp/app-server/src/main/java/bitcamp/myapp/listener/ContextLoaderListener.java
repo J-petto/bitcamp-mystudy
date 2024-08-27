@@ -29,7 +29,6 @@ public class ContextLoaderListener implements ServletContextListener {
 
       SqlSessionFactoryProxy sqlSessionFactoryProxy = new SqlSessionFactoryProxy(sqlSessionFactory);
 
-
       DaoFactory daoFactory = new DaoFactory(sqlSessionFactoryProxy);
 
       UserDao userDao = daoFactory.createObject(UserDao.class);
