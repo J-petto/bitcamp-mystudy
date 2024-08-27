@@ -35,11 +35,11 @@ public class BoardListServlet implements Servlet {
       out.println("<h1>게시글 목록</h1>");
       out.println("<table border='1'>");
       out.println("<thead>");
-      out.println("<tr><th>번호</th><th>제목</th><th>작성자</th><th>작성일</th><th>조회수</th></tr>");
+      out.println("<tr><th>번호</th><th>제목</a></th><th>작성자</th><th>작성일</th><th>조회수</th></tr>");
       out.println("</thead>");
       out.println("<tbody>");
       for (Board board : boardDao.list()) {
-        out.printf("<tr><td>%d</td><td>%s</td><td>%s</td><td>%tY-%4$tm-%4$td</td><td>%d</td></tr>",
+        out.printf("<tr><td>%d</td><td><a href='/board/view?no=%1$d'>%s</a></td><td>%s</td><td>%tY-%4$tm-%4$td</td><td>%d</td></tr>",
                 board.getNo(),
                 board.getTitle(),
                 board.getWriter().getName(),
@@ -49,9 +49,11 @@ public class BoardListServlet implements Servlet {
       out.println("</tbody>");
       out.println("</table>");
     } catch (Exception e) {
-      out.println("목록 조회 중 오류 발생!");
+      out.println("<p>목록 조회 중 오류 발생!</p>");
       e.printStackTrace();
     }
+    out.println("    </body>");
+    out.println("</html>");
   }
 
   @Override

@@ -40,15 +40,17 @@ public class ProjectListServlet implements Servlet {
       out.println("</thead>");
       out.println("<tbody>");
       for (Project project : projectDao.list()) {
-        out.printf("<tr><td>%d</td><td>%s</td><td>%s ~ %s</td></tr>\n",
+        out.printf("<tr><td>%d</td><td><a href='/project/view?no=%1$d'>%s</a></td><td>%s ~ %s</td></tr>\n",
                 project.getNo(), project.getTitle(), project.getStartDate(), project.getEndDate());
       }
       out.println("</tbody>");
       out.println("</table>");
     } catch (Exception e) {
-      out.println("목록 조회 중 오류 발생!");
+      out.println("<p>목록 조회 중 오류 발생!</p>");
       e.printStackTrace();
     }
+    out.println("    </body>");
+    out.println("</html>");
   }
 
   @Override

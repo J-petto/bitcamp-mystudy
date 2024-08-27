@@ -49,13 +49,13 @@ public class UserListServlet implements Servlet {
       out.println("</thead>");
       out.println("<tbody>");
       for (User user : userDao.list()) {
-        out.printf("<tr><td>%d</td><td>%s</td><td>%s</td></tr>", user.getNo(), user.getName(), user.getEmail());
+        out.printf("<tr><td>%d</td><td><a href='/user/view?no=%1$d'>%s</a></td><td>%s</td></tr>", user.getNo(), user.getName(), user.getEmail());
       }
       out.println("</tbody>");
       out.println("</table>");
 
     } catch (Exception e) {
-      out.println("목록 조회 중 오류 발생!");
+      out.println("<p>목록 조회 중 오류 발생!</p>");
     }
 
       out.println("    </body>");

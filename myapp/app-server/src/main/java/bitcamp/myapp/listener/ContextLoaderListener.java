@@ -29,6 +29,7 @@ public class ContextLoaderListener implements ServletContextListener {
 
       SqlSessionFactoryProxy sqlSessionFactoryProxy = new SqlSessionFactoryProxy(sqlSessionFactory);
 
+
       DaoFactory daoFactory = new DaoFactory(sqlSessionFactoryProxy);
 
       UserDao userDao = daoFactory.createObject(UserDao.class);
@@ -39,6 +40,7 @@ public class ContextLoaderListener implements ServletContextListener {
       ctx.setAttribute("userDao", userDao);
       ctx.setAttribute("boardDao", boardDao);
       ctx.setAttribute("projectDao", projectDao);
+      ctx.setAttribute("sqlSession", sqlSessionFactoryProxy);
 
     }catch (Exception e){
       System.out.println("서비스 객체 준비 중 오류 발생");
