@@ -1,0 +1,35 @@
+header {
+    background-color: lightgreen;
+    border-bottom: 1px solid green;
+}
+
+/* 스페이스로 구분 시 header 안에 있는 img에 적용 */
+header img {
+    height: 25px;
+    vertical-align: middle;
+}
+
+header span {
+    margin-left: 5px;
+}
+
+table {
+    border-width: 1px;
+    border-style: solid;
+    border-collapse: separate;
+    border-spacing: 1px;
+}
+
+/* ,로 구분 시 해당 태그에 모두 적용 */
+table, th, td {
+    border: 1px solid black;
+}
+
+th {
+    background-color: #c2c2c2;
+    padding: 5px;
+}
+
+td {
+    padding: 5px;
+}

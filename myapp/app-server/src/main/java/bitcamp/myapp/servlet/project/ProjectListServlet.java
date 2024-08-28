@@ -30,11 +30,14 @@ public class ProjectListServlet implements Servlet {
       out.println("<!DOCTYPE html>");
       out.println("<html>");
       out.println("    <head>");
+      out.println("        <link rel='stylesheet' href='/css/common.css'>");
       out.println("        <title>프로젝트 목록</title>");
       out.println("    </head>");
       out.println("    <body>");
+      out.println("<header><a href='/'><img src='/images/home.png'/></a><span>프로젝트 관리 시스템</span></header>");
       out.println("<h1>프로젝트 목록</h1>");
-      out.println("<table border='1'>");
+      out.println("<p><a href='/project/form'>프로젝트 등록</a></p>");
+      out.println("<table>");
       out.println("<thead>");
       out.println("<tr><th>번호</th><th>프로젝트</th><th>기간</th></tr>");
       out.println("</thead>");

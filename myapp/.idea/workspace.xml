@@ -5,9 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ff50e196-db5a-4d21-bedb-075fb37dce0c" name="변경" comment="">
+      <change afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/listener/ResourceClearListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/servlet/auth/LoginServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/servlet/project/ProjectFormServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-server/src/main/webapp/auth/form.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-server/src/main/webapp/board/form.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-server/src/main/webapp/css/common.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-server/src/main/webapp/images/home.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-server/src/main/webapp/user/form.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/listener/ContextLoaderListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/listener/ContextLoaderListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/command/board/BoardAddCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/servlet/board/BoardAddServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/command/project/ProjectAddCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/servlet/project/ProjectAddServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/command/user/UserAddCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/servlet/user/UserAddServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/servlet/board/BoardListServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/servlet/board/BoardListServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/servlet/board/BoardViewServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/servlet/board/BoardViewServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/servlet/project/ProjectListServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/servlet/project/ProjectListServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/servlet/project/ProjectViewServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/servlet/project/ProjectViewServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/servlet/user/UserListServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/servlet/user/UserListServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/servlet/user/UserViewServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/servlet/user/UserViewServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/mybatis/SqlSessionFactoryProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/mybatis/SqlSessionFactoryProxy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/webapp/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/test.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,48 +87,49 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;Gradle.myapp [dependencies].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.myapp [run].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.myapp.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.myapp:app [:app:App.main()].executor&quot;: &quot;Debug&quot;,
-    &quot;Gradle.myapp:app [:app:LinkedList.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.myapp:app [:app:Queue.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.myapp:app [:app:Stack.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.myapp:app [:app:TestMenu.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.myapp:app [:app:User.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.myapp:app [:app:UserList.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.myapp:app-client [:app-client:ClientApp.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.myapp:app-client [run].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.myapp:app-server [run].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/jeppetto/git/bitcamp-mystudy/myapp/app-server/src/main/java/bitcamp/myapp&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;모듈&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.기타 파일 형식&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Gradle.myapp [dependencies].executor": "Run",
+    "Gradle.myapp [run].executor": "Run",
+    "Gradle.myapp.executor": "Run",
+    "Gradle.myapp:app [:app:App.main()].executor": "Debug",
+    "Gradle.myapp:app [:app:LinkedList.main()].executor": "Run",
+    "Gradle.myapp:app [:app:Queue.main()].executor": "Run",
+    "Gradle.myapp:app [:app:Stack.main()].executor": "Run",
+    "Gradle.myapp:app [:app:TestMenu.main()].executor": "Run",
+    "Gradle.myapp:app [:app:User.main()].executor": "Run",
+    "Gradle.myapp:app [:app:UserList.main()].executor": "Run",
+    "Gradle.myapp:app-client [:app-client:ClientApp.main()].executor": "Run",
+    "Gradle.myapp:app-client [run].executor": "Run",
+    "Gradle.myapp:app-server [run].executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/jeppetto/git/bitcamp-mystudy/myapp/app-server/src/main/webapp/auth",
+    "project.structure.last.edited": "모듈",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.sourceCode.기타 파일 형식"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="bitcamp.myapp.command" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app-server/src/main/webapp/auth" />
       <recent name="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp" />
       <recent name="$PROJECT_DIR$/app-server" />
       <recent name="$PROJECT_DIR$/app-client/src/main/resources" />
       <recent name="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp" />
-      <recent name="$PROJECT_DIR$/app" />
     </key>
     <key name="MoveMembersDialog.RECENTS_KEY">
       <recent name="bitcamp.myapp.command.UserList" />
       <recent name="bitcamp.myapp.Prompt" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app-server/src/main/webapp/images" />
       <recent name="$PROJECT_DIR$/app-client/src/main/resources" />
       <recent name="$PROJECT_DIR$/app-client/src/main/resources/config/mappers" />
       <recent name="$PROJECT_DIR$/app-client/src/main/resources/config" />
@@ -119,11 +138,11 @@
       <recent name="" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="bitcamp.myapp.servlet.project" />
+      <recent name="bitcamp.myapp.servlet.auth" />
       <recent name="bitcamp.myapp.net" />
       <recent name="bitcamp.myapp.listener" />
       <recent name="bitcamp.myapp.dao.stub" />
-      <recent name="bitcamp.myapp.dao.skel" />
-      <recent name="bitcamp.myapp.dao" />
     </key>
   </component>
   <component name="RunManager" selected="Gradle.myapp:app-server [run]">

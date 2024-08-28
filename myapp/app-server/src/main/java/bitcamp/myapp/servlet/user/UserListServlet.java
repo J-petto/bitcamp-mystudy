@@ -38,12 +38,15 @@ public class UserListServlet implements Servlet {
     out.println("    <head>");
     // 상단 setContentType과 동일
 //    out.println("        <meta charset='UTF-8'>");
+    out.println("        <link rel='stylesheet' href='/css/common.css'>");
     out.println("        <title>회원 목록</title>");
     out.println("    </head>");
     out.println("    <body>");
     try {
+      out.println("<header><a href='/'><img src='/images/home.png'/></a><span>프로젝트 관리 시스템</span></header>");
       out.println("<h1>회원 목록</h1>");
-      out.println("<table border='1'>");
+      out.println("<p><a href='/user/form.html'>회원 등록</a></p>");
+      out.println("<table>");
       out.println("<thead>");
       out.println("<tr><th>번호</th><th>이름</th><th>이메일</th></tr>");
       out.println("</thead>");

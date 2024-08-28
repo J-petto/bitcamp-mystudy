@@ -1,6 +1,7 @@
 package bitcamp.myapp.servlet.project;
 
 import bitcamp.myapp.dao.ProjectDao;
+import bitcamp.myapp.dao.UserDao;
 import bitcamp.myapp.vo.Project;
 import bitcamp.myapp.vo.User;
 
@@ -11,15 +12,16 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebServlet;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
-@WebServlet("/project/view")
-public class ProjectViewServlet extends GenericServlet {
+@WebServlet("/project/form")
+public class ProjectFormServlet extends GenericServlet {
 
-  private ProjectDao projectDao;
+  private UserDao userDao;
 
   @Override
   public void init() throws ServletException {
-    this.projectDao = (ProjectDao) this.getServletContext().getAttribute("projectDao");
+    this.userDao = (UserDao) this.getServletContext().getAttribute("userDao");
   }
 
   @Override
@@ -36,28 +38,24 @@ public class ProjectViewServlet extends GenericServlet {
       out.println("    </head>");
       out.println("    <body>");
       out.println("<header><a href='/'><img src='/images/home.png'/></a><span>프로젝트 관리 시스템</span></header>");
-      out.println("<h1>프로젝트 조회</h1>");
-      int projectNo = Integer.parseInt(req.getParameter("no"));
 
-      Project project = projectDao.findBy(projectNo);
-      if (project == null) {
-        out.println("<p>없는 프로젝트입니다.</p>");
+      out.println("<h1>프로젝트 등록</h1>");
 
-        out.println("    </body>");
-        out.println("</html>");
-        return;
+      out.println("<form action='/project/add'>");
+      out.println("    <p>타이틀: <input name='title' type='text'></p>");
+      out.println("    <p>내용: <textarea name='description'></textarea></p>");
+      out.println("    <p>시작일: <input name='startDate' type='date'></p>");
+      out.println("    <p>종료일: <input name='endDate' type='date'></p>");
+      out.println("    팀원:<br>");
+      List<User> users = userDao.list();
+      out.printf("<ul>");
+      for(User user : users){
+        out.printf("<li><input name='member' value='%d' type='checkbox'>%s</li>", user.getNo(), user.getName());
       }
+      out.printf("</ul>");
+      out.println("    <input type='submit' value='등록하기'>" );
+      out.println("</form>");
 
-      out.printf("<p>프로젝트명: %s</p>", project.getTitle());
-      out.printf("<p>설명: %s</p>", project.getDescription());
-      out.printf("<p>기간: %s ~ %s</p>", project.getStartDate(), project.getEndDate());
-
-      out.println("<p>팀원:</p>");
-      out.println("<ul>");
-      for (User user : project.getMembers()) {
-        out.printf("<li>%s</li>", user.getName());
-      }
-      out.println("</ul>");
     } catch (Exception e) {
       out.println("<p>조회 중 오류 발생!</p>");
     }
