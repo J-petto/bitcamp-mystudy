@@ -32,7 +32,6 @@ public class LoginServlet extends GenericServlet {
 
     req.getRequestDispatcher("/header").include(req, res);
 //    ((HttpServletResponse) res).setHeader("Refresh","1;url=/"); 버퍼를 출력(페이지를 보여주고) 링크로 이동
-    ((HttpServletResponse) res).sendRedirect("/"); // 버퍼 값을 초기화 시키고 바로 이동
 
     try {
       out.println("<h1>로그인 결과</h1>");
@@ -50,6 +49,8 @@ public class LoginServlet extends GenericServlet {
         out.println("</html>");
         return;
       }
+
+      ((HttpServletResponse) res).sendRedirect("/"); // 버퍼 값을 초기화 시키고 바로 이동
 
       // HTTP 프로토콜 관련 기능을 사용하려명 파라미터로 받은 ServletRequest 객체를 원래 타입으로 형변환 해야함
       // 즉, req 레퍼런스는 실제 HttpServletRequest 객체를 가리키고 있음.
