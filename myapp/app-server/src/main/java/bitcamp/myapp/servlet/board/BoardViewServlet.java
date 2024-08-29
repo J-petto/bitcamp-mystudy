@@ -55,11 +55,16 @@ public class BoardViewServlet extends GenericServlet {
       boardDao.updateViewCount(board.getNo(), board.getViewCount());
       sqlSessionFactory.openSession(false).commit();
 
-      out.printf("<p>제목: %s</p>", board.getTitle());
-      out.printf("<p>내용: %s</p>", board.getContent());
-      out.printf("<p>작성일: %1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS</p>", board.getCreatedDate());
-      out.printf("<p>조회수: %d</p>", board.getViewCount());
-      out.printf("<p>작성자: %s</p>", board.getWriter().getName());
+      out.printf("<form action='/board/update'>");
+      out.printf("    <p>번호: <input name='no' type='text' value='%s' readonly></p>", board.getNo());
+      out.printf(    "<p>제목: <input name='title' type='text' value='%s'></p>", board.getTitle());
+      out.printf(    "<p>내용: <textarea name='content'>%s</textarea> </p>", board.getContent());
+      out.printf("    <p>작성일: <input type='datetime-local' value='%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS' readonly> </p>", board.getCreatedDate());
+      out.printf("    <p>조회수: <input type='text' value='%d' readonly></p>", board.getViewCount());
+      out.printf("    <p>작성자: <input type='text' value='%s' readonly></p>", board.getWriter().getName());
+      out.printf(    "<button>변경하기</button>");
+      out.printf(    "<button type='button' onclick='location.href=\"/board/delete?no=%d\"'>삭제하기</button>", board.getNo());
+      out.printf("</form>");
 
     } catch (Exception e) {
       sqlSessionFactory.openSession(false).rollback();
