@@ -1,6 +1,7 @@
 header {
-    background-color: lightgreen;
-    border-bottom: 1px solid green;
+    padding-bottom: 5px;
+    border-bottom: 1px solid gray;
+    position: relative;
 }
 
 /* 스페이스로 구분 시 header 안에 있는 img에 적용 */
@@ -9,8 +10,56 @@ header img {
     vertical-align: middle;
 }
 
-header span {
-    margin-left: 5px;
+header>h1 {
+    display: inline;
+    font-size: 14px;
+}
+
+header>nav {
+    display: inline;
+}
+
+header>nav>ul {
+    display: inline;
+    list-style-type: none;
+}
+
+header li {
+    /* background-color: darkGray; */
+}
+
+header a {}
+
+.btn {
+    display: inline-block;
+    width: 70px;
+    height: 20px;
+    text-align: center;
+    padding-top: 3px;
+    margin-top: 5px;
+
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.btn a {
+    text-decoration: none;
+    color: black;
+}
+
+.btn-default {
+    background-color: darkgray;
+}
+
+.btn-light {
+    background-color: white;
+}
+
+.pos-right {
+    position: absolute;
+    right: 0px;
 }
 
 table {
@@ -21,7 +70,9 @@ table {
 }
 
 /* ,로 구분 시 해당 태그에 모두 적용 */
-table, th, td {
+table,
+th,
+td {
     border: 1px solid black;
 }
 
