@@ -10,6 +10,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Date;
@@ -32,16 +33,10 @@ public class ProjectUpdateServlet extends GenericServlet {
     res.setContentType("text/html;charset=UTF-8");
     PrintWriter out = res.getWriter();
 
+    req.getRequestDispatcher("/header").include(req, res);
+    ((HttpServletResponse) res).setHeader("Refresh","1;url=/project/list");
+
     try {
-      out.println("<!DOCTYPE html>");
-      out.println("<html>");
-      out.println("    <head>");
-      out.println("        <link rel='stylesheet' href='/css/common.css'>");
-      out.println("        <meta http-equiv='refresh' content='1;url=/project/list' >");
-      out.println("        <title>프로젝트 수정 결과</title>");
-      out.println("    </head>");
-      out.println("    <body>");
-      out.println("<header><a href='/'><img src='/images/home.png'/></a><span>프로젝트 관리 시스템</span></header>");
       out.println("<h1>프로젝트 수정 결과</h1>");
 
       Project project = new Project();

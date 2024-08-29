@@ -10,6 +10,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -31,17 +32,10 @@ public class BoardAddServlet extends GenericServlet {
     res.setContentType("text/html;charset=UTF-8");
     PrintWriter out = res.getWriter();
 
-    try {
+    req.getRequestDispatcher("/header").include(req, res);
+    ((HttpServletResponse) res).setHeader("Refresh","1;url=/board/list");
 
-      out.println("<!DOCTYPE html>");
-      out.println("<html>");
-      out.println("    <head>");
-      out.println("        <link rel='stylesheet' href='/css/common.css'>");
-      out.println("        <meta http-equiv='refresh' content='1;url=/board/list' >");
-      out.println("        <title>게시글 등록</title>");
-      out.println("    </head>");
-      out.println("    <body>");
-      out.println("<header><a href='/'><img src='/images/home.png'/></a><span>프로젝트 관리 시스템</span></header>");
+    try {
       out.println("<h1>게시글 등록</h1>");
 
       Board board = new Board();

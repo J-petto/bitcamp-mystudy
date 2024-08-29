@@ -10,6 +10,8 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -21,8 +23,8 @@ public class BoardUpdateServlet extends GenericServlet {
 
   @Override
   public void init() throws ServletException {
-    boardDao = (BoardDao) this.getServletContext().getAttribute("boardDao");
-    sqlSessionFactory = (SqlSessionFactory) this.getServletContext().getAttribute("sqlSession");
+    this.boardDao = (BoardDao) this.getServletContext().getAttribute("boardDao");
+    this.sqlSessionFactory = (SqlSessionFactory) this.getServletContext().getAttribute("sqlSession");
   }
 
   @Override
@@ -30,41 +32,35 @@ public class BoardUpdateServlet extends GenericServlet {
     res.setContentType("text/html;charset=UTF-8");
     PrintWriter out = res.getWriter();
 
-    try {
-      User loginUser = (User) this.getServletContext().getAttribute("loginUser");
+    req.getRequestDispatcher("/header").include(req, res);
+    ((HttpServletResponse) res).setHeader("Refresh","1;url=/board/list");
 
-      out.println("<!DOCTYPE html>");
-      out.println("<html>");
-      out.println("    <head>");
-      out.println("        <link rel='stylesheet' href='/css/common.css'>");
-      out.println("        <meta http-equiv='refresh' content='1;url=/board/list'>");
-      out.println("        <title>게시글 변경 결과</title>");
-      out.println("    </head>");
-      out.println("    <body>");
-      out.println("<header><a href='/'><img src='/images/home.png'/></a><span>프로젝트 관리 시스템</span></header>");
+    try {
       out.println("<h1>게시글 변경 결과</h1>");
 
-      int boardNo = Integer.parseInt(req.getParameter("no"));
-      Board findBoard = boardDao.findBy(boardNo);
-      if(loginUser == null || loginUser.getNo() > 10 && findBoard.getWriter().getNo() != loginUser.getNo()){
-        out.println("<p>변경 권한이 없습니다.</p>");
+      User loginUser = (User) ((HttpServletRequest) req).getSession().getAttribute("loginUser");
 
-        out.println("    </body>");
+      int boardNo = Integer.parseInt(req.getParameter("no"));
+      Board board = boardDao.findBy(boardNo);
+
+      if (board == null) {
+        out.println("<p>없는 게시글입니다.</p>");
+        out.println("</body>");
+        out.println("</html>");
+        return;
+
+      } else if (loginUser == null || loginUser.getNo() > 10 && board.getWriter().getNo() != loginUser.getNo()) {
+        out.println("<p>변경 권한이 없습니다.</p>");
+        out.println("</body>");
         out.println("</html>");
         return;
       }
 
-      Board board = new Board();
-      board.setNo(Integer.parseInt(req.getParameter("no")));
       board.setTitle(req.getParameter("title"));
       board.setContent(req.getParameter("content"));
-
-      if(boardDao.update(board)){
-        sqlSessionFactory.openSession(false).commit();
-        out.println("<p>변경 했습니다.</p>");
-      }else {
-        out.println("<p>없는 게시글입니다.</p>");
-      }
+      boardDao.update(board);
+      sqlSessionFactory.openSession(false).commit();
+      out.println("<p>변경 했습니다.</p>");
 
     } catch (Exception e) {
       sqlSessionFactory.openSession(false).rollback();
@@ -72,7 +68,7 @@ public class BoardUpdateServlet extends GenericServlet {
       e.printStackTrace();
     }
 
-    out.println("    </body>");
+    out.println("</body>");
     out.println("</html>");
   }
 }

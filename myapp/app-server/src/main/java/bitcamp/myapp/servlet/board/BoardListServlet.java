@@ -25,15 +25,10 @@ public class BoardListServlet implements Servlet {
   public void service(ServletRequest req, ServletResponse res) throws ServletException, IOException {
     res.setContentType("text/html;charset=UTF-8");
     PrintWriter out = res.getWriter();
+
+    req.getRequestDispatcher("/header").include(req, res);
+
     try {
-      out.println("<!DOCTYPE html>");
-      out.println("<html>");
-      out.println("    <head>");
-      out.println("        <link rel='stylesheet' href='/css/common.css'>");
-      out.println("        <title>게시글 목록</title>");
-      out.println("    </head>");
-      out.println("    <body>");
-      out.println("<header><a href='/'><img src='/images/home.png'/></a><span>프로젝트 관리 시스템</span></header>");
       out.println("<h1>게시글 목록</h1>");
       out.println("<p><a href='/board/form.html'>게시글 등록</a></p>");
       out.println("<table>");

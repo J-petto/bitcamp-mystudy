@@ -33,17 +33,13 @@ public class UserListServlet implements Servlet {
     res.setContentType("text/html;charset=UTF-8");
 
     PrintWriter out = res.getWriter();
-    out.println("<!DOCTYPE html>");
-    out.println("<html>");
-    out.println("    <head>");
-    // 상단 setContentType과 동일
-//    out.println("        <meta charset='UTF-8'>");
-    out.println("        <link rel='stylesheet' href='/css/common.css'>");
-    out.println("        <title>회원 목록</title>");
-    out.println("    </head>");
-    out.println("    <body>");
+
+    // 웹 페이지를 만들 때 앞 부분은 HeaderServlet 에게 맡긴다
+    RequestDispatcher dispatcher = req.getRequestDispatcher("/header");
+    // dispatcher: 요청 배달자
+    dispatcher.include(req, res); // HeaderServlet의 service()를 호출함
+
     try {
-      out.println("<header><a href='/'><img src='/images/home.png'/></a><span>프로젝트 관리 시스템</span></header>");
       out.println("<h1>회원 목록</h1>");
       out.println("<p><a href='/user/form.html'>회원 등록</a></p>");
       out.println("<table>");

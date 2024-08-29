@@ -29,16 +29,9 @@ public class ProjectFormServlet extends GenericServlet {
     res.setContentType("text/html;charset=UTF-8");
     PrintWriter out = res.getWriter();
 
-    try {
-      out.println("<!DOCTYPE html>");
-      out.println("<html>");
-      out.println("    <head>");
-      out.println("        <link rel='stylesheet' href='/css/common.css'>");
-      out.println("        <title>프로젝트 조회</title>");
-      out.println("    </head>");
-      out.println("    <body>");
-      out.println("<header><a href='/'><img src='/images/home.png'/></a><span>프로젝트 관리 시스템</span></header>");
+    req.getRequestDispatcher("/header").include(req, res);
 
+    try {
       out.println("<h1>프로젝트 등록</h1>");
 
       out.println("<form action='/project/add'>");

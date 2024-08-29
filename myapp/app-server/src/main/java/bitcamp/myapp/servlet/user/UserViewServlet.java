@@ -27,15 +27,9 @@ public class UserViewServlet extends GenericServlet {
         res.setContentType("text/html;charset=UTF-8");
         PrintWriter out = res.getWriter();
 
+        req.getRequestDispatcher("/header").include(req, res);
+
         try {
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("    <head>");
-            out.println("        <link rel='stylesheet' href='/css/common.css'>");
-            out.println("        <title>회원 조회</title>");
-            out.println("    </head>");
-            out.println("    <body>");
-            out.println("<header><a href='/'><img src='/images/home.png'/></a><span>프로젝트 관리 시스템</span></header>");
             out.println("<h1>회원 조회</h1>");
             int userNo = Integer.parseInt(req.getParameter("no"));
 
