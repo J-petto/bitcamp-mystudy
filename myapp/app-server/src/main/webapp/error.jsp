@@ -6,7 +6,7 @@
 %>
 <%@ page import="java.io.PrintWriter"%>
 
-<jsp:include page="/header"/>
+<jsp:include page="/header.jsp"/>
 
 <h1>실행 오류!</h1>
 <pre>

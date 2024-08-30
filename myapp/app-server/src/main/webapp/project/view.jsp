@@ -17,7 +17,7 @@ private boolean isMember(List<User> members, User user){
 }
 %>
 
-<jsp:include page="/header"/>
+<jsp:include page="/header.jsp"/>
 
 <h1>프로젝트 조회</h1>
 <%
