@@ -13,18 +13,6 @@ public class BoardFormServlet extends GenericServlet {
   @Override
   public void service(ServletRequest req, ServletResponse res) throws ServletException, IOException {
     res.setContentType("text/html;charset=UTF-8");
-    PrintWriter out = res.getWriter();
-
-    req.getRequestDispatcher("/header").include(req, res);
-
-    out.println("<h1>게시판 등록</h1>");
-    out.println("<form action=/board/add'>");
-    out.println("    <p>제목: <input name='title' type='text'></p>");
-    out.println("    <p>내용: <textarea name='content'></textarea> </p>");
-    out.println("    <input type='submit' value='등록하기'>");
-    out.println("</form>");
-
-    out.println("</body>");
-    out.println("</html>");
+    req.getRequestDispatcher("/board/form.jsp").include(req, res);
   }
 }

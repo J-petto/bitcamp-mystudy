@@ -28,15 +28,7 @@ public class ProjectAddServlet extends GenericServlet {
 
   @Override
   public void service(ServletRequest req, ServletResponse res) throws ServletException, IOException {
-    res.setContentType("text/html;charset=UTF-8");
-    PrintWriter out = res.getWriter();
-
-    req.getRequestDispatcher("/header").include(req, res);
-    ((HttpServletResponse) res).setHeader("Refresh","1;url=/project/list");
-
     try {
-      out.println("<h1>프로젝트 등록</h1>");
-
       Project project = new Project();
       project.setTitle(req.getParameter("title"));
       project.setDescription(req.getParameter("description"));
@@ -56,18 +48,15 @@ public class ProjectAddServlet extends GenericServlet {
       if (project.getMembers() != null && project.getMembers().size() > 0) {
         projectDao.insertMembers(project.getNo(), project.getMembers());
       }
-      sqlSessionFactory.openSession(false).commit();
 
-      out.println("<p>등록했습니다.</p>");
+      sqlSessionFactory.openSession(false).commit();
+      ((HttpServletResponse) res).sendRedirect("/project/list");
 
     } catch (Exception e) {
       sqlSessionFactory.openSession(false).rollback();
-      out.println("<p>등록 중 오류 발생!</p>");
-      e.printStackTrace();
+      req.setAttribute("exception", e);
+      req.getRequestDispatcher("/error.jsp").include(req, res);
     }
-
-    out.println("    </body>");
-    out.println("</html>");
   }
 
 }

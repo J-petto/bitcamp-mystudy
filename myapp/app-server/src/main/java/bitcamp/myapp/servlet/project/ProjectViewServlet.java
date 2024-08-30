@@ -28,52 +28,22 @@ public class ProjectViewServlet extends GenericServlet {
 
   @Override
   public void service(ServletRequest req, ServletResponse res) throws ServletException, IOException {
-    res.setContentType("text/html;charset=UTF-8");
-    PrintWriter out = res.getWriter();
-
-    req.getRequestDispatcher("/header").include(req, res);
-
     try {
-      out.println("<h1>프로젝트 조회</h1>");
       int projectNo = Integer.parseInt(req.getParameter("no"));
 
       Project project = projectDao.findBy(projectNo);
-      if (project == null) {
-        out.println("<p>없는 프로젝트입니다.</p>");
+      req.setAttribute("project", project);
 
-        out.println("    </body>");
-        out.println("</html>");
-        return;
-      }
-
-      out.println("<form action='/project/update'>");
-      out.printf("    <p>번호: <input name='no' type='text' value='%d' readonly></p>", project.getNo());
-      out.printf("    <p>타이틀: <input name='title' type='text' value='%s'></p>", project.getTitle());
-      out.printf("    <p>내용: <textarea name='description'>%s</textarea></p>", project.getDescription());
-      out.printf("    <p>시작일: <input name='startDate' type='date' value='%s'></p>", project.getStartDate());
-      out.printf("    <p>종료일: <input name='endDate' type='date' value='%s'></p>", project.getEndDate());
-      out.println("    팀원:<br>");
       List<User> users = userDao.list();
-      out.printf("<ul>");
-      for(User user : users){
-        out.printf("<li><input name='member' value='%d' type='checkbox' %s>%s</li>", user.getNo(), isMember(project.getMembers(), user) ? "checked" : "", user.getName());
-      }
-      out.printf("</ul>");
-      out.println("    <button>수정하기</button>" );
-      out.printf(    "<button type='button' onclick='location.href=\"/project/delete?no=%d\"'>삭제하기</button>", project.getNo());
-      out.println("</form>");
+      req.setAttribute("users", users);
 
+      res.setContentType("text/html;charset=UTF-8");
+      req.getRequestDispatcher("/project/view.jsp").include(req, res);
     } catch (Exception e) {
-      out.println("<p>조회 중 오류 발생!</p>");
+      req.setAttribute("exception", e);
+      req.getRequestDispatcher("/error.jsp").forward(req, res);
     }
-    out.println("    </body>");
-    out.println("</html>");
   }
 
-  private boolean isMember(List<User> members, User user){
-    for(User member : members){
-      if(member.equals(user)) return true;
-    }
-    return false;
-  }
+
 }

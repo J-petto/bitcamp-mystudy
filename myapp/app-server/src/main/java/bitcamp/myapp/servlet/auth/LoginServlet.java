@@ -28,29 +28,21 @@ public class LoginServlet extends GenericServlet {
   @Override
   public void service(ServletRequest req, ServletResponse res) throws ServletException, IOException {
     res.setContentType("text/html;charset=UTF-8");
-    PrintWriter out = res.getWriter();
 
-    req.getRequestDispatcher("/header").include(req, res);
 //    ((HttpServletResponse) res).setHeader("Refresh","1;url=/"); 버퍼를 출력(페이지를 보여주고) 링크로 이동
 
     try {
-      out.println("<h1>로그인 결과</h1>");
-
       String email = req.getParameter("email");
       String password = req.getParameter("password");
 
       User loginUser = userDao.findByEmailAndPassword(email, password);
 
       if (loginUser == null) {
-        ((HttpServletResponse) res).setHeader("Refresh","1;url=/auth/form");
-        out.println("<p>이메일 또는 암호가 맞지 않습니다.</p>");
-
-        out.println("    </body>");
-        out.println("</html>");
-        return;
+        ((HttpServletResponse) res).setHeader("Refresh", "2;url=/auth/form");
+        req.getRequestDispatcher("/auth/fail.jsp").include(req, res);
+        return;// 버퍼 값을 초기화 시키고 바로 이동
       }
 
-      ((HttpServletResponse) res).sendRedirect("/"); // 버퍼 값을 초기화 시키고 바로 이동
 
       // HTTP 프로토콜 관련 기능을 사용하려명 파라미터로 받은 ServletRequest 객체를 원래 타입으로 형변환 해야함
       // 즉, req 레퍼런스는 실제 HttpServletRequest 객체를 가리키고 있음.
@@ -59,12 +51,11 @@ public class LoginServlet extends GenericServlet {
       HttpSession session = httpReq.getSession();
 
       session.setAttribute("loginUser", loginUser);
-      out.printf("<p>로그인 성공</p>");
-    } catch (Exception e) {
-      out.println("<p>로그인 중 오류 발생!</p>");
-    }
 
-    out.println("    </body>");
-    out.println("</html>");
+      ((HttpServletResponse) res).sendRedirect("/"); // 버퍼 값을 초기화 시키고 바로 이동
+    } catch (Exception e) {
+      req.setAttribute("exception", e);
+      req.getRequestDispatcher("/error.jsp").include(req, res);
+    }
   }
 }

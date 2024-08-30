@@ -13,18 +13,6 @@ public class LoginFormServlet extends GenericServlet {
   @Override
   public void service(ServletRequest req, ServletResponse res) throws ServletException, IOException {
     res.setContentType("text/html;charset=UTF-8");
-    PrintWriter out = res.getWriter();
-
-    req.getRequestDispatcher("/header").include(req, res);
-
-    out.println("<h1>로그인</h1>");
-    out.println("<form action='/auth/login'>");
-    out.println("<p>이메일: <input name='email' type='email'></p>");
-    out.println("<p>암호: <input name='password' type='password'></p>");
-    out.println("<input type='submit' value='로그인'>");
-    out.println("</form>");
-
-    out.println("</body>");
-    out.println("</html>");
+    req.getRequestDispatcher("/auth/form.jsp").include(req, res);
   }
 }

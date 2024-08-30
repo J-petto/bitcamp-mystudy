@@ -1,6 +1,5 @@
 package bitcamp.myapp;
 
-import bitcamp.context.ApplicationContext;
 import org.apache.catalina.WebResourceRoot;
 import org.apache.catalina.connector.Connector;
 import org.apache.catalina.core.StandardContext;
