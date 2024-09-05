@@ -19,7 +19,7 @@ if (board == null) {
 <%
 } else {
 %>
-<form action='/board/update'>
+<form action='/board/update' method="post">
 <p>번호: <input name='no' type='text' value='<%= board.getNo()%>' readonly></p>
 <p>제목: <input name='title' type='text' value='<%= board.getTitle()%>'></p>
 <p>내용: <textarea name='content'><%= board.getContent()%></textarea> </p>

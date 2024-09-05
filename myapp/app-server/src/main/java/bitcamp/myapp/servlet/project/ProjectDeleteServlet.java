@@ -8,11 +8,13 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet("/project/delete")
-public class ProjectDeleteServlet extends GenericServlet {
+public class ProjectDeleteServlet extends HttpServlet {
 
   private ProjectDao projectDao;
   private SqlSessionFactory sqlSessionFactory;
@@ -24,7 +26,7 @@ public class ProjectDeleteServlet extends GenericServlet {
   }
 
   @Override
-  public void service(ServletRequest req, ServletResponse res) throws ServletException, IOException {
+  protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
     res.setContentType("text/html;charset=UTF-8");
     try {
       int projectNo = Integer.parseInt(req.getParameter("no"));
@@ -32,7 +34,7 @@ public class ProjectDeleteServlet extends GenericServlet {
       projectDao.deleteMembers(projectNo);
       if(projectDao.delete(projectNo)){
         sqlSessionFactory.openSession(false).commit();
-        ((HttpServletResponse) res).sendRedirect("/project/list");
+        res.sendRedirect("/project/list");
       }else {
         throw new Exception("없는 프로젝트입니다.");
       }

@@ -10,10 +10,10 @@
 <jsp:include page="/header.jsp"/>
 
 <h1>게시글 목록</h1>
-<p><a href='/board/form'>게시글 등록</a></p>
+<p><a href='/board/add'>게시글 등록</a></p>
 <table>
     <thead>
-        <tr><th>번호</th><th>제목</a></th><th>작성자</th><th>작성일</th><th>조회수</th></tr>
+        <tr><th>번호</th><th><a>제목</a></th><th>작성자</th><th>작성일</th><th>조회수</th></tr>
     </thead>
     <tbody>
 <%-- <% 스크립트릿이라고함. %> - 자바 코드를 사용할 수 있게 만듦 --%>

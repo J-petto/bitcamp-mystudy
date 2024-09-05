@@ -10,7 +10,7 @@
 <jsp:include page="/header.jsp"/>
 
 <h1>회원 목록</h1>
-<p><a href='/user/form'>회원 등록</a></p>
+<p><a href='/user/add'>회원 등록</a></p>
 <table>
     <thead>
         <tr><th>번호</th><th>이름</th><th>이메일</th></tr>

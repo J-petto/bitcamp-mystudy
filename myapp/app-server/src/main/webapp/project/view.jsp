@@ -28,7 +28,7 @@ if (project == null) {
 <%
 } else {
 %>
-<form action='/project/update'>
+<form action='/project/update' method="post">
 <p>번호: <input name='no' type='text' value='<%= project.getNo()%>' readonly></p>
 <p>타이틀: <input name='title' type='text' value='<%= project.getTitle()%>'></p>
 <p>내용: <textarea name='description'><%= project.getDescription()%></textarea></p>

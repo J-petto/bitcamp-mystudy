@@ -5,21 +5,24 @@ import bitcamp.myapp.vo.User;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
 @WebServlet("/user/list")
-public class UserListServlet extends GenericServlet {
+public class UserListServlet extends HttpServlet {
 
   private UserDao userDao;
 
   @Override
-  public void init() throws ServletException {
+  public void init() {
     userDao = (UserDao) getServletContext().getAttribute("userDao");
   }
 
   @Override
-  public void service(ServletRequest req, ServletResponse res) throws ServletException, IOException {
+  protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
     try {
       List<User> list = userDao.list();
 

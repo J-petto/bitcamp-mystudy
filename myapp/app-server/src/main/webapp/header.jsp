@@ -1,9 +1,9 @@
 <%-- res.setContentType("text/html;charset=UTF-8 JSP에서는 해당 코드를 아래처럼 사용(contentType)--%>
-<%@ page 
-    language="java" 
-    contentType="text/html;charset=UTF-8" 
-    pageEncoding="UTF-8"
-    trimDirectiveWhitespaces="true"    
+<%@ page
+        language="java"
+        contentType="text/html;charset=UTF-8"
+        pageEncoding="UTF-8"
+        trimDirectiveWhitespaces="true"
 %>
 <%@ page import="bitcamp.myapp.vo.User"%>
 
@@ -27,7 +27,7 @@
             </ul>
           </nav>
 <%
-User loginUser = (User) ((HttpServletRequest) request).getSession().getAttribute("loginUser");
+User loginUser = (User) request.getSession().getAttribute("loginUser");
 %>
     <div class='login-state pos-right'>
 <%
