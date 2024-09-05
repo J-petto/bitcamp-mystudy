@@ -8,6 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -15,7 +16,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 @WebServlet("/auth/login")
-public class LoginServlet extends GenericServlet {
+public class LoginServlet extends HttpServlet {
 
   private UserDao userDao;
 
@@ -26,9 +27,15 @@ public class LoginServlet extends GenericServlet {
   }
 
   @Override
-  public void service(ServletRequest req, ServletResponse res) throws ServletException, IOException {
+  protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
     res.setContentType("text/html;charset=UTF-8");
+    req.getRequestDispatcher("/auth/form.jsp").include(req, res);
+  }
 
+  @Override
+  protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+    res.setContentType("text/html;charset=UTF-8");
+    req.setCharacterEncoding("UTF-8");
 //    ((HttpServletResponse) res).setHeader("Refresh","1;url=/"); 버퍼를 출력(페이지를 보여주고) 링크로 이동
 
     try {
@@ -38,7 +45,7 @@ public class LoginServlet extends GenericServlet {
       User loginUser = userDao.findByEmailAndPassword(email, password);
 
       if (loginUser == null) {
-        ((HttpServletResponse) res).setHeader("Refresh", "2;url=/auth/form");
+        res.setHeader("Refresh", "2;url=/auth/login");
         req.getRequestDispatcher("/auth/fail.jsp").include(req, res);
         return;// 버퍼 값을 초기화 시키고 바로 이동
       }
@@ -52,7 +59,7 @@ public class LoginServlet extends GenericServlet {
 
       session.setAttribute("loginUser", loginUser);
 
-      ((HttpServletResponse) res).sendRedirect("/"); // 버퍼 값을 초기화 시키고 바로 이동
+      res.sendRedirect("/"); // 버퍼 값을 초기화 시키고 바로 이동
     } catch (Exception e) {
       req.setAttribute("exception", e);
       req.getRequestDispatcher("/error.jsp").include(req, res);
