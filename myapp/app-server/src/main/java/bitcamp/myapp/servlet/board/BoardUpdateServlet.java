@@ -30,9 +30,7 @@ public class BoardUpdateServlet extends HttpServlet {
 
   @Override
   protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-
     try {
-      req.setCharacterEncoding("UTF-8");
 
       User loginUser = (User) req.getSession().getAttribute("loginUser");
 

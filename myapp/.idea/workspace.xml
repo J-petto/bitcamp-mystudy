@@ -5,25 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ff50e196-db5a-4d21-bedb-075fb37dce0c" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/servlet/project/ProjectForm1Servlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/servlet/project/ProjectForm2Servlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/servlet/project/ProjectForm3Servlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app-server/src/main/webapp/project/form1.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app-server/src/main/webapp/project/form2.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app-server/src/main/webapp/project/form3.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java-web/app/src/main/java/com/eomcs/web/ex06/Servlet03.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java-web/app/src/main/java/com/eomcs/web/ex06/Servlet03.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java-web/app/src/main/java/com/eomcs/web/ex06/Servlet05.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java-web/app/src/main/java/com/eomcs/web/ex06/Servlet05.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java-web/app/src/main/java/com/eomcs/web/ex07/Servlet01.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java-web/app/src/main/java/com/eomcs/web/ex07/Servlet01.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java-web/app/src/main/java/com/eomcs/web/ex08/Servlet01.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java-web/app/src/main/java/com/eomcs/web/ex08/Servlet01.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java-web/app/src/main/java/com/eomcs/web/ex08/Servlet03.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java-web/app/src/main/java/com/eomcs/web/ex08/Servlet03.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java-web/app/src/main/java/com/eomcs/web/ex10/Servlet21.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java-web/app/src/main/java/com/eomcs/web/ex10/Servlet21.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java-web/app/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../java-web/app/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/filter/CharacterEncodingFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/servlet/auth/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/servlet/auth/LoginServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/servlet/project/ProjectAddServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/servlet/project/ProjectAddServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/servlet/user/UserAddServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/servlet/user/UserAddServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/auth/form.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/webapp/auth/form.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/project/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/webapp/project/list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/servlet/board/BoardAddServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/servlet/board/BoardAddServlet.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,8 +50,8 @@
       <list>
         <option value="Interface" />
         <option value="AnnotationType" />
-        <option value="Class" />
         <option value="HTML File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -224,7 +208,7 @@
       <workItem from="1725017378597" duration="6000" />
       <workItem from="1725248427122" duration="622000" />
       <workItem from="1725505410767" duration="11653000" />
-      <workItem from="1725591900255" duration="11884000" />
+      <workItem from="1725591900255" duration="13997000" />
     </task>
     <servers />
   </component>

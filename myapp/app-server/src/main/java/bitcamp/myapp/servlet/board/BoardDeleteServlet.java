@@ -26,7 +26,6 @@ public class BoardDeleteServlet extends HttpServlet {
 
   @Override
   protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-    res.setContentType("text/html;charset=UTF-8");
     try {
       User loginUser = (User) req.getSession().getAttribute("loginUser");
 

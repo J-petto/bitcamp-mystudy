@@ -24,7 +24,6 @@ public class ProjectForm3Servlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-        req.setCharacterEncoding("UTF-8");
         try {
             // 세션에 보관된 프로젝트 기본 정보 꺼냄
             Project project = (Project) req.getSession().getAttribute("project");
