@@ -8,10 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -50,6 +47,15 @@ public class LoginServlet extends HttpServlet {
         return;// 버퍼 값을 초기화 시키고 바로 이동
       }
 
+      if(req.getParameter("saveEmail") != null) {
+        Cookie cookie = new Cookie("email", email);
+        cookie.setMaxAge(60 * 60 * 24 * 7);  // 60초 > 60분 > 24시간 > 7일 = 총 일주일 저장
+        res.addCookie(cookie);
+      }else {
+        Cookie cookie = new Cookie("email", "");
+        cookie.setMaxAge(0); // 음수일땐 저장X, 0이면 해당 쿠키 정보 삭제
+        res.addCookie(cookie);
+      }
 
       // HTTP 프로토콜 관련 기능을 사용하려명 파라미터로 받은 ServletRequest 객체를 원래 타입으로 형변환 해야함
       // 즉, req 레퍼런스는 실제 HttpServletRequest 객체를 가리키고 있음.

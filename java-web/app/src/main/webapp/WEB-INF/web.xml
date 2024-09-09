@@ -6,6 +6,7 @@
   version="4.0"
   metadata-complete="false">
 
+    <!-- 
     <context-param>
         <param-name>jdbc.driver</param-name>
         <param-value>com.mysql.driver.Driver</param-value>
@@ -22,7 +23,7 @@
         <param-name>jdbc.password</param-name>
         <param-value>1111</param-value>
     </context-param>
-
+    -->
 
     <!-- 서블릿 등록 -->
     <!-- 
