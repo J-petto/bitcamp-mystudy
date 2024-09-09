@@ -1,7 +1,10 @@
 package bitcamp.myapp.vo;
 
+import org.checkerframework.checker.units.qual.A;
+
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
 public class Board implements Serializable {
@@ -14,6 +17,7 @@ public class Board implements Serializable {
   private User writer;
   private Date createdDate;
   private int viewCount;
+  private List<AttachedFile> attachedFiles;
 
   public Board() {
   }
@@ -96,5 +100,13 @@ public class Board implements Serializable {
 
   public void setWriter(User writer) {
     this.writer = writer;
+  }
+
+  public List<AttachedFile> getAttachedFiles() {
+    return attachedFiles;
+  }
+
+  public void setAttachedFiles(List<AttachedFile> attachedFiles) {
+    this.attachedFiles = attachedFiles;
   }
 }
