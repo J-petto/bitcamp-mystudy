@@ -1,31 +1,26 @@
 package bitcamp.myapp.servlet.user;
 
 import bitcamp.myapp.dao.UserDao;
+import bitcamp.myapp.service.UserService;
 import bitcamp.myapp.vo.User;
 import org.apache.ibatis.session.SqlSessionFactory;
 
-import javax.servlet.GenericServlet;
 import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 
 @WebServlet("/user/update")
 public class UserUpdateServlet extends HttpServlet {
 
-  private UserDao userDao;
-  private SqlSessionFactory sqlSessionFactory;
+  private UserService userService;
 
   @Override
   public void init() throws ServletException {
     // 서블릿 컨테이너 ---> init(ServletConfig) ---> init() 호출함
-    userDao = (UserDao) this.getServletContext().getAttribute("userDao");
-    sqlSessionFactory = (SqlSessionFactory) this.getServletContext().getAttribute("sqlSession");
+    userService = (UserService) this.getServletContext().getAttribute("userService");
   }
 
   @Override
@@ -38,17 +33,15 @@ public class UserUpdateServlet extends HttpServlet {
       user.setPassword(req.getParameter("password"));
       user.setTel(req.getParameter("tel"));
 
-      if(userDao.update(user)){
-        sqlSessionFactory.openSession(false).commit();
+      if(userService.update(user)){
         res.sendRedirect("/user/list");
       }else {
         throw new Exception("없는 회원입니다.");
       }
 
     } catch (Exception e) {
-      sqlSessionFactory.openSession(false).rollback();
       req.setAttribute("exception", e);
-      req.getRequestDispatcher("/error.jsp").include(req, res);
+      req.getRequestDispatcher("/error.jsp").forward(req, res);
     }
   }
 }

@@ -1,6 +1,7 @@
 package bitcamp.myapp.servlet.user;
 
 import bitcamp.myapp.dao.UserDao;
+import bitcamp.myapp.service.UserService;
 import bitcamp.myapp.vo.User;
 import org.apache.ibatis.session.SqlSessionFactory;
 
@@ -14,14 +15,11 @@ import java.io.IOException;
 @WebServlet("/user/add")
 public class UserAddServlet extends HttpServlet {
 
-  private UserDao userDao;
-  private SqlSessionFactory sqlSessionFactory;
+  private UserService userService;
 
   @Override
   public void init() throws ServletException {
-    ServletContext ctx = this.getServletContext();
-    userDao = (UserDao) ctx.getAttribute("userDao");
-    sqlSessionFactory = (SqlSessionFactory) ctx.getAttribute("sqlSession");
+    userService = (UserService) this.getServletContext().getAttribute("userService");
   }
 
   @Override
@@ -39,14 +37,12 @@ public class UserAddServlet extends HttpServlet {
       user.setPassword(req.getParameter("password"));
       user.setTel(req.getParameter("tel"));
 
-      userDao.insert(user);
-      sqlSessionFactory.openSession(false).commit();
+      userService.add(user);
       res.sendRedirect("/user/list");
 
     } catch (Exception e) {
-      sqlSessionFactory.openSession(false).rollback();
       req.setAttribute("exception", e);
-      req.getRequestDispatcher("/error.jsp").include(req, res);
+      req.getRequestDispatcher("/error.jsp").forward(req, res);
     }
   }
 }
