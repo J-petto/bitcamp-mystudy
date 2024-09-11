@@ -4,55 +4,42 @@
         pageEncoding="UTF-8"
         trimDirectiveWhitespaces="true"
 %>
-<%@ page import="bitcamp.myapp.vo.Board" %>
-<%@ page import="bitcamp.myapp.vo.AttachedFile" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <jsp:include page="/header.jsp"/>
 
 <h1>게시글 조회</h1>
-<%
-    Board board = (Board) request.getAttribute("board");
-    if (board == null) {
-%>
+<c:if test="${empty board}">
+    <p>없는 게시글입니다.</p>
+</c:if>
 
-<p>없는 게시글입니다.</p>
+<c:if test="${not empty board}">
+    <form action='../board/update' method="post" enctype="multipart/form-data">
+        <p>번호: <input name='no' type='text' value='${board.no}' readonly></p>
+        <p>제목: <input name='title' type='text' value='${board.title}'></p>
+        <p>내용: <textarea name='content'>${board.content}</textarea></p>
+        <p>작성일: <input type='text' value='<fmt:formatDate value="${board.createdDate}" pattern="yyyy-MM-dd hh:mm:ss"/>' readonly></p>
+        <p>조회수: <input type="text" value="${board.viewCount}" readonly></p>
+        <p>작성자: <input type="text" value="${board.writer.name}" readonly></p>
+        첨부파일: <br>
 
-<%
-} else {
-%>
-<form action='../board/update' method="post" enctype="multipart/form-data">
-    <p>번호: <input name='no' type='text' value='<%= board.getNo()%>' readonly></p>
-    <p>제목: <input name='title' type='text' value='<%= board.getTitle()%>'></p>
-    <p>내용: <textarea name='content'><%= board.getContent()%></textarea></p>
-    <p>작성일: <input type='text' value='<%=String.format("%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS", board.getCreatedDate())%>'
-                   readonly></p>
-    <p>조회수: <input type="text" value="<%=board.getViewCount()%>" readonly></p>
-    <p>작성자: <input type="text" value="<%=board.getWriter().getName()%>" readonly></p>
-    첨부파일: <br>
-    <%
-    if (!board.getAttachedFiles().isEmpty()){
-    %>
-    <ul>
-        <%
-            for (AttachedFile attachedFile : board.getAttachedFiles()) {
-        %>
-        <li>
-            <a href="/download?path=board&fileNo=<%=attachedFile.getFileNo()%>"><%=attachedFile.getOriginFilename()%></a>
-            <a href="/board/file/delete?boardNo=<%=board.getNo()%>&fileNo=<%=attachedFile.getFileNo()%>">[삭제]</a>
-        </li>
-        <%
-            }
-        %>
-    </ul>
-    <%
-        }
-    %>
-    <p><input name="files" type="file" multiple></p>
-    <button>변경하기</button>
-    <button type='button' onclick='location.href="/board/delete?no=<%= board.getNo()%>"'>삭제하기</button>
-</form>
-<%
-    }
-%>
+        <c:if test="${board.attachedFiles.size() > 0}">
+            <ul>
+                <c:forEach items="${board.attachedFiles}" var="attachedFile">
+                    <li>
+                        <a href="/download?path=board&fileNo=${attachedFile.fileNo}">${attachedFile.originFilename}</a>
+                        <a href="/board/file/delete?boardNo=${board.no}&fileNo=${attachedFile.fileNo}">[삭제]</a>
+                    </li>
+                </c:forEach>
+            </ul>
+        </c:if>
+
+        <p><input name="files" type="file" multiple></p>
+        <button>변경하기</button>
+        <button type='button' onclick='location.href="/board/delete?no=${board.no}"'>삭제하기</button>
+    </form>
+</c:if>
+
 </body>
 </html>

@@ -21,9 +21,9 @@
 session.removeAttribute("name");
 application.removeAttribute("name");
 
-//pageContext.setAttribute("name", "홍길동");
-//request.setAttribute("name", "임꺽정");
-//session.setAttribute("name", "유관순");
+// pageContext.setAttribute("name", "홍길동");
+// request.setAttribute("name", "임꺽정");
+// session.setAttribute("name", "유관순");
 application.setAttribute("name", "안중근");
 %>
 

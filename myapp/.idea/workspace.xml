@@ -5,19 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ff50e196-db5a-4d21-bedb-075fb37dce0c" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/servlet/board/BoardFileDeleteServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/servlet/board/DownloadServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/vo/AttachedFile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-web/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../java-web/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-web/app/src/main/webapp/el/ex03.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../java-web/app/src/main/webapp/el/ex03.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-web/app/src/main/webapp/jsp/ex07.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../java-web/app/src/main/webapp/jsp/ex07.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-web/app/src/main/webapp/jsp/ex10.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../java-web/app/src/main/webapp/jsp/ex10.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-web/app/src/main/webapp/jsp/ex20.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../java-web/app/src/main/webapp/jsp/ex20.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-web/app/src/main/webapp/jstl/ex05.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../java-web/app/src/main/webapp/jstl/ex05.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-web/app/src/main/webapp/jstl/ex06.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../java-web/app/src/main/webapp/jstl/ex06.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/docs/ddl.sql" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/docs/ddl.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/dao/BoardDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/dao/BoardDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/servlet/board/BoardAddServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/servlet/board/BoardAddServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/servlet/board/BoardDeleteServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/servlet/board/BoardDeleteServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/servlet/board/BoardUpdateServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/servlet/board/BoardUpdateServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/vo/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/vo/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/resources/mappers/BoardDaoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/resources/mappers/BoardDaoMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/auth/form.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/webapp/auth/form.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/board/form.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/webapp/board/form.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/board/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/webapp/board/list.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/board/view.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/webapp/board/view.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/project/form.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/webapp/project/form.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/project/form2.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/webapp/project/form2.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/project/form3.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/webapp/project/form3.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/project/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/webapp/project/list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/project/view.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/webapp/project/view.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/user/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/webapp/user/list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/user/view.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/webapp/user/view.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,38 +88,38 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "Gradle.myapp [dependencies].executor": "Run",
-    "Gradle.myapp [run].executor": "Run",
-    "Gradle.myapp.executor": "Run",
-    "Gradle.myapp:app [:app:App.main()].executor": "Debug",
-    "Gradle.myapp:app [:app:LinkedList.main()].executor": "Run",
-    "Gradle.myapp:app [:app:Queue.main()].executor": "Run",
-    "Gradle.myapp:app [:app:Stack.main()].executor": "Run",
-    "Gradle.myapp:app [:app:TestMenu.main()].executor": "Run",
-    "Gradle.myapp:app [:app:User.main()].executor": "Run",
-    "Gradle.myapp:app [:app:UserList.main()].executor": "Run",
-    "Gradle.myapp:app-client [:app-client:ClientApp.main()].executor": "Run",
-    "Gradle.myapp:app-client [run].executor": "Run",
-    "Gradle.myapp:app-server [run].executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/jeppetto/git/bitcamp-mystudy/myapp/app-server/src/main/webapp/project",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "모듈",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "editor.preferences.completion",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Gradle.myapp [dependencies].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.myapp [run].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.myapp.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.myapp:app [:app:App.main()].executor&quot;: &quot;Debug&quot;,
+    &quot;Gradle.myapp:app [:app:LinkedList.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.myapp:app [:app:Queue.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.myapp:app [:app:Stack.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.myapp:app [:app:TestMenu.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.myapp:app [:app:User.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.myapp:app [:app:UserList.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.myapp:app-client [:app-client:ClientApp.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.myapp:app-client [run].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.myapp:app-server [run].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/jeppetto/git/bitcamp-mystudy/myapp/app-server/src/main/webapp/project&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;모듈&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.completion&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="bitcamp.myapp.command" />
@@ -136,11 +145,11 @@
       <recent name="" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="bitcamp.myapp.service" />
       <recent name="bitcamp.myapp.servlet.board" />
       <recent name="bitcamp.myapp.servlet.project" />
       <recent name="bitcamp.myapp.servlet.auth" />
       <recent name="bitcamp.myapp.servlet.user" />
-      <recent name="bitcamp.myapp.servlet" />
     </key>
   </component>
   <component name="RunManager" selected="Gradle.myapp:app-server [run]">
@@ -218,7 +227,8 @@
       <workItem from="1725017378597" duration="6000" />
       <workItem from="1725248427122" duration="622000" />
       <workItem from="1725505410767" duration="11653000" />
-      <workItem from="1725591900255" duration="31967000" />
+      <workItem from="1725591900255" duration="34602000" />
+      <workItem from="1726024725165" duration="8440000" />
     </task>
     <servers />
   </component>

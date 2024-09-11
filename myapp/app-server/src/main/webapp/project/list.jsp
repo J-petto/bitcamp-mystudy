@@ -4,9 +4,7 @@
         pageEncoding="UTF-8"
         trimDirectiveWhitespaces="true"
 %>
-<%@ page import="bitcamp.myapp.vo.Project" %>
-<%@ page import="java.util.List" %>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="/header.jsp"/>
 
 <h1>프로젝트 목록</h1>
@@ -20,22 +18,13 @@
     </tr>
     </thead>
     <tbody>
-    <%
-        List<Project> list = (List<Project>) request.getAttribute("list");
-        for (Project project : list) {
-    %>
-    <tr>
-        <td><%= project.getNo()%>
-        </td>
-        <td><a href='/project/view?no=<%= project.getNo() %>'><%=project.getTitle()%>
-        </a></td>
-        <td><%= project.getStartDate()%> ~ <%= project.getEndDate()%>
-        </td>
-    </tr>
-
-    <%
-        }
-    %>
+    <c:forEach items="${list}" var="project">
+        <tr>
+            <td>${project.no}</td>
+            <td><a href='/project/view?no=${project.no}'>${project.title}</a></td>
+            <td>${project.startDate} ~ ${project.endDate}</td>
+        </tr>
+    </c:forEach>
     </tbody>
 </table>
 </body>

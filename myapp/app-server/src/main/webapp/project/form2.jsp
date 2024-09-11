@@ -4,8 +4,7 @@
         pageEncoding="UTF-8"
         trimDirectiveWhitespaces="true"
 %>
-<%@ page import="bitcamp.myapp.vo.User" %>
-<%@ page import="java.util.List" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <jsp:include page="/header.jsp"/>
 
@@ -13,14 +12,9 @@
 <form action='/project/form3' method="post">
     팀원:<br>
     <ul>
-        <%
-            List<User> users = (List<User>) request.getAttribute("users");
-            for (User user : users) {
-        %>
-        <li><input name='member' value='<%= user.getNo()%>' type='checkbox'><%= user.getName()%></li>
-        <%
-            }
-        %>
+        <c:forEach items="${users}" var="user">
+            <li><input name='member' value='${user.no}' type='checkbox'>${user.name}</li>
+        </c:forEach>
     </ul>
     <button >다음</button>
 </form>

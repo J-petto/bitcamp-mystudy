@@ -4,7 +4,6 @@
     pageEncoding="UTF-8"
     trimDirectiveWhitespaces="true"
 %>
-<%@ page import="bitcamp.myapp.vo.Board"%>
 
 <jsp:include page="/header.jsp"/>
 
