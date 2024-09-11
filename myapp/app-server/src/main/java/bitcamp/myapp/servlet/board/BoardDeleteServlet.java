@@ -1,6 +1,7 @@
 package bitcamp.myapp.servlet.board;
 
 import bitcamp.myapp.dao.BoardDao;
+import bitcamp.myapp.service.BoardService;
 import bitcamp.myapp.vo.AttachedFile;
 import bitcamp.myapp.vo.Board;
 import bitcamp.myapp.vo.User;
@@ -17,14 +18,12 @@ import java.io.IOException;
 @WebServlet("/board/delete")
 public class BoardDeleteServlet extends HttpServlet {
 
-  private BoardDao boardDao;
-  private SqlSessionFactory sqlSessionFactory;
+  private BoardService boardService;
   private String uploadPath;
 
   @Override
   public void init() throws ServletException {
-    this.boardDao = (BoardDao) this.getServletContext().getAttribute("boardDao");
-    this.sqlSessionFactory = (SqlSessionFactory) this.getServletContext().getAttribute("sqlSession");
+    this.boardService = (BoardService) this.getServletContext().getAttribute("boardService");
     uploadPath = this.getServletContext().getRealPath("/upload/board");
   }
 
@@ -35,12 +34,13 @@ public class BoardDeleteServlet extends HttpServlet {
 
       int boardNo = Integer.parseInt(req.getParameter("no"));
 
-      Board board = boardDao.findBy(boardNo);
+      Board board = boardService.get(boardNo);
       if (board == null) {
         throw new Exception("없는 게시글입니다.");
       } else if (loginUser == null || loginUser.getNo() > 10 && board.getWriter().getNo() != loginUser.getNo()) {
         throw new Exception("삭제 권한이 없습니다.");
       }
+
 
       for (AttachedFile attachedFile : board.getAttachedFiles()) {
         File file =  new File(uploadPath + "/" + attachedFile.getFilename());
@@ -48,14 +48,12 @@ public class BoardDeleteServlet extends HttpServlet {
           file.delete();
         }
       }
-      boardDao.deleteFiles(boardNo);
-      boardDao.delete(boardNo);
-      sqlSessionFactory.openSession(false).commit();
+
+      boardService.delete(boardNo);
       res.sendRedirect("/board/list");
 
 
     } catch (Exception e) {
-      sqlSessionFactory.openSession(false).rollback();
       req.setAttribute("exception", e);
       req.getRequestDispatcher("/error.jsp").include(req, res);
     }

@@ -1,6 +1,7 @@
 package bitcamp.myapp.servlet.board;
 
 import bitcamp.myapp.dao.BoardDao;
+import bitcamp.myapp.service.BoardService;
 import bitcamp.myapp.vo.AttachedFile;
 import bitcamp.myapp.vo.Board;
 import bitcamp.myapp.vo.User;
@@ -25,15 +26,13 @@ import java.util.UUID;
 @WebServlet("/board/add")
 public class BoardAddServlet extends HttpServlet {
 
-  private BoardDao boardDao;
-  private SqlSessionFactory sqlSessionFactory;
+  private BoardService boardService;
   private String uploadPath;
 
   @Override
   public void init() throws ServletException {
     ServletContext ctx = this.getServletContext();
-    boardDao = (BoardDao) ctx.getAttribute("boardDao");
-    sqlSessionFactory = (SqlSessionFactory) ctx.getAttribute("sqlSession");
+    boardService = (BoardService) ctx.getAttribute("boardDao");
     this.uploadPath = ctx.getRealPath("/upload/board");
   }
 
@@ -75,16 +74,10 @@ public class BoardAddServlet extends HttpServlet {
 
       board.setAttachedFiles(attachedFiles);
 
-      boardDao.insert(board);
-      if(!board.getAttachedFiles().isEmpty()) {
-        boardDao.insertFiles(board);
-      }
-
-      sqlSessionFactory.openSession(false).commit();
+      boardService.add(board);
       res.sendRedirect("/board/list");
 
     } catch (Exception e) {
-      sqlSessionFactory.openSession(false).rollback();
       req.setAttribute("exception", e);
       req.getRequestDispatcher("/error.jsp").include(req, res);
     }

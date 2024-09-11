@@ -1,19 +1,14 @@
-package bitcamp.myapp.servlet.board;
+package bitcamp.myapp.servlet;
 
 import bitcamp.myapp.dao.BoardDao;
 import bitcamp.myapp.vo.AttachedFile;
-import bitcamp.myapp.vo.Board;
 import bitcamp.myapp.vo.User;
-import org.apache.ibatis.session.SqlSessionFactory;
 
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Part;
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;

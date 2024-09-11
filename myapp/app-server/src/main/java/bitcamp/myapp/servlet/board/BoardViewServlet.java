@@ -1,8 +1,7 @@
 package bitcamp.myapp.servlet.board;
 
-import bitcamp.myapp.dao.BoardDao;
+import bitcamp.myapp.service.BoardService;
 import bitcamp.myapp.vo.Board;
-import org.apache.ibatis.session.SqlSessionFactory;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
@@ -14,13 +13,11 @@ import java.io.IOException;
 @WebServlet("/board/view")
 public class BoardViewServlet extends HttpServlet {
 
-  private BoardDao boardDao;
-  private SqlSessionFactory sqlSessionFactory;
+  private BoardService boardService;
 
   @Override
   public void init() throws ServletException {
-    boardDao = (BoardDao) this.getServletContext().getAttribute("boardDao");
-    sqlSessionFactory = (SqlSessionFactory) this.getServletContext().getAttribute("sqlSession");
+    boardService = (BoardService) this.getServletContext().getAttribute("boardService");
   }
 
   @Override
@@ -28,20 +25,17 @@ public class BoardViewServlet extends HttpServlet {
     try {
       int boardNo = Integer.parseInt(req.getParameter("no"));
 
-      Board board = boardDao.findBy(boardNo);
-      req.setAttribute("board", board);
-
-      if (board != null) {
-        board.setViewCount(board.getViewCount() + 1);
-        boardDao.updateViewCount(board.getNo(), board.getViewCount());
-        sqlSessionFactory.openSession(false).commit();
+      Board board = boardService.get(boardNo);
+      if(board == null) {
+        throw new Exception("게시글이 존재하지 않습니다");
       }
+      boardService.increaseViewCount(boardNo);
+      req.setAttribute("board", board);
 
       res.setContentType("text/html;charset=UTF-8");
       req.getRequestDispatcher("/board/view.jsp").include(req, res);
 
     } catch (Exception e) {
-      sqlSessionFactory.openSession(false).rollback();
       req.setAttribute("exception", e);
       req.getRequestDispatcher("/error.jsp").forward(req, res); // 돌아오지않고 그냥 내보냄
     }
