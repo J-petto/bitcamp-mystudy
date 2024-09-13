@@ -1,9 +1,7 @@
-package bitcamp.myapp.servlet.user;
+package bitcamp.myapp.controller.user;
 
-import bitcamp.myapp.dao.UserDao;
 import bitcamp.myapp.service.UserService;
 import bitcamp.myapp.vo.User;
-import org.apache.ibatis.session.SqlSessionFactory;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,20 +10,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/user/update")
-public class UserUpdateServlet extends HttpServlet {
+public class UserUpdateController {
 
   private UserService userService;
 
-  @Override
-  public void init() throws ServletException {
-    // 서블릿 컨테이너 ---> init(ServletConfig) ---> init() 호출함
-    userService = (UserService) this.getServletContext().getAttribute("userService");
+  public UserUpdateController(UserService userService) {
+    this.userService = userService;
   }
 
-  @Override
-  protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-    try {
+    public String execute(HttpServletRequest req, HttpServletResponse res) throws Exception {
       User user = new User();
       user.setNo(Integer.parseInt(req.getParameter("no")));
       user.setName(req.getParameter("name"));
@@ -34,13 +27,9 @@ public class UserUpdateServlet extends HttpServlet {
       user.setTel(req.getParameter("tel"));
 
       if(userService.update(user)){
-        req.setAttribute("viewName", "redirect:list");
+        return "redirect:list";
       }else {
         throw new Exception("없는 회원입니다.");
       }
-
-    } catch (Exception e) {
-      req.setAttribute("exception", e);
-    }
   }
 }
