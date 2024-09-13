@@ -63,12 +63,9 @@ public class DownloadServlet extends HttpServlet {
 
       }
 
-      res.setContentType("text/html;charset=UTF-8");
-      req.getRequestDispatcher("/board/form.jsp").include(req, res);
-
+      req.setAttribute("viewName", "/board/form.jsp");
     }catch (Exception e) {
       req.setAttribute("exception", e);
-      req.getRequestDispatcher("/error.jsp").include(req, res);
     }
 
   }

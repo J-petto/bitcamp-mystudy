@@ -29,7 +29,7 @@ public class ProjectDeleteServlet extends HttpServlet {
 
       projectService.deleteMembers(projectNo);
       if(projectService.delete(projectNo)){
-        res.sendRedirect("/project/list");
+        req.setAttribute("viewName", "redirect:list");
       }else {
         throw new Exception("없는 프로젝트입니다.");
       }

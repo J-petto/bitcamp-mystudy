@@ -7,7 +7,7 @@
 <jsp:include page="/header.jsp"/>
 
 <h1>회원 등록</h1>
-    <form action='/user/add' method="post">
+    <form action='add' method="post">
         <p>이름: <input name='name' type='text'></p>
         <p>이메일: <input name='email' type='email'></p>
         <p>암호: <input name='password' type='password'></p>

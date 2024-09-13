@@ -72,11 +72,10 @@ public class BoardUpdateServlet extends HttpServlet {
       board.setAttachedFiles(attachedFiles);
 
       boardService.update(board);
-      res.sendRedirect("/board/list");
+      req.setAttribute("viewName", "redirect:list");
 
     } catch (Exception e) {
       req.setAttribute("exception", e);
-      req.getRequestDispatcher("/error.jsp").include(req, res);
     }
   }
 }

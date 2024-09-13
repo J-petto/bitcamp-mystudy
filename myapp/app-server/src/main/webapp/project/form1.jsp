@@ -8,7 +8,7 @@
 <jsp:include page="/header.jsp"/>
 
 <h1>프로젝트 등록 - 기본 정보</h1>
-<form action='/project/form2' method="post">
+<form action='form2' method="post">
     <p>타이틀: <input name='title' type='text'></p>
     <p>내용: <textarea name='description'></textarea></p>
     <p>시작일: <input name='startDate' type='date'></p>

@@ -19,10 +19,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.UUID;
 
-@MultipartConfig(
-        maxFileSize = 1024 * 1024 * 60,
-        maxRequestSize = 1024 * 1024 * 100
-)
+
 @WebServlet("/board/add")
 public class BoardAddServlet extends HttpServlet {
 
@@ -32,14 +29,13 @@ public class BoardAddServlet extends HttpServlet {
   @Override
   public void init() throws ServletException {
     ServletContext ctx = this.getServletContext();
-    boardService = (BoardService) ctx.getAttribute("boardDao");
+    boardService = (BoardService) ctx.getAttribute("boardService");
     this.uploadPath = ctx.getRealPath("/upload/board");
   }
 
   @Override
   protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-    res.setContentType("text/html;charset=UTF-8");
-    req.getRequestDispatcher("/board/form.jsp").include(req, res);
+    req.setAttribute("viewName", "/board/form.jsp");
   }
 
   @Override
@@ -49,6 +45,8 @@ public class BoardAddServlet extends HttpServlet {
       if(loginUser == null) {
         throw new Exception("로그인을 하지않았습니다.");
       }
+
+      System.out.println(req.getParameter("title"));
 
       Board board = new Board();
       board.setWriter(loginUser);
@@ -75,11 +73,10 @@ public class BoardAddServlet extends HttpServlet {
       board.setAttachedFiles(attachedFiles);
 
       boardService.add(board);
-      res.sendRedirect("/board/list");
+      req.setAttribute("viewName", "redirect:list");
 
     } catch (Exception e) {
       req.setAttribute("exception", e);
-      req.getRequestDispatcher("/error.jsp").include(req, res);
     }
   }
 

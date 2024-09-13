@@ -29,11 +29,9 @@ public class BoardListServlet extends HttpServlet {
     List<Board> list = boardService.list();
     req.setAttribute("list", list);
 
-    res.setContentType("text/html;charset=UTF-8");
-    req.getRequestDispatcher("/board/list.jsp").include(req, res);
+    req.setAttribute("viewName", "/board/list.jsp");
     } catch (Exception e) {
       req.setAttribute("exception", e);
-      req.getRequestDispatcher("/error.jsp").forward(req, res);
     }
   }
 }

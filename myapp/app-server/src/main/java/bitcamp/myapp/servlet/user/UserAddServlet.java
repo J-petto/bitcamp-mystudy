@@ -24,8 +24,7 @@ public class UserAddServlet extends HttpServlet {
 
   @Override
   protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-    res.setContentType("text/html;charset=UTF-8");
-    req.getRequestDispatcher("/user/form.jsp").include(req, res);
+    req.setAttribute("viewName", "/user/form.jsp");
   }
 
   @Override
@@ -38,11 +37,10 @@ public class UserAddServlet extends HttpServlet {
       user.setTel(req.getParameter("tel"));
 
       userService.add(user);
-      res.sendRedirect("/user/list");
+      req.setAttribute("viewName","redirect:list");
 
     } catch (Exception e) {
       req.setAttribute("exception", e);
-      req.getRequestDispatcher("/error.jsp").forward(req, res);
     }
   }
 }

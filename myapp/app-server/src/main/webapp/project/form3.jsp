@@ -14,7 +14,7 @@
 
 </c:if>
 <c:if test="${not empty project}">
-    <form action='/project/add' method="post">
+    <form action='add' method="post">
         <p>프로젝트명: ${project.title}
         </p>
         <p>내용: <textarea readonly>${project.description}</textarea></p>

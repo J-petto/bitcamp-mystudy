@@ -50,11 +50,10 @@ public class ProjectUpdateServlet extends HttpServlet {
         throw new Exception("없는 프로젝트입니다.");
       }
 
-      res.sendRedirect("/project/list");
+      req.setAttribute("viewName", "redirect:list");
 
     } catch (Exception e) {
       req.setAttribute("exception", e);
-      req.getRequestDispatcher("/error.jsp").include(req, res);
     }
 
   }

@@ -28,7 +28,7 @@ public class BoardFileDeleteServlet extends HttpServlet {
   @Override
   protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
     try {
-      User loginUser = (User) ((HttpServletRequest) req).getSession().getAttribute("loginUser");
+      User loginUser = (User) req.getSession().getAttribute("loginUser");
       if (loginUser == null) {
         throw new Exception("로그인 하지 않았습니다.");
       }
@@ -50,7 +50,7 @@ public class BoardFileDeleteServlet extends HttpServlet {
       }
 
       boardService.deleteAttachedFile(fileNo);
-      res.sendRedirect("/board/view?no=" + req.getParameter("boardNo"));
+      req.setAttribute("viewName", "../view?no=" + req.getParameter("boardNo"));
 
     } catch (Exception e) {
       req.setAttribute("exception", e);
