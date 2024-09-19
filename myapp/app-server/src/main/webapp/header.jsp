@@ -33,7 +33,7 @@ User loginUser = (User) request.getSession().getAttribute("loginUser");
 <%
 if(loginUser == null){
 %>
-    <a href='/app/auth/login' class='btn btn-primary'>로그인</a>
+    <a href='/app/auth/form' class='btn btn-primary'>로그인</a>
 <%
 }else {
 %>

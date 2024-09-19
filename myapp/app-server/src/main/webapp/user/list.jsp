@@ -9,7 +9,7 @@
 <jsp:include page="/header.jsp"/>
 
 <h1>회원 목록</h1>
-<p><a href='add'>회원 등록</a></p>
+<p><a href='form'>회원 등록</a></p>
 <table>
     <thead>
     <tr>

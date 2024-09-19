@@ -10,7 +10,7 @@
 <jsp:include page="/header.jsp"/>
 
 <h1>게시글 목록</h1>
-<p><a href='add'>게시글 등록</a></p>
+<p><a href='form'>게시글 등록</a></p>
 <table>
     <thead>
         <tr><th>번호</th><th><a>제목</a></th><th>작성자</th><th>작성일</th><th>조회수</th></tr>

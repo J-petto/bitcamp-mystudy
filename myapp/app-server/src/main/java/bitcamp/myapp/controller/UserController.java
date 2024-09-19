@@ -1,11 +1,14 @@
 package bitcamp.myapp.controller;
 
+import bitcamp.myapp.annotation.RequestMapping;
+import bitcamp.myapp.annotation.RequestParam;
 import bitcamp.myapp.service.UserService;
 import bitcamp.myapp.vo.User;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
+import java.util.Map;
 
 public class UserController {
 
@@ -15,43 +18,43 @@ public class UserController {
     this.userService = userService;
   }
 
-  public String add(HttpServletRequest req, HttpServletResponse res) throws Exception {
-    if(req.getMethod().equals("GET")) {
+  @RequestMapping("/user/form")
+  public String form() throws Exception {
       return "/user/form.jsp";
-    }else {
+  }
+
+  @RequestMapping("/user/add")
+  public String add(@RequestParam("name") String name,
+                    @RequestParam("email") String email,
+                    @RequestParam("password") String password,
+                    @RequestParam("tel") String tel) throws Exception {
+
       User user = new User();
-      user.setName(req.getParameter("name"));
-      user.setEmail(req.getParameter("email"));
-      user.setPassword(req.getParameter("password"));
-      user.setTel(req.getParameter("tel"));
+      user.setName(name);
+      user.setEmail(email);
+      user.setPassword(password);
+      user.setTel(tel);
 
       userService.add(user);
       return "redirect:list";
-    }
   }
 
-  public String list(HttpServletRequest req, HttpServletResponse res) throws Exception {
+  @RequestMapping("/user/list")
+  public String list(Map<String, Object> map) throws Exception {
     List<User> list = userService.list();
-    req.setAttribute("list", list);
+    map.put("list", list);
     return "/user/list.jsp";
   }
 
-  public String view(HttpServletRequest req, HttpServletResponse res) throws Exception{
-    int userNo = Integer.parseInt(req.getParameter("no"));
-
-    User user = userService.get(userNo);
-    req.setAttribute("user", user);
+  @RequestMapping("/user/view")
+  public String view(@RequestParam("no") int no, Map<String, Object> map) throws Exception{
+    User user = userService.get(no);
+    map.put("user", user);
     return "/user/view.jsp";
   }
 
-  public String update(HttpServletRequest req, HttpServletResponse res) throws Exception {
-    User user = new User();
-    user.setNo(Integer.parseInt(req.getParameter("no")));
-    user.setName(req.getParameter("name"));
-    user.setEmail(req.getParameter("email"));
-    user.setPassword(req.getParameter("password"));
-    user.setTel(req.getParameter("tel"));
-
+  @RequestMapping("/user/update")
+  public String update(User user) throws Exception {
     if(userService.update(user)){
       return "redirect:list";
     }else {
@@ -59,10 +62,9 @@ public class UserController {
     }
   }
 
-  public String delete(HttpServletRequest req, HttpServletResponse res) throws Exception {
-    int userNo = Integer.parseInt(req.getParameter("no"));
-
-    if(userService.delete(userNo)){
+  @RequestMapping("/user/delete")
+  public String delete(@RequestParam("no") int no) throws Exception {
+    if(userService.delete(no)){
       return "redirect:list";
     }else {
       throw new Exception("없는 회원입니다.");
