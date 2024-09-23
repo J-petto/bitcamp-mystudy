@@ -1,20 +1,12 @@
 package bitcamp.myapp.context;
 
+import bitcamp.myapp.annotation.Bean;
 import bitcamp.myapp.annotation.Controller;
-import bitcamp.myapp.dao.BoardDao;
-import bitcamp.myapp.dao.DaoFactory;
-import bitcamp.myapp.dao.ProjectDao;
-import bitcamp.myapp.dao.UserDao;
-import bitcamp.myapp.service.*;
-import bitcamp.mybatis.SqlSessionFactoryProxy;
-import org.apache.ibatis.io.Resources;
-import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import javax.servlet.ServletContext;
 import java.io.File;
-import java.io.InputStream;
 import java.lang.reflect.Constructor;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -24,40 +16,11 @@ public class ApplicationContext {
     private Map<Class<?>, Object> dependencyMap = new HashMap<>();
     private List<Object> controllers = new ArrayList<>();
 
-    public ApplicationContext(ServletContext ctx) throws Exception {
+    public ApplicationContext(ServletContext ctx, Class<?> configClass) throws Exception {
         try {
             dependencyMap.put(ServletContext.class, ctx);
 
-            dependencyMap.put(SqlSessionFactory.class,
-                    createSqlSessionFactory());
-
-            dependencyMap.put(DaoFactory.class,
-                    createDaoFactory((SqlSessionFactory) dependencyMap.get(SqlSessionFactory.class)));
-
-            dependencyMap.put(UserDao.class,
-                    createUserDao((DaoFactory) dependencyMap.get(DaoFactory.class)));
-            dependencyMap.put(BoardDao.class,
-                    createBoardDao((DaoFactory) dependencyMap.get(DaoFactory.class)));
-            dependencyMap.put(ProjectDao.class,
-                    createProjectDao((DaoFactory) dependencyMap.get(DaoFactory.class)));
-
-            dependencyMap.put(UserService.class,
-                    createUserService(
-                            (UserDao) dependencyMap.get(UserDao.class),
-                            (SqlSessionFactory) dependencyMap.get(SqlSessionFactory.class)
-                    ));
-
-            dependencyMap.put(BoardService.class,
-                    createBoardService(
-                            (BoardDao) dependencyMap.get(BoardDao.class),
-                            (SqlSessionFactory) dependencyMap.get(SqlSessionFactory.class)
-                    ));
-
-            dependencyMap.put(ProjectService.class,
-                    createProjectService(
-                            (ProjectDao) dependencyMap.get(ProjectDao.class),
-                            (SqlSessionFactory) dependencyMap.get(SqlSessionFactory.class)
-                    ));
+            processBeanAnnotation(configClass);
 
             createControllers();
         } catch (Exception e) {
@@ -66,48 +29,61 @@ public class ApplicationContext {
         }
     }
 
+    private void processBeanAnnotation(Class<?> configClass) throws Exception {
+        Constructor<?> constructor = configClass.getConstructors()[0];
+        Object configObject = constructor.newInstance();
+        dependencyMap.put(configClass, configObject);
+
+        List<Method> factoryMethods = getFactoryMethods(configClass);
+
+        int beforeSize = 0;
+        do {
+            beforeSize = factoryMethods.size();
+            if(beforeSize == 0) break;
+
+            factoryMethods = callFactoryMethods(factoryMethods, configObject);
+        }while (beforeSize > factoryMethods.size());
+
+        System.out.println("남아있는 팩토리 메서드: ");
+        for (Method m : factoryMethods) {
+            System.out.println("-" + m.getName());
+        }
+    }
+
+    private List<Method> callFactoryMethods(List<Method> factoryMethods, Object configObject) throws Exception {
+        ArrayList<Method> waitingFactoryMethods = new ArrayList<>();
+
+        for (Method factoryMethod : factoryMethods) {
+            try {
+                Class<?>[] parameterType = factoryMethod.getParameterTypes();
+                Object[] args = prepareMethodArguments(parameterType);
+                dependencyMap.put(factoryMethod.getReturnType(), factoryMethod.invoke(configObject, args));
+            }catch (Exception e) {
+                // 메서드를 호출할 때 넘겨줄 아규먼트 값 중 한개라도 없다면 실행 연기
+                waitingFactoryMethods.add(factoryMethod);
+            }
+        }
+        return waitingFactoryMethods;
+    }
+
+    private List<Method> getFactoryMethods(Class<?> type) {
+        Method[] methods = type.getDeclaredMethods();
+        ArrayList<Method> list = new ArrayList<>();
+
+        for (Method m : methods) {
+            Bean bean = m.getAnnotation(Bean.class);
+            if(bean == null) continue;
+            list.add(m);
+        }
+        return list;
+    }
+
     public Object getBean(Class<?> type) {
         return dependencyMap.get(type);
     }
 
     public List<Object> getControllers() {
         return controllers;
-    }
-
-    public SqlSessionFactory createSqlSessionFactory() throws Exception {
-        InputStream inputStream = Resources.getResourceAsStream("config/mybatis-config.xml");
-        SqlSessionFactoryBuilder sqlSessionFactoryBuilder = new SqlSessionFactoryBuilder();
-        SqlSessionFactory sqlSessionFactory = sqlSessionFactoryBuilder.build(inputStream);
-
-        return new SqlSessionFactoryProxy(sqlSessionFactory);
-    }
-
-    public DaoFactory createDaoFactory(SqlSessionFactory sqlSessionFactory) throws Exception {
-        return new DaoFactory(sqlSessionFactory);
-    }
-
-    public UserDao createUserDao(DaoFactory daoFactory) throws Exception {
-        return daoFactory.createObject(UserDao.class);
-    }
-
-    public BoardDao createBoardDao(DaoFactory daoFactory) throws Exception {
-        return daoFactory.createObject(BoardDao.class);
-    }
-
-    public ProjectDao createProjectDao(DaoFactory daoFactory) throws Exception {
-        return daoFactory.createObject(ProjectDao.class);
-    }
-
-    public UserService createUserService(UserDao userDao, SqlSessionFactory sqlSessionFactory) throws Exception {
-        return new DefaultUserService(userDao, sqlSessionFactory);
-    }
-
-    public BoardService createBoardService(BoardDao boardDao, SqlSessionFactory sqlSessionFactory) throws Exception {
-        return new DefaultBoardService(boardDao, sqlSessionFactory);
-    }
-
-    public ProjectService createProjectService(ProjectDao projectDao, SqlSessionFactory sqlSessionFactory) throws Exception {
-        return new DefaultProjectService(projectDao, sqlSessionFactory);
     }
 
     private void createControllers() throws Exception {
@@ -148,15 +124,19 @@ public class ApplicationContext {
         Constructor<?> constructor = clazz.getConstructors()[0];
 
         Class<?>[] paramTypes = constructor.getParameterTypes();
-        Object[] args = prepareConstructorArguments(paramTypes);
+        Object[] args = prepareMethodArguments(paramTypes);
 
         controllers.add(constructor.newInstance(args));
     }
 
-    private Object[] prepareConstructorArguments(Class<?>[] paramTypes) throws Exception {
+    private Object[] prepareMethodArguments(Class<?>[] paramTypes) throws Exception {
         Object[] args = new Object[paramTypes.length];
         for (int i = 0; i < paramTypes.length; i++) {
-            args[i] = dependencyMap.get(paramTypes[i]);
+            Object arg = dependencyMap.get(paramTypes[i]);
+            if (arg == null) {
+                throw new Exception("해당 타입의 값을 찾을 수 없습니다.");
+            }
+            args[i] = arg;
         }
         return args;
     }

@@ -1,5 +1,6 @@
 package bitcamp.myapp.listener;
 
+import bitcamp.myapp.config.AppConfig;
 import bitcamp.myapp.context.ApplicationContext;
 import org.apache.ibatis.session.SqlSessionFactory;
 
@@ -19,7 +20,7 @@ public class ContextLoaderListener implements ServletContextListener {
         try {
             ServletContext ctx = sce.getServletContext();
 
-            ApplicationContext iocContainer = new ApplicationContext(ctx);
+            ApplicationContext iocContainer = new ApplicationContext(ctx, AppConfig.class);
 
             ctx.setAttribute("sqlSessionFactory", iocContainer.getBean(SqlSessionFactory.class));
             ctx.setAttribute("controllers", iocContainer.getControllers());
