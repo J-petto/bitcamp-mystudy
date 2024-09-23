@@ -5,39 +5,54 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ff50e196-db5a-4d21-bedb-075fb37dce0c" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/annotation/RequestMapping.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/annotation/RequestParam.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/ServerApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/ServerApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/annotation/RequestMapping.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/annotation/RequestMapping.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/annotation/RequestParam.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/annotation/RequestParam.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/BoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/BoardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/DownloadController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/DownloadController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/ProjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/ProjectController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/user/UserAddController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/user/UserDeleteController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/user/UserListController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/user/UserUpdateController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/user/UserViewController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/dao/BoardDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/dao/BoardDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/filter/CharacterEncodingFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/filter/CharacterEncodingFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/listener/ContextLoaderListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/listener/ContextLoaderListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/listener/ResourceClearListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/listener/ResourceClearListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/service/BoardService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/service/BoardService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/service/DefaultBoardService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/service/DefaultBoardService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/service/DefaultProjectService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/service/DefaultProjectService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/service/DefaultUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/service/DefaultUserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/service/ProjectService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/service/ProjectService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/servlet/DispatcherServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/servlet/DispatcherServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/servlet/DownloadServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/DownloadController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/servlet/auth/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/servlet/auth/LogoutServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/servlet/board/BoardAddServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/BoardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/servlet/board/BoardDeleteServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/servlet/board/BoardFileDeleteServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/servlet/board/BoardListServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/servlet/board/BoardUpdateServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/servlet/board/BoardViewServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/servlet/project/ProjectAddServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/ProjectController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/servlet/project/ProjectDeleteServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/servlet/project/ProjectForm1Servlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/servlet/project/ProjectForm2Servlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/servlet/project/ProjectForm3Servlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/servlet/project/ProjectListServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/servlet/project/ProjectUpdateServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/servlet/project/ProjectViewServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/vo/AttachedFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/vo/AttachedFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/vo/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/vo/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/mybatis/SqlSessionFactoryProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/mybatis/SqlSessionFactoryProxy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/resources/mappers/BoardDaoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/resources/mappers/BoardDaoMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/auth/fail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/webapp/auth/fail.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/auth/form.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/webapp/auth/form.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/board/form.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/webapp/board/form.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/board/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/webapp/board/list.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/board/view.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/webapp/board/view.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/css/common.css" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/webapp/css/common.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/error.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/webapp/error.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/webapp/header.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/upload/board/1b866a1e-cebb-4cac-9bda-08b8165da6cb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/images/home.png" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/webapp/images/home.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/webapp/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/project/form.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/project/form1.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/webapp/project/form1.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/project/form2.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/webapp/project/form2.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/project/form3.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/webapp/project/form3.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/project/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/webapp/project/list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/project/view.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/webapp/project/view.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/upload/board/1de508e0-3407-4d58-95c1-82d95b080979" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/upload/board/98d5a379-eaf0-484b-873b-ae82d52b0f07" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/upload/board/9f358e4e-052f-4701-9507-3e6012efc95b" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/user/form.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/webapp/user/form.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/user/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/webapp/user/list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/user/view.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/webapp/user/view.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -244,7 +259,9 @@
       <workItem from="1726193206470" duration="403000" />
       <workItem from="1726193904161" duration="9105000" />
       <workItem from="1726707200865" duration="12203000" />
-      <workItem from="1726726201522" duration="5361000" />
+      <workItem from="1726726201522" duration="7329000" />
+      <workItem from="1726812077819" duration="1000" />
+      <workItem from="1727051601710" duration="340000" />
     </task>
     <servers />
   </component>

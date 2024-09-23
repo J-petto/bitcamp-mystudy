@@ -37,6 +37,19 @@ public class SqlSessionFactoryProxy implements SqlSessionFactory {
     return sqlSession;
   }
 
+  public void clearSession() {
+    try {
+      SqlSession sqlSession = sqlSessionThreadLocal.get();
+      if (sqlSession != null) {
+        sqlSession.close();
+      }
+    } catch (Exception e) {
+      // SqlSession 객체를 close() 하다가 발생된 오류는 무시한다.
+    }
+    // 스레드에서 SqlSession 객체를 제거한다.
+    sqlSessionThreadLocal.remove();
+  }
+
   @Override
   public SqlSession openSession(Connection connection) {
     return original.openSession(connection);
@@ -70,17 +83,5 @@ public class SqlSessionFactoryProxy implements SqlSessionFactory {
   @Override
   public Configuration getConfiguration() {
     return original.getConfiguration();
-  }
-
-  public void clearSession(){
-    try {
-      SqlSession sqlSession = sqlSessionThreadLocal.get();
-      if(sqlSession != null){
-        sqlSession.close();
-      }
-    }catch (Exception ignore){
-      // sqlSession 객체를 Close()하다가 발생한 오류는 무시
-    }
-    sqlSessionThreadLocal.remove();
   }
 }
