@@ -1,5 +1,6 @@
 package bitcamp.myapp.service;
 
+import bitcamp.myapp.annotation.Component;
 import bitcamp.myapp.dao.BoardDao;
 import bitcamp.myapp.vo.AttachedFile;
 import bitcamp.myapp.vo.Board;
@@ -7,6 +8,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 
 import java.util.List;
 
+@Component
 public class DefaultBoardService implements BoardService {
 
   private BoardDao boardDao;

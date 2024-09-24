@@ -1,15 +1,31 @@
+package solution;
+
+import java.util.Arrays;
+
 public class Programmers {
     public static void main(String[] args) {
-        Solution0 s = new Solution0();
-        System.out.println(s.solution("0010"));
-        System.out.println(s.solution("854020"));
+        Solution181835 s = new Solution181835();
+        System.out.println(s.solution(new int[]{4, 6, 6, 4, 6, 6}));
+        System.out.println(s.solution(new int[]{-1, 2, 5, 6, 3}));
     }
 }
 
-class Solution0 {
-    public String solution(String n_str) {
-        return ""+Integer.parseInt(n_str);
+class Solution181835 {
+    public int solution(int[] num_list) {
+        int odd = 0;
+        int even = 0;
+        for (int i = 1; i < num_list.length; i++) {
+            if (i % 2 == 1) {
+                odd += num_list[i - 1];
+            } else {
+                even += num_list[i - 1];
+            }
+        }
+
+
+        return odd == even ? odd : Math.max(odd, even);
     }
+
 }
 
 // 프로그래머스 코딩 기초 트레이닝 > 0 떼기 > 좌측에 있는 0을 떼세요.

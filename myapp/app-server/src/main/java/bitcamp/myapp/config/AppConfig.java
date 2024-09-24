@@ -43,18 +43,5 @@ public class AppConfig {
         return daoFactory.createObject(ProjectDao.class);
     }
 
-    @Bean
-    public UserService createUserService(UserDao userDao, SqlSessionFactory sqlSessionFactory) throws Exception {
-        return new DefaultUserService(userDao, sqlSessionFactory);
-    }
 
-    @Bean
-    public BoardService createBoardService(BoardDao boardDao, SqlSessionFactory sqlSessionFactory) throws Exception {
-        return new DefaultBoardService(boardDao, sqlSessionFactory);
-    }
-
-    @Bean
-    public ProjectService createProjectService(ProjectDao projectDao, SqlSessionFactory sqlSessionFactory) throws Exception {
-        return new DefaultProjectService(projectDao, sqlSessionFactory);
-    }
 }

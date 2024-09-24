@@ -1,11 +1,13 @@
 package bitcamp.myapp.service;
 
+import bitcamp.myapp.annotation.Component;
 import bitcamp.myapp.dao.ProjectDao;
 import bitcamp.myapp.vo.Project;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 import java.util.List;
 
+@Component
 public class DefaultProjectService implements ProjectService {
 
   private ProjectDao projectDao;
