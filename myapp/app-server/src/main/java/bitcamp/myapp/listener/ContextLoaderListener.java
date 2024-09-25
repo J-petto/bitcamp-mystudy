@@ -1,10 +1,10 @@
 package bitcamp.myapp.listener;
 
 import bitcamp.myapp.config.AppConfig;
-import bitcamp.myapp.context.ApplicationContext;
-import bitcamp.myapp.filter.CharacterEncodingFilter;
-import bitcamp.myapp.servlet.DispatcherServlet;
 import org.apache.ibatis.session.SqlSessionFactory;
+import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
+import org.springframework.web.filter.CharacterEncodingFilter;
+import org.springframework.web.servlet.DispatcherServlet;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebListener;
@@ -14,14 +14,16 @@ import java.util.EnumSet;
 @WebListener // 서블릿 컨테이너에 이 클래스를 배치하는 태그다.
 public class ContextLoaderListener implements ServletContextListener {
 
-
     @Override
     public void contextInitialized(ServletContextEvent sce) {
         // 서블릿 컨테이너가 실행될 때 호출된다.
         try {
             ServletContext ctx = sce.getServletContext();
 
-            ApplicationContext iocContainer = new ApplicationContext(ctx, AppConfig.class);
+            AnnotationConfigWebApplicationContext iocContainer = new AnnotationConfigWebApplicationContext();
+            iocContainer.register(AppConfig.class);
+            iocContainer.setServletContext(ctx);
+            iocContainer.refresh();
 
             ctx.setAttribute("sqlSessionFactory", iocContainer.getBean(SqlSessionFactory.class));
 
