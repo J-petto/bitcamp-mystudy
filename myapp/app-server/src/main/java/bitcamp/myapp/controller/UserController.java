@@ -20,7 +20,7 @@ public class UserController {
 
   @GetMapping("/user/form")
   public String form() {
-    return "/user/form.jsp";
+    return "user/form";
   }
 
   @PostMapping("/user/add")
@@ -34,7 +34,7 @@ public class UserController {
     List<User> list = userService.list();
     ModelAndView mv = new ModelAndView();
     mv.addObject("list", list);
-    mv.setViewName("/user/list.jsp");
+    mv.setViewName("user/list");
     return mv;
   }
 
@@ -43,7 +43,7 @@ public class UserController {
     User user = userService.get(no);
     ModelAndView mv = new ModelAndView();
     mv.addObject("user", user);
-    mv.setViewName("/user/view.jsp");
+    mv.setViewName("user/view");
     return mv;
   }
 
