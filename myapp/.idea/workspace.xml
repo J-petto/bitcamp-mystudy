@@ -5,30 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ff50e196-db5a-4d21-bedb-075fb37dce0c" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/HomeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app-server/src/main/webapp/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/config/AppConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/config/AppConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/BoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/BoardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/ProjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/ProjectController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/auth/fail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp/auth/fail.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/auth/form.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp/auth/form.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/board/form.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp/board/form.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/board/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp/board/list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/board/view.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp/board/view.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/error.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp/error.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp/header.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp/home.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/project/form1.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp/project/form1.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/project/form2.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp/project/form2.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/project/form3.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp/project/form3.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/project/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp/project/list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/project/view.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp/project/view.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/user/form.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp/user/form.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/user/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp/user/list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/user/view.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp/user/view.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/build.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -240,7 +218,7 @@
       <workItem from="1726812077819" duration="1000" />
       <workItem from="1727051601710" duration="17862000" />
       <workItem from="1727138363016" duration="6659000" />
-      <workItem from="1727225622925" duration="15134000" />
+      <workItem from="1727225622925" duration="15644000" />
     </task>
     <servers />
   </component>
