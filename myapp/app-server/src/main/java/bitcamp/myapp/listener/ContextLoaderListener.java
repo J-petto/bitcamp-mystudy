@@ -54,6 +54,15 @@ public class ContextLoaderListener implements ServletContextListener {
                     false, // web.xml 에 설정된 매핑 정보를 적용한 후에 필터 정보를 설정할 지
                     "app" // 필터를 적용할 서블릿의 별명
             );
+
+            // 현재 IoC 컨테이너에 들어있는 빈(Bean / 자바 객체)
+            System.out.println("Bean 갯수 : " + iocContainer.getBeanDefinitionCount());
+            String[] beanNames = iocContainer.getBeanDefinitionNames();
+            for(String beanName : beanNames) {
+                Object bean = iocContainer.getBean(beanName);
+                System.out.println("  -" + beanName + " : " + bean.getClass().getCanonicalName());
+            }
+
         } catch (Exception e) {
             System.out.println("서비스 준비 중 오류 발생!");
             e.printStackTrace();
