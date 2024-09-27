@@ -5,25 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ff50e196-db5a-4d21-bedb-075fb37dce0c" name="변경" comment="">
+      <change afterPath="$PROJECT_DIR$/app-server/src/main/resources/config/jdbc-local.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/config/AppConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/config/AppConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/BoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/BoardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/dao/BoardDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/dao/BoardDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/dao/DaoFactory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/dao/Param.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/dao/ProjectDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/dao/ProjectDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/dao/UserDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/listener/ContextLoaderListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/listener/ContextLoaderListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/listener/ResourceClearListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/service/DefaultBoardService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/service/DefaultBoardService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/service/DefaultProjectService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/service/DefaultProjectService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/service/DefaultUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/service/DefaultUserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/mybatis/SqlSessionFactoryProxy.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/resources/config/mybatis-config.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/resources/mappers/BoardDaoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/resources/mappers/BoardDaoMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/resources/mappers/ProjectDaoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/resources/mappers/ProjectDaoMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/resources/mappers/UserDaoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/resources/mappers/UserDaoMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/docs/ddl.sql" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/docs/ddl.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/resources/config/jdbc.properties" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/resources/config/jdbc.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,7 +89,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/jeppetto/git/bitcamp-mystudy/myapp/app-server/src/main/webapp/project&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/jeppetto/git/bitcamp-mystudy/myapp/app-server/src/main/resources/config&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -122,11 +107,11 @@
       <recent name="bitcamp.myapp.command" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app-server/src/main/resources/config" />
       <recent name="$PROJECT_DIR$/app-server/src/main/webapp/project" />
       <recent name="$PROJECT_DIR$/app-server/src/main/webapp" />
       <recent name="$PROJECT_DIR$/app-server/src/main/webapp/auth" />
       <recent name="$PROJECT_DIR$/app-server/src/main/webapp/board" />
-      <recent name="$PROJECT_DIR$/app-server/src/main/webapp/user" />
     </key>
     <key name="MoveMembersDialog.RECENTS_KEY">
       <recent name="bitcamp.myapp.command.UserList" />
@@ -235,7 +220,8 @@
       <workItem from="1726812077819" duration="1000" />
       <workItem from="1727051601710" duration="17862000" />
       <workItem from="1727138363016" duration="6659000" />
-      <workItem from="1727225622925" duration="28347000" />
+      <workItem from="1727225622925" duration="30954000" />
+      <workItem from="1727420605265" duration="203000" />
     </task>
     <servers />
   </component>
