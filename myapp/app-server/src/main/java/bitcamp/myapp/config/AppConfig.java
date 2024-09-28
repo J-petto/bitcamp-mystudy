@@ -22,7 +22,9 @@ import javax.sql.DataSource;
 
 @ComponentScan("bitcamp.myapp")
 @EnableWebMvc
-@PropertySource("classpath:config/jdbc.properties")
+@PropertySource({
+        "classpath:config/jdbc.properties",
+        "file:${user.home}/config/ncp.properties"})
 @EnableTransactionManagement
 @MapperScan("bitcamp.myapp.dao")
 public class AppConfig {

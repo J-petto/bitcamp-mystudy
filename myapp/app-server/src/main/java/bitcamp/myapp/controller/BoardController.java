@@ -4,6 +4,15 @@ import bitcamp.myapp.service.BoardService;
 import bitcamp.myapp.vo.AttachedFile;
 import bitcamp.myapp.vo.Board;
 import bitcamp.myapp.vo.User;
+import com.amazonaws.auth.AWSStaticCredentialsProvider;
+import com.amazonaws.auth.BasicAWSCredentials;
+import com.amazonaws.client.builder.AwsClientBuilder;
+import com.amazonaws.services.s3.AmazonS3;
+import com.amazonaws.services.s3.AmazonS3ClientBuilder;
+import com.amazonaws.services.s3.model.CannedAccessControlList;
+import com.amazonaws.services.s3.model.ObjectMetadata;
+import com.amazonaws.services.s3.model.PutObjectRequest;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,13 +33,36 @@ public class BoardController {
     private BoardService boardService;
     private String uploadDir;
 
-    public BoardController(BoardService boardService, ServletContext ctx) {
+    private AmazonS3 s3;
+
+    @Value("${ncp.storage.bucketname}")
+    private String bucketName;
+
+    private String folderName = "board/";
+
+    @Value("${ncp.accessKey}") String accessKey;
+    @Value("${ncp.secretKey}") String secretKey;
+
+    public BoardController(BoardService boardService,
+                           ServletContext ctx,
+                           @Value("${ncp.storage.endpoint}") String endPoint,
+                           @Value("${ncp.storage.regionName}") String regionName,
+                           @Value("${ncp.accessKey}") String accessKey,
+                           @Value("${ncp.secretKey}") String secretKey) {
         this.boardService = boardService;
         this.uploadDir = ctx.getRealPath("/upload/board");
+
+         s3 = AmazonS3ClientBuilder.standard()
+                .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration(endPoint, regionName))
+                .withCredentials(new AWSStaticCredentialsProvider(new BasicAWSCredentials(accessKey, secretKey)))
+                .build();
     }
 
     @GetMapping("/board/form")
-    public void form() {}
+    public void form() {
+        System.out.println(accessKey);
+        System.out.println(secretKey);
+    }
 
     @PostMapping("/board/add")
     public String add(Board board, MultipartFile[] files, HttpSession session) throws Exception {
@@ -52,7 +84,26 @@ public class BoardController {
             attachedFile.setFilename(UUID.randomUUID().toString());
             attachedFile.setOriginFilename(file.getOriginalFilename());
 
-            file.transferTo(new File(uploadDir + "/", attachedFile.getFilename()));
+
+            // 첨부파일을 Object Storage에 올린다.
+            try {
+                // Object Storage에 업로드할 콘텐츠의 요청 정보를 준비함
+                ObjectMetadata objectMetadata = new ObjectMetadata();
+                objectMetadata.setContentType(file.getContentType()); // 콘텐츠의 MIME Type 정보를 설정함
+
+                PutObjectRequest putObjectRequest = new PutObjectRequest(
+                        bucketName, // 업로드할 버킷 이름
+                        folderName + attachedFile.getFilename(), // 업로드 파일의 경로(폴더 경로 포함)
+                        file.getInputStream(), // 업로드 파일 데이터를 읽어들일 입력 스트림
+                        objectMetadata // 업로드 파일의 부가 정보
+                ).withCannedAcl(CannedAccessControlList.PublicRead);
+
+                s3.putObject(putObjectRequest);
+
+            } catch (Exception e) {
+                e.printStackTrace();
+                throw e;
+            }
 
             attachedFiles.add(attachedFile);
         }

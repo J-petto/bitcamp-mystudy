@@ -29,6 +29,9 @@ dependencies {
     // MyBatis 스프링 연동 라이브러리
     implementation 'org.mybatis:mybatis-spring:2.1.2'
 
+    // Amazon S3 라이브러리
+    implementation 'com.amazonaws:aws-java-sdk-s3:1.12.772'
+
     testImplementation libs.junit.jupiter
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
     implementation libs.guava

@@ -56,12 +56,12 @@ public class ContextLoaderListener implements ServletContextListener {
             );
 
             // 현재 IoC 컨테이너에 들어있는 빈(Bean / 자바 객체)
-            System.out.println("Bean 갯수 : " + iocContainer.getBeanDefinitionCount());
-            String[] beanNames = iocContainer.getBeanDefinitionNames();
-            for(String beanName : beanNames) {
-                Object bean = iocContainer.getBean(beanName);
-                System.out.println("  -" + beanName + " : " + bean.getClass().getCanonicalName());
-            }
+//            System.out.println("Bean 갯수 : " + iocContainer.getBeanDefinitionCount());
+//            String[] beanNames = iocContainer.getBeanDefinitionNames();
+//            for(String beanName : beanNames) {
+//                Object bean = iocContainer.getBean(beanName);
+//                System.out.println("  -" + beanName + " : " + bean.getClass().getCanonicalName());
+//            }
 
         } catch (Exception e) {
             System.out.println("서비스 준비 중 오류 발생!");
