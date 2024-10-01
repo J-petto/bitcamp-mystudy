@@ -65,3 +65,6 @@ alter table myapp_project_members
   add constraint myapp_project_members_fk1 foreign key (user_id) references myapp_users (user_id),
   add constraint myapp_project_members_fk2 foreign key (project_id) references myapp_projects (project_id),
   add constraint primary key (user_id, project_id);
+
+alter table myapp_users
+    add column photo varchar(100);
