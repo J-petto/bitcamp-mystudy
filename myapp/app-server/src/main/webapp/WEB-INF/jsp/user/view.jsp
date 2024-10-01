@@ -15,8 +15,8 @@
 
 <c:if test="${not empty user}">
     <form action='update' method="post" enctype="multipart/form-data">
-        <a width="100" height="100" href="https://kr.object.ncloudstorage.com/bitcamp-bucket110/user/${user.photo}">
-        <img src="https://rnrx0xpe4935.edge.naverncp.com/qA7bJ4yp2M/user/${user.photo}?type=f&w=100&h=100"/>
+        <a width="100" height="100" href="https://kr.object.ncloudstorage.com/bitcamp-bucket110/user/${user.photo == null ? 'default.png' : user.photo}">
+        <img src="https://rnrx0xpe4935.edge.naverncp.com/qA7bJ4yp2M/user/${user.photo == null ? 'default.png' : user.photo}?type=f&w=100&h=100"/>
         </a>
         <input name="file" type="file">
         <br>

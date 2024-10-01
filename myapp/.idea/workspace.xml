@@ -6,12 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="ff50e196-db5a-4d21-bedb-075fb37dce0c" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/docs/ddl.sql" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/docs/ddl.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/service/NcpObjectStorageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/service/NcpObjectStorageService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/vo/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/vo/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app-server/src/main/resources/mappers/UserDaoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/resources/mappers/UserDaoMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp/user/form.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp/user/form.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp/user/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp/user/list.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp/user/view.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp/user/view.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -228,6 +224,7 @@
       <workItem from="1727420605265" duration="6877000" />
       <workItem from="1727501084068" duration="10004000" />
       <workItem from="1727657315301" duration="21096000" />
+      <workItem from="1727763896766" duration="858000" />
     </task>
     <servers />
   </component>
