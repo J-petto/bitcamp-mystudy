@@ -5,12 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ff50e196-db5a-4d21-bedb-075fb37dce0c" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/config/RootConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/config/WebApplicationInitializerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java-lang/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../java-lang/app/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/config/AppConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/config/AppConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/listener/ContextLoaderListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/BoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/BoardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/ProjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/ProjectController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-webmvc/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-webmvc/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-webmvc/app/src/main/java/bitcamp/AppConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-webmvc/app/src/main/java/bitcamp/HelloController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-webmvc/app/src/main/java/bitcamp/listener/WebInit.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-webmvc/app/src/main/java/bitcamp/listener/WebInit2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-webmvc/app/src/main/java/bitcamp/listener/WebInit3.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-webmvc/app/src/main/java/bitcamp/listener/WebInit4.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -229,7 +235,8 @@
       <workItem from="1727763896766" duration="5370000" />
       <workItem from="1728018494434" duration="2097000" />
       <workItem from="1728611656224" duration="3967000" />
-      <workItem from="1728873310162" duration="3177000" />
+      <workItem from="1728873310162" duration="3464000" />
+      <workItem from="1728884534566" duration="412000" />
     </task>
     <servers />
   </component>

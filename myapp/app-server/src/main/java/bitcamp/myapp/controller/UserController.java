@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -15,6 +16,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Controller
+@RequestMapping("user")
 public class UserController {
 
   private UserService userService;
@@ -27,12 +29,12 @@ public class UserController {
     this.storageService = storageService;
   }
 
-  @GetMapping("/user/form")
+  @GetMapping("form")
   public String form() {
     return "user/form";
   }
 
-  @PostMapping("/user/add")
+  @PostMapping("add")
   public String add(User user, MultipartFile file) throws Exception {
     // 클라이언트가 보낸 파일을 저장할 때 다른 파일 이름과 충돌나지 않도록 임의로 지정
     String filename = UUID.randomUUID().toString();
@@ -47,7 +49,7 @@ public class UserController {
     return "redirect:list";
   }
 
-  @GetMapping("/user/list")
+  @GetMapping("list")
   public ModelAndView list() throws Exception {
     List<User> list = userService.list();
     ModelAndView mv = new ModelAndView();
@@ -56,7 +58,7 @@ public class UserController {
     return mv;
   }
 
-  @GetMapping("/user/view")
+  @GetMapping("/view")
   public ModelAndView view(int no) throws Exception {
     User user = userService.get(no);
     ModelAndView mv = new ModelAndView();
@@ -65,7 +67,7 @@ public class UserController {
     return mv;
   }
 
-  @PostMapping("/user/update")
+  @PostMapping("update")
   public String update(User user, MultipartFile file) throws Exception {
     User old = userService.get(user.getNo());
 
@@ -91,7 +93,7 @@ public class UserController {
   }
 
   @Transactional
-  @GetMapping("/user/delete")
+  @GetMapping("delete")
   public String delete(int no) throws Exception {
     User old = userService.get(no);
 

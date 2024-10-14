@@ -23,6 +23,15 @@ dependencies {
 
     implementation libs.guava
     
+    // Apache의 multipart 처리 라이브러리
+    implementation 'commons-fileupload:commons-fileupload:1.5'
+    
+    // gson 라이브러리
+    implementation 'com.google.code.gson:gson:2.11.0'
+    
+    // Jackson JSON 라이브러리
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.18.0'
+    
     // implementation files('libs/my-library.jar')
 }
 
