@@ -9,24 +9,30 @@ repositories {
 }
 
 dependencies {
+    // implementation 'com.drewnoakes:metadata-extractor:2.19.0'
+
     // Oracle JDBC Driver
     // implementation 'com.oracle.database.jdbc:ojdbc11:21.15.0.0'
     
     // MS-SQL JDBC Driver
     // implementation 'com.microsoft.sqlserver:mssql-jdbc:12.8.0.jre11'
     
+    // mariaDB JDBC Driver
+    // implementation 'org.mariadb.jdbc:mariadb-java-client:3.4.1'
+    
     // mySQL JDBC Driver
     implementation 'com.mysql:mysql-connector-j:8.4.0'
-    
-    // mariaDB JDBC Driver
-    implementation 'org.mariadb.jdbc:mariadb-java-client:3.4.1'
-    
+
     // Tomcat Embedded Server 라이브러리
     implementation 'org.apache.tomcat.embed:tomcat-embed-jasper:9.0.93'
     
+    // Spring IoC 컨테이너
+    implementation 'org.springframework:spring-context:5.3.39'
+    
+    // @Resource 애노테이션이 들어있는 java API
+    implementation 'javax.annotation:javax.annotation-api:1.3.2'
+    
     implementation 'org.apache.poi:poi-ooxml:5.3.0'
-
-    implementation 'com.drewnoakes:metadata-extractor:2.19.0'
 
     testImplementation libs.junit.jupiter
 
