@@ -5,9 +5,8 @@ import bitcamp.myapp.service.UserService;
 import bitcamp.myapp.vo.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -16,7 +15,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Controller
-@RequestMapping("user")
+@RequestMapping("/users")
 public class UserController {
 
   private UserService userService;
@@ -34,7 +33,7 @@ public class UserController {
     return "user/form";
   }
 
-  @PostMapping("add")
+  @PostMapping
   public String add(User user, MultipartFile file) throws Exception {
     // 클라이언트가 보낸 파일을 저장할 때 다른 파일 이름과 충돌나지 않도록 임의로 지정
     String filename = UUID.randomUUID().toString();
@@ -46,30 +45,27 @@ public class UserController {
     user.setPhoto(filename);
 
     userService.add(user);
-    return "redirect:list";
+    return "redirect:../users";
   }
 
-  @GetMapping("list")
-  public ModelAndView list() throws Exception {
+  @GetMapping
+  public String list(Model model) throws Exception {
     List<User> list = userService.list();
-    ModelAndView mv = new ModelAndView();
-    mv.addObject("list", list);
-    mv.setViewName("user/list");
-    return mv;
+    model.addAttribute("list", list);
+    return "user/list";
   }
 
-  @GetMapping("/view")
-  public ModelAndView view(int no) throws Exception {
+  @GetMapping("{no}")
+  public String view(@PathVariable int no, Model model) throws Exception {
     User user = userService.get(no);
-    ModelAndView mv = new ModelAndView();
-    mv.addObject("user", user);
-    mv.setViewName("user/view");
-    return mv;
+    model.addAttribute("user", user);
+    return "user/view";
   }
 
-  @PostMapping("update")
-  public String update(User user, MultipartFile file) throws Exception {
-    User old = userService.get(user.getNo());
+  @PostMapping("{no}")
+  public String update(@PathVariable int no, User user, MultipartFile file) throws Exception {
+    user.setNo(no);
+    User old = userService.get(no);
 
     if(file != null && !file.isEmpty()) {
       storageService.delete(folderName + old.getPhoto());
@@ -86,23 +82,24 @@ public class UserController {
     }
 
     if (userService.update(user)) {
-      return "redirect:list";
+      return "redirect:../users";
     } else {
       throw new Exception("없는 회원입니다!");
     }
   }
 
   @Transactional
-  @GetMapping("delete")
-  public String delete(int no) throws Exception {
+  @DeleteMapping("{no}")
+  @ResponseBody
+  public String delete(@PathVariable int no) throws Exception {
     User old = userService.get(no);
 
     if (userService.delete(no)) {
       storageService.delete(folderName + old.getPhoto());
 
-      return "redirect:list";
+      return "success";
     } else {
-      throw new Exception("없는 회원입니다.");
+      return "failure";
     }
   }
 }

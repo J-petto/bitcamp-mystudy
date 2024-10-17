@@ -1,15 +1,13 @@
 // 예외 다루기
 package bitcamp.app2;
 
+import java.io.IOException;
+import java.sql.SQLException;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-
-import java.io.IOException;
-import java.sql.SQLException;
 
 @Controller
 @RequestMapping("/c06_1")
@@ -18,14 +16,12 @@ public class Controller06_1 {
   // 테스트:
   // http://.../app2/c06_1/get
   @GetMapping("get")
-  public void get() {
-  }
+  public void get() {}
 
   // 테스트:
   // http://.../app2/c06_1/post
   @PostMapping("post")
-  public void post() {
-  }
+  public void post() {}
 
   // 테스트:
   // http://.../app2/c06_1/error1
@@ -57,7 +53,7 @@ public class Controller06_1 {
     throw new SQLException("request handler에서 SQLException 발생!");
   }
 
-  @ExceptionHandler
+  // @ExceptionHandler
   public ModelAndView exceptionHandler(Exception ex) {
     System.out.println("Controller06_1.exceptionHandler() 호출됨!");
     ModelAndView mv = new ModelAndView();

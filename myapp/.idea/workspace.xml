@@ -5,18 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ff50e196-db5a-4d21-bedb-075fb37dce0c" name="변경" comment="">
+      <change afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/GlobalControllerAdvice.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/BoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/BoardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/ProjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/ProjectController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring-webmvc/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-webmvc/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring-webmvc/app/src/main/java/bitcamp/AppConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring-webmvc/app/src/main/java/bitcamp/HelloController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring-webmvc/app/src/main/java/bitcamp/listener/WebInit.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring-webmvc/app/src/main/java/bitcamp/listener/WebInit2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring-webmvc/app/src/main/java/bitcamp/listener/WebInit3.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring-webmvc/app/src/main/java/bitcamp/listener/WebInit4.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp/header.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp/user/form.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp/user/form.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp/user/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp/user/list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp/user/view.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp/user/view.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-webmvc/app/src/main/java/bitcamp/app1/Controller02_1.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-webmvc/app/src/main/java/bitcamp/app1/Controller02_1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-webmvc/app/src/main/java/bitcamp/app1/Controller04_3.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-webmvc/app/src/main/java/bitcamp/app1/Controller04_3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-webmvc/app/src/main/java/bitcamp/app1/Controller04_4.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-webmvc/app/src/main/java/bitcamp/app1/Controller04_4.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-webmvc/app/src/main/java/bitcamp/app1/Controller04_6.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-webmvc/app/src/main/java/bitcamp/app1/Controller04_6.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-webmvc/app/src/main/java/bitcamp/app1/Controller04_7.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-webmvc/app/src/main/java/bitcamp/app1/Controller04_7.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-webmvc/app/src/main/java/bitcamp/app1/Controller04_8.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-webmvc/app/src/main/java/bitcamp/app1/Controller04_8.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-webmvc/app/src/main/java/bitcamp/app1/Controller04_9.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-webmvc/app/src/main/java/bitcamp/app1/Controller04_9.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-webmvc/app/src/main/java/bitcamp/app1/GlobalControllerAdvice.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-webmvc/app/src/main/java/bitcamp/app1/GlobalControllerAdvice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-webmvc/app/src/main/java/bitcamp/app2/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-webmvc/app/src/main/java/bitcamp/app2/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-webmvc/app/src/main/java/bitcamp/app2/Controller01_1.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-webmvc/app/src/main/java/bitcamp/app2/Controller01_1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-webmvc/app/src/main/java/bitcamp/app2/Controller03_2.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-webmvc/app/src/main/java/bitcamp/app2/Controller03_2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-webmvc/app/src/main/java/bitcamp/app2/Controller05_1.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-webmvc/app/src/main/java/bitcamp/app2/Controller05_1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-webmvc/app/src/main/java/bitcamp/app2/Controller06_1.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-webmvc/app/src/main/java/bitcamp/app2/Controller06_1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-webmvc/app/src/main/java/bitcamp/config/App1Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-webmvc/app/src/main/java/bitcamp/config/App1Config.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-webmvc/app/src/main/java/bitcamp/config/App1WebApplicationInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-webmvc/app/src/main/java/bitcamp/config/App1WebApplicationInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-webmvc/app/src/main/java/bitcamp/config/App2Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-webmvc/app/src/main/java/bitcamp/config/App2Config.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-webmvc/app/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-webmvc/app/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -236,7 +248,14 @@
       <workItem from="1728018494434" duration="2097000" />
       <workItem from="1728611656224" duration="3967000" />
       <workItem from="1728873310162" duration="3464000" />
-      <workItem from="1728884534566" duration="412000" />
+      <workItem from="1728884534566" duration="1457000" />
+      <workItem from="1728888137667" duration="710000" />
+      <workItem from="1728889789685" duration="2027000" />
+      <workItem from="1728893322495" duration="669000" />
+      <workItem from="1728894603184" duration="6262000" />
+      <workItem from="1729037682277" duration="814000" />
+      <workItem from="1729075192073" duration="1216000" />
+      <workItem from="1729130354773" duration="4218000" />
     </task>
     <servers />
   </component>
