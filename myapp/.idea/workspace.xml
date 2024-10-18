@@ -5,12 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ff50e196-db5a-4d21-bedb-075fb37dce0c" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/interceptor/AdminInterceptor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java-lang/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../java-lang/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java-lang/app/src/main/java/com/eomcs/spring/ioc/ex13/e/application-context.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../java-lang/app/src/main/java/com/eomcs/spring/ioc/ex13/e/application-context.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/config/AppConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/config/AppConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/config/RootConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/config/RootConfig.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -239,6 +234,7 @@
       <workItem from="1729075192073" duration="1216000" />
       <workItem from="1729130354773" duration="6567000" />
       <workItem from="1729149259865" duration="3393000" />
+      <workItem from="1729212125083" duration="548000" />
     </task>
     <servers />
   </component>
