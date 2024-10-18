@@ -18,7 +18,7 @@
          다음 태그를 선언하면 
          AOP 관련 애노테이션을 처리해주는 객체를 자동으로 등록한다.
     -->
-    <aop:aspectj-autoproxy/>
+    <aop:aspectj-autoproxy/> 
 </beans>
 
 
