@@ -14,10 +14,6 @@ public class DefaultProjectService implements ProjectService {
 
     private final ProjectDao projectDao;
 
-    public DefaultProjectService(ProjectDao projectDao) {
-        this.projectDao = projectDao;
-    }
-
     @Transactional
     @Override
     public void add(Project project) throws Exception {
