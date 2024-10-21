@@ -3,6 +3,7 @@ package bitcamp.myapp.controller;
 import bitcamp.myapp.service.StorageService;
 import bitcamp.myapp.service.UserService;
 import bitcamp.myapp.vo.User;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
@@ -13,19 +14,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
+@RequiredArgsConstructor
 @Controller
 @RequestMapping("/users")
 public class UserController {
 
-  private UserService userService;
-  private StorageService storageService;
+  private final UserService userService;
+  private final StorageService storageService;
 
   private String folderName = "user/";
-
-  public UserController(UserService userService, StorageService storageService) {
-    this.userService = userService;
-    this.storageService = storageService;
-  }
 
   @GetMapping("form")
   public String form() {
@@ -41,7 +38,7 @@ public class UserController {
     options.put(StorageService.CONTENT_TYPE, file.getContentType());
     storageService.upload(folderName + filename, file.getInputStream(), options);
 
-    user.setPhoto(filename);
+    user.setPhoto(filename); // user no를
 
     userService.add(user);
     return "redirect:../users";

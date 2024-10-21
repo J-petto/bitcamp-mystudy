@@ -5,6 +5,7 @@ import bitcamp.myapp.service.BoardService;
 import bitcamp.myapp.service.StorageService;
 import bitcamp.myapp.vo.AttachedFile;
 import bitcamp.myapp.vo.User;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,17 +18,12 @@ import java.io.OutputStream;
 import java.util.HashMap;
 import java.util.Map;
 
+@RequiredArgsConstructor
 @Controller
 public class DownloadController {
 
-    private BoardService boardService;
-    private StorageService storageService;
-    private Map<String, String> downloadPathMap = new HashMap<>();
-
-    public DownloadController(BoardService boardService, StorageService storageService) {
-        this.boardService = boardService;
-        this.storageService = storageService;
-    }
+    private final BoardService boardService;
+    private final StorageService storageService;
 
     @GetMapping("/download")
     public HttpHeaders download(String path, int fileNo, HttpSession session, OutputStream out) throws Exception {

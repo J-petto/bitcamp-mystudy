@@ -31,7 +31,7 @@ dependencies {
 //    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.3.2'
-//    compileOnly 'org.projectlombok:lombok' // 컴파일 단계에서 도메인 객체를 만들어줌 // compileOnly 컴파일할 때 씀
+    compileOnly 'org.projectlombok:lombok' // 컴파일 단계에서 도메인 객체를 만들어줌 // compileOnly 컴파일할 때 씀
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     runtimeOnly 'com.mysql:mysql-connector-j' // runtimeOnly 실행할때만 씀
     // annotationProcessor : 컴파일 단계에서 애노테이션을 처리해줄 도구가 들어있음

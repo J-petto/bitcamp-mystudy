@@ -4,6 +4,7 @@ import bitcamp.myapp.service.ProjectService;
 import bitcamp.myapp.service.UserService;
 import bitcamp.myapp.vo.Project;
 import bitcamp.myapp.vo.User;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
@@ -12,18 +13,14 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.ArrayList;
 import java.util.List;
 
+@RequiredArgsConstructor
 @Controller
 @RequestMapping("project")
 @SessionAttributes("project")
 public class ProjectController {
 
-  private ProjectService projectService;
-  private UserService userService;
-
-  public ProjectController(ProjectService projectService, UserService userService) {
-    this.projectService = projectService;
-    this.userService = userService;
-  }
+  private final ProjectService projectService;
+  private final UserService userService;
 
   @GetMapping("form1")
   public String form1(){

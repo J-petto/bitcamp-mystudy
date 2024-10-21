@@ -5,30 +5,29 @@ import bitcamp.myapp.service.StorageService;
 import bitcamp.myapp.vo.AttachedFile;
 import bitcamp.myapp.vo.Board;
 import bitcamp.myapp.vo.User;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 import java.util.*;
 
+@RequiredArgsConstructor
 @Controller
 @RequestMapping("/board")
 public class BoardController {
 
-    private BoardService boardService;
-    private StorageService storageService;
+    private final BoardService boardService;
+    private final StorageService storageService;
 
     private String folderName = "board/";
 
-    public BoardController(BoardService boardService, StorageService storageService) {
-        this.boardService = boardService;
-        this.storageService = storageService;
-    }
 
     @GetMapping("form")
     public void form() {
@@ -69,9 +68,30 @@ public class BoardController {
     }
 
     @GetMapping("list")
-    public void list(Model model) throws Exception {
-        List<Board> list = boardService.list();
+    public void list(
+            @RequestParam(defaultValue = "1") int pageNo,
+            @RequestParam(defaultValue = "3") int pageSize,
+            Model model) throws Exception {
+
+        if (pageNo < 1) {
+            pageNo = 1;
+        }
+
+        int length = boardService.countAll();
+        int pageCount = length / pageSize;
+        if (length % pageSize > 0) {
+            pageCount++;
+        }
+
+        if (pageNo > pageCount) {
+            pageNo = pageCount;
+        }
+
+        List<Board> list = boardService.list(pageNo, pageSize);
         model.addAttribute("list", list);
+        model.addAttribute("pageNo", pageNo);
+        model.addAttribute("pageSize", pageSize);
+        model.addAttribute("pageCount", pageCount);
     }
 
     @GetMapping("view")

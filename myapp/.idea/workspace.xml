@@ -5,26 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ff50e196-db5a-4d21-bedb-075fb37dce0c" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/app-server/myapp.app-server.main.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app-server/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app-server/src/main/resources/static/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app-server/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/ServerApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/ServerApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/config/AppConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/config/RootConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/config/WebApplicationInitializerImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/docs/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/docs/data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/BoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/BoardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/DownloadController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/DownloadController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/ProjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/ProjectController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/dao/BoardDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/dao/BoardDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/dao/ProjectDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/dao/ProjectDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/dao/UserDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/resources/config/jdbc-local.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/resources/config/jdbc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/resources/mappers/BoardDaoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/resources/bitcamp/myapp/dao/BoardDao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/resources/mappers/ProjectDaoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/resources/bitcamp/myapp/dao/ProjectDao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/resources/mappers/UserDaoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/resources/bitcamp/myapp/dao/UserDao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp/header.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/service/BoardService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/service/BoardService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/service/DefaultBoardService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/service/DefaultBoardService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/service/DefaultProjectService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/service/DefaultProjectService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/service/DefaultUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/service/DefaultUserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/vo/AttachedFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/vo/AttachedFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/vo/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/vo/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/vo/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/vo/Project.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/vo/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/vo/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/resources/bitcamp/myapp/dao/BoardDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/resources/bitcamp/myapp/dao/BoardDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp/board/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp/board/list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/css/common.css" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/resources/static/css/common.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/images/home.png" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/resources/static/images/home.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/index.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,7 +136,7 @@
     "project.structure.last.edited": "모듈",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "editor.preferences.completion",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -154,11 +156,11 @@
       <recent name="bitcamp.myapp.Prompt" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app-server/src/main/resources/static" />
+      <recent name="$PROJECT_DIR$/app-server/src/main/resources" />
       <recent name="$PROJECT_DIR$/app-server/src/main/resources/bitcamp/myapp/dao" />
       <recent name="$PROJECT_DIR$/app-server/src/main/webapp" />
       <recent name="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp" />
-      <recent name="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF" />
-      <recent name="$PROJECT_DIR$/app-server/src/main/webapp/images" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
@@ -216,9 +218,18 @@
       <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
+    <configuration name="ServerApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="myapp.app-server.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="bitcamp.myapp.ServerApp" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Gradle.myapp [bootRun]" />
       <item itemvalue="Gradle.myapp [clean]" />
+      <item itemvalue="Spring Boot.ServerApp" />
     </list>
     <recent_temporary>
       <list>
@@ -274,7 +285,9 @@
       <workItem from="1729075192073" duration="1216000" />
       <workItem from="1729130354773" duration="6567000" />
       <workItem from="1729149259865" duration="3393000" />
-      <workItem from="1729212125083" duration="13486000" />
+      <workItem from="1729212125083" duration="15462000" />
+      <workItem from="1729233331709" duration="308000" />
+      <workItem from="1729471443379" duration="10311000" />
     </task>
     <servers />
   </component>
