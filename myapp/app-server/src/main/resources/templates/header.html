@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head data-th-fragment="head">
+    <meta charset='UTF-8'>
+    <title>Title</title>
+    <link href='/css/common.css' rel='stylesheet'>
+</head>
+<body>
+
+<header id="page-header">
+    <a href='/'><img src='/images/home.png'></a>
+    <h1>프로젝트 관리 시스템</h1>
+    <nav>
+        <ul>
+            <li class='btn btn-default'><a href='/users'>회원</a></li>
+            <li class='btn btn-default'><a href='/project/list'>프로젝트</a></li>
+            <li class='btn btn-default'><a href='/board/list'>게시글</a></li>
+        </ul>
+    </nav>
+
+    <div class='login-state pos-right' data-th-if="${session.loginUser} == null">
+        <a href='/auth/form' class='btn btn-primary'>로그인</a>
+    </div>
+
+    <div class='login-state pos-right' data-th-if="${session.loginUser} != null">
+        <a href='/home.html' class='btn btn-light' data-th-text="${session.loginUser.name}" data-th-href="@{/users/myInfo}">
+            샘플데이터
+        </a>
+        <a href='/auth/logout' class='btn btn-secondary'>로그아웃</a>
+    </div>
+
+</header>
+</body>
+</html>

@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
@@ -54,6 +55,18 @@ public class UserController {
   @GetMapping("{no}")
   public String view(@PathVariable int no, Model model) throws Exception {
     User user = userService.get(no);
+    model.addAttribute("user", user);
+    return "user/view";
+  }
+
+  @GetMapping("myInfo")
+  public String view(HttpSession session, Model model) throws Exception {
+    User loggedUser = (User) session.getAttribute("loggedUser");
+    if(loggedUser == null) {
+      throw new Exception("로그인이 필요합니다.");
+    }
+
+    User user = userService.get(loggedUser.getNo());
     model.addAttribute("user", user);
     return "user/view";
   }
