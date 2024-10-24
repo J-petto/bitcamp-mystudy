@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.beans.PropertyEditorSupport;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.util.Date;
 
 @ControllerAdvice
@@ -27,7 +29,13 @@ public class GlobalControllerAdvice {
     @ExceptionHandler
     public ModelAndView exceptionHandler(Exception e) {
         ModelAndView mv = new ModelAndView();
-        mv.addObject("exception", e);
+
+        // String writer =
+        StringWriter sw = new StringWriter();
+        PrintWriter pw = new PrintWriter(sw);
+        e.printStackTrace(pw);
+
+        mv.addObject("exception", sw.toString());
         mv.setViewName("error");
         return mv;
     }

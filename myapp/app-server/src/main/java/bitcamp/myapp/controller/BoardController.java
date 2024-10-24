@@ -1,5 +1,6 @@
 package bitcamp.myapp.controller;
 
+import bitcamp.myapp.annotation.LoginUser;
 import bitcamp.myapp.service.BoardService;
 import bitcamp.myapp.service.StorageService;
 import bitcamp.myapp.vo.AttachedFile;
@@ -34,9 +35,8 @@ public class BoardController {
     }
 
     @PostMapping("add")
-    public String add(Board board, MultipartFile[] files, HttpSession session) throws Exception {
+    public String add(Board board, MultipartFile[] files, @LoginUser User loginUser) throws Exception {
 
-        User loginUser = (User) session.getAttribute("loginUser");
         if (loginUser == null) {
             throw new Exception("로그인 하지 않았습니다.");
         }
@@ -106,9 +106,7 @@ public class BoardController {
     }
 
     @PostMapping("update")
-    public String update(int no, String title, String content, Part[] files, HttpSession session) throws Exception {
-
-        User loginUser = (User) session.getAttribute("loginUser");
+    public String update(int no, String title, String content, Part[] files, @LoginUser User loginUser) throws Exception {
 
         Board board = boardService.get(no);
         if (board == null) {
@@ -146,9 +144,7 @@ public class BoardController {
     }
 
     @GetMapping("delete")
-    public String delete(int no, HttpSession session) throws Exception {
-
-        User loginUser = (User) session.getAttribute("loginUser");
+    public String delete(int no, @LoginUser User loginUser) throws Exception {
         Board board = boardService.get(no);
 
         if (board == null) {
@@ -170,9 +166,7 @@ public class BoardController {
     }
 
     @GetMapping("file/delete")
-    public String fileDelete(HttpSession session, int fileNo, int boardNo) throws Exception {
-
-        User loginUser = (User) session.getAttribute("loginUser");
+    public String fileDelete(@LoginUser User loginUser, int fileNo, int boardNo) throws Exception {
         if (loginUser == null) {
             throw new Exception("로그인 하지 않았습니다.");
         }

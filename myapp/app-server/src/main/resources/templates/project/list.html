@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head data-th-replace="~{header :: head}"></head>
+<body>
+<header data-th-replace="~{header :: #page-header}"></header>
+
+<h1>프로젝트 목록</h1>
+<p><a data-th-href="@{/project/form1}" href='form1'>새 프로젝트</a></p>
+<table>
+  <thead>
+      <tr><th>번호</th><th>프로젝트</th><th>기간</th></tr>
+  </thead>
+  <tbody>
+
+    <tr data-th-each="project : ${list}" data-th-object="${project}">
+        <td data-th-text="*{no}">000</td>
+        <td><a data-th-href="@{/project/view(no=*{no})}" href='view.html' data-th-text="*{title}">타이틀</a></td>
+        <td data-th-text="|*{startDate} ~ *{endDate}|"></td>
+    </tr>
+  </tbody>
+</table>
+
+
+</body>
+</html>

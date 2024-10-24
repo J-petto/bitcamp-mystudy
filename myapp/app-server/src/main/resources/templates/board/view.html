@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head data-th-replace="~{header :: head}"></head>
+<body>
+<header data-th-replace="~{header :: #page-header}"></header>
+
+<h1>게시글 조회</h1>
+
+<p data-th-unless="${board}">없는 게시글입니다.</p>
+
+<div data-th-if="${board}">
+    <form action='update' method="post" enctype="multipart/form-data">
+        번호: <input readonly name='no' type='text' value='000' data-th-value="${board.no}"><br>
+        제목: <input name='title' type='text' value='타이틀' data-th-value="${board.title}"><br>
+        내용: <textarea name='content' data-th-text="${board.content}">내용</textarea><br>
+        작성일: <input readonly type='text'
+                    value='0000-00-00' data-th-value="${#dates.format(board.createdDate,'yyyy-MM-dd')}"><br>
+        조회수: <input readonly type='text' value='00' data-th-value="${board.viewCount}"><br>
+        작성자: <input readonly type='text' value='작성자' data-th-value="${board.writer.name}"><br>
+        첨부파일: <br>
+            <ul data-th-if="${board.attachedFiles}">
+                    <li data-th-each="attachedFile : ${board.attachedFiles}">
+                        <a data-th-href="@{/download(path='board',fileNo=${attachedFile.fileNo})}" href="" data-th-text="${attachedFile.originFilename}">파일 이름</a>
+                        <a data-th-href="@{/board/file/delete(boardNo=${board.no}, fileNo= ${attachedFile.fileNo})}" href="">[삭제]</a>
+                    </li>
+            </ul>
+        <input name="files" type="file" multiple><br>
+        <button>변경</button>
+        <button type='button' data-th-onclick="|deleteBoard(${board.no})|">삭제</button>
+    </form>
+</div>
+
+</body>
+</html>
+
+<script>
+    function deleteBoard(no){
+        location.href = "delete?no=" + no
+    }
+</script>

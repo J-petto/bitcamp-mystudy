@@ -1,6 +1,7 @@
 package bitcamp.myapp.vo;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
@@ -8,6 +9,7 @@ import java.util.Objects;
 
 @Data
 @NoArgsConstructor
+@EqualsAndHashCode(of = {"no"})
 public class User implements Serializable {
 
   private static final long serialVersionUID = 1L;

@@ -1,5 +1,6 @@
 package bitcamp.myapp.controller;
 
+import bitcamp.myapp.annotation.LoginUser;
 import bitcamp.myapp.service.StorageService;
 import bitcamp.myapp.service.UserService;
 import bitcamp.myapp.vo.User;
@@ -60,13 +61,12 @@ public class UserController {
   }
 
   @GetMapping("myInfo")
-  public String view(HttpSession session, Model model) throws Exception {
-    User loggedUser = (User) session.getAttribute("loggedUser");
-    if(loggedUser == null) {
+  public String view(@LoginUser User loginUser, Model model) throws Exception {
+    if(loginUser == null) {
       throw new Exception("로그인이 필요합니다.");
     }
 
-    User user = userService.get(loggedUser.getNo());
+    User user = userService.get(loginUser.getNo());
     model.addAttribute("user", user);
     return "user/view";
   }

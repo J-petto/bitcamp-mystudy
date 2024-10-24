@@ -5,19 +5,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ff50e196-db5a-4d21-bedb-075fb37dce0c" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/app-server/src/main/resources/templates/user/form.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app-server/src/main/resources/templates/user/list.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app-server/src/main/resources/templates/user/view.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/annotation/LoginUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/annotation/LoginUserArgumentResolver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/ServerApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/ServerApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/BoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/BoardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/DownloadController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/DownloadController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/GlobalControllerAdvice.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/GlobalControllerAdvice.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp/auth/fail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/resources/templates/auth/fail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp/auth/form.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/resources/templates/auth/form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/resources/templates/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/resources/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/vo/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/vo/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/resources/templates/auth/form.html" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/resources/templates/auth/form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/resources/templates/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/resources/templates/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/resources/templates/user/form.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/resources/templates/user/form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/resources/templates/user/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/resources/templates/user/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/resources/templates/user/view.html" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/resources/templates/user/view.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp/board/form.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/resources/templates/board/form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp/board/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/resources/templates/board/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp/board/view.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/resources/templates/board/view.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp/error.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/resources/templates/error.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp/project/form1.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/resources/templates/project/form1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp/project/form2.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/resources/templates/project/form2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp/project/form3.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/resources/templates/project/form3.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp/project/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/resources/templates/project/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp/project/view.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/resources/templates/project/view.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp/user/form.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp/user/list.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp/user/view.jsp" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,10 +89,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="AnnotationType" />
         <option value="Interface" />
-        <option value="Class" />
         <option value="HTML File" />
+        <option value="AnnotationType" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -96,41 +110,42 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "Gradle.myapp [bootRun].executor": "Run",
-    "Gradle.myapp [clean].executor": "Run",
-    "Gradle.myapp [dependencies].executor": "Run",
-    "Gradle.myapp [run].executor": "Run",
-    "Gradle.myapp.executor": "Run",
-    "Gradle.myapp:app [:app:App.main()].executor": "Debug",
-    "Gradle.myapp:app [:app:LinkedList.main()].executor": "Run",
-    "Gradle.myapp:app [:app:Queue.main()].executor": "Run",
-    "Gradle.myapp:app [:app:Stack.main()].executor": "Run",
-    "Gradle.myapp:app [:app:TestMenu.main()].executor": "Run",
-    "Gradle.myapp:app [:app:User.main()].executor": "Run",
-    "Gradle.myapp:app [:app:UserList.main()].executor": "Run",
-    "Gradle.myapp:app-client [:app-client:ClientApp.main()].executor": "Run",
-    "Gradle.myapp:app-client [run].executor": "Run",
-    "Gradle.myapp:app-server [run].executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/jeppetto/git/bitcamp-mystudy/myapp/app-server/src/main/resources/templates",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "모듈",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Gradle.myapp [bootRun].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.myapp [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.myapp [dependencies].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.myapp [run].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.myapp.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.myapp:app [:app:App.main()].executor&quot;: &quot;Debug&quot;,
+    &quot;Gradle.myapp:app [:app:LinkedList.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.myapp:app [:app:Queue.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.myapp:app [:app:Stack.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.myapp:app [:app:TestMenu.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.myapp:app [:app:User.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.myapp:app [:app:UserList.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.myapp:app-client [:app-client:ClientApp.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.myapp:app-client [run].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.myapp:app-server [run].executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript 디버그.header.html.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/jeppetto/git/bitcamp-mystudy/myapp/app-server/src/main/resources/templates&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;모듈&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="bitcamp.myapp.command" />
@@ -279,7 +294,10 @@
       <workItem from="1729212125083" duration="15462000" />
       <workItem from="1729233331709" duration="308000" />
       <workItem from="1729471443379" duration="11539000" />
-      <workItem from="1729494508022" duration="18262000" />
+      <workItem from="1729494508022" duration="20067000" />
+      <workItem from="1729641603691" duration="5000" />
+      <workItem from="1729644040046" duration="19535000" />
+      <workItem from="1729730514726" duration="5229000" />
     </task>
     <servers />
   </component>
