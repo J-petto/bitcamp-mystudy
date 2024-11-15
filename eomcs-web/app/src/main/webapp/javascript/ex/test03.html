@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="header1">변수</h1>
+
+    <script>
+        const a = "aaa" // const == 상수, 선언과 동시에 정의해줘야함
+
+        let b = "bbb"
+        var c = "ccc"
+
+        {
+            // 상수(const)는 값이 고정되어 변경 불가하다. Assignment to constant variable. 에러 뜸
+            // a = "aaaok"
+            b = "bbbok"
+            c = "cccok"
+
+            const x = "xxx"
+            let y = "yyy"
+            var z = "zzz"
+        }
+
+        console.log(a)
+        console.log(b)
+        console.log(c)
+
+        // var는 전역 변수이다. 그 외는 블럭에서 선언했다면 블럭 안에서만 쓸 수 있다.
+        // console.log(x)
+        // console.log(y)
+        console.log(z)
+    </script>
+</body>
+
+</html>

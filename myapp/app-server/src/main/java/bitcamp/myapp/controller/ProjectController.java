@@ -15,7 +15,7 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @Controller
-@RequestMapping("project")
+@RequestMapping("/project")
 @SessionAttributes("project")
 public class ProjectController {
 
@@ -23,7 +23,7 @@ public class ProjectController {
   private final UserService userService;
 
   @GetMapping("form1")
-  public String form1(){
+  public String form1() {
     return "project/form1";
   }
 
@@ -39,7 +39,9 @@ public class ProjectController {
   }
 
   @PostMapping("form3")
-  public String form3(int[] memberNos, @ModelAttribute Project project) throws Exception {
+  public String form3(
+          int[] memberNos,
+          @ModelAttribute Project project) throws Exception {
 
     if (memberNos.length > 0) {
       ArrayList<User> members = new ArrayList<>();
@@ -56,25 +58,25 @@ public class ProjectController {
   @PostMapping("add")
   public String add(@ModelAttribute Project project, SessionStatus sessionStatus) throws Exception {
     projectService.add(project);
-
-    sessionStatus.setComplete();
+    sessionStatus.setComplete(); // 작업이 끝났으니 세션에 임시 보관했던 값을 제거하라. @SessionAttributes 에 등록된 이름의 값.
     return "redirect:list";
   }
 
   @GetMapping("list")
   public ModelAndView list() throws Exception {
     List<Project> list = projectService.list();
+
     ModelAndView mv = new ModelAndView();
     mv.addObject("list", list);
     mv.setViewName("project/list");
-
     return mv;
   }
 
   @GetMapping("view")
   public ModelAndView view(int no) throws Exception {
-    Project project = projectService.get(no);
     ModelAndView mv = new ModelAndView();
+
+    Project project = projectService.get(no);
     mv.addObject("project", project);
 
     List<User> users = userService.list();
@@ -84,7 +86,9 @@ public class ProjectController {
   }
 
   @PostMapping("update")
-  public String update(Project project, int[] memberNos) throws Exception {
+  public String update(
+          Project project,
+          int[] memberNos) throws Exception {
 
     if (memberNos.length > 0) {
       ArrayList<User> members = new ArrayList<>();

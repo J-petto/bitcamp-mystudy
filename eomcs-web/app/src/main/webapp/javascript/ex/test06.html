@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="header1">arrow function</h1>
+
+    <script>
+        "use strict"
+
+        let name = "홍길동"
+        console.log(name + "님 반갑습니다")
+
+        console.log("함수--------------------------")
+        function greeting(name) {
+            return name + "님 반갑습니다."
+        }
+        console.log(greeting('홍길동'))
+
+        console.log('arrow function 1--------------')
+        console.log((function greeting(name) {
+            return name + '님 반갑습니다.'
+        })('임꺽정'))
+
+        console.log('arrow function 2--------------')
+        console.log((function (name) {
+            return name + '님 반갑습니다.'
+        })('유관순'))
+
+        console.log('arrow function 3--------------')
+        console.log(((name) => {
+            return name + '님 반갑습니다.'
+        })('김구'))
+
+        console.log('arrow function 4--------------')
+        console.log(((name) => name + '님 반갑습니다.')('안중근'))
+
+        console.log('arrow function 5--------------')
+        console.log((name => name + '님 반갑습니다.')('홍범도'))
+    </script>
+</body>
+
+</html>

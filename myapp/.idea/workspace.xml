@@ -5,33 +5,74 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ff50e196-db5a-4d21-bedb-075fb37dce0c" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/annotation/LoginUser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/annotation/LoginUserArgumentResolver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/security01/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/security02/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/security03/DbUserDetailsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/security03/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/security04/DbUserDetailsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/security04/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/security04/SimplePasswordEncoder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/security05/Base64PasswordEncoder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/security05/DbUserDetailsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/security05/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/security06/DbUserDetailsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/security06/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/security07/DbUserDetailsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/security07/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/security08/CustomUserDetails.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/security08/DbUserDetailsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/security08/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/security09/CustomUserDetails.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/security09/DbUserDetailsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/security09/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-server/src/main/resources/application-prod.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/docs/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/docs/data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/docs/ddl.sql" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/docs/ddl.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/ServerApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/ServerApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/annotation/LoginUserArgumentResolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/annotation/LoginUserArgumentResolver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/AuthController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/BoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/BoardController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/DownloadController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/DownloadController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/GlobalControllerAdvice.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/GlobalControllerAdvice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/ProjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/ProjectController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/dao/BoardDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/dao/BoardDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/dao/UserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/interceptor/AdminInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/interceptor/AdminInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/service/DefaultBoardService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/service/DefaultBoardService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/service/DefaultProjectService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/service/DefaultProjectService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/service/DefaultUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/service/DefaultUserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/service/NcpObjectStorageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/service/NcpObjectStorageService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/service/StorageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/service/StorageService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/vo/AttachedFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/vo/AttachedFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/vo/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/vo/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/vo/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/vo/Project.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/vo/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/vo/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/resources/application-dev.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/resources/bitcamp/myapp/dao/BoardDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/resources/bitcamp/myapp/dao/BoardDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/resources/bitcamp/myapp/dao/UserDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/resources/bitcamp/myapp/dao/UserDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/resources/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/resources/static/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/resources/templates/auth/fail.html" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/resources/templates/auth/fail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app-server/src/main/resources/templates/auth/form.html" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/resources/templates/auth/form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/resources/templates/board/form.html" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/resources/templates/board/form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/resources/templates/board/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/resources/templates/board/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/resources/templates/board/view.html" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/resources/templates/board/view.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/resources/templates/error.html" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/resources/templates/error.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app-server/src/main/resources/templates/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/resources/templates/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/resources/templates/user/form.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/resources/templates/user/form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/resources/templates/user/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/resources/templates/user/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/resources/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/resources/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/resources/templates/project/form1.html" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/resources/templates/project/form1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/resources/templates/project/form2.html" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/resources/templates/project/form2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/resources/templates/project/form3.html" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/resources/templates/project/form3.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/resources/templates/project/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/resources/templates/project/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/resources/templates/project/view.html" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/resources/templates/project/view.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/resources/templates/user/form.html" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/resources/templates/user/form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/resources/templates/user/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/resources/templates/user/list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app-server/src/main/resources/templates/user/view.html" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/resources/templates/user/view.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp/board/form.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/resources/templates/board/form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp/board/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/resources/templates/board/list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp/board/view.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/resources/templates/board/view.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp/error.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/resources/templates/error.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp/project/form1.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/resources/templates/project/form1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp/project/form2.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/resources/templates/project/form2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp/project/form3.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/resources/templates/project/form3.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp/project/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/resources/templates/project/list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp/project/view.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/resources/templates/project/view.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp/user/form.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp/user/list.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp/user/view.jsp" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,10 +154,12 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
     &quot;Gradle.myapp [bootRun].executor&quot;: &quot;Run&quot;,
     &quot;Gradle.myapp [clean].executor&quot;: &quot;Run&quot;,
     &quot;Gradle.myapp [dependencies].executor&quot;: &quot;Run&quot;,
     &quot;Gradle.myapp [run].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.myapp-2 [bootRun].executor&quot;: &quot;Run&quot;,
     &quot;Gradle.myapp.executor&quot;: &quot;Run&quot;,
     &quot;Gradle.myapp:app [:app:App.main()].executor&quot;: &quot;Debug&quot;,
     &quot;Gradle.myapp:app [:app:LinkedList.main()].executor&quot;: &quot;Run&quot;,
@@ -129,11 +172,14 @@
     &quot;Gradle.myapp:app-client [run].executor&quot;: &quot;Run&quot;,
     &quot;Gradle.myapp:app-server [run].executor&quot;: &quot;Run&quot;,
     &quot;JavaScript 디버그.header.html.executor&quot;: &quot;Run&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/jeppetto/git/bitcamp-mystudy/myapp/app-server/src/main/resources/templates&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/jeppetto/git/bitcamp-mystudy/myapp/app-server/src/main/java/bitcamp/myapp/security08&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -148,14 +194,15 @@
 }</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="bitcamp.myapp.security.security03" />
       <recent name="bitcamp.myapp.command" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app-server/src/main/resources/templates" />
-      <recent name="$PROJECT_DIR$/app-server/src/main/resources/config" />
-      <recent name="$PROJECT_DIR$/app-server/src/main/webapp/project" />
-      <recent name="$PROJECT_DIR$/app-server/src/main/webapp" />
-      <recent name="$PROJECT_DIR$/app-server/src/main/webapp/auth" />
+      <recent name="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/security08" />
+      <recent name="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/security07" />
+      <recent name="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/security06" />
+      <recent name="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/" />
+      <recent name="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/security05" />
     </key>
     <key name="MoveMembersDialog.RECENTS_KEY">
       <recent name="bitcamp.myapp.command.UserList" />
@@ -179,22 +226,23 @@
       <recent name="bitcamp.myapp.servlet" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.myapp [bootRun]">
+  <component name="RunManager" selected="Gradle.myapp-2 [bootRun]">
     <configuration name="myapp [bootRun]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
+        <option name="scriptParameters" value="" />
         <option name="taskDescriptions">
           <list />
         </option>
         <option name="taskNames">
           <list>
             <option value="bootRun" />
+            <option value="--args='--spring.profiles.active=dev'" />
           </list>
         </option>
-        <option name="vmOptions" />
+        <option name="vmOptions" value="-Dspring.profiles.active=dev" />
       </ExternalSystemSettings>
       <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
@@ -224,6 +272,33 @@
       <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
+    <configuration name="myapp-2 [bootRun]" type="GradleRunConfiguration" factoryName="Gradle">
+      <ExternalSystemSettings>
+        <option name="env">
+          <map>
+            <entry key="spring.profiles.active" value="dev" />
+          </map>
+        </option>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="bootRun" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
     <configuration name="ServerApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <module name="myapp.app-server.main" />
@@ -233,6 +308,7 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Gradle.myapp-2 [bootRun]" />
       <item itemvalue="Gradle.myapp [bootRun]" />
       <item itemvalue="Gradle.myapp [clean]" />
       <item itemvalue="Spring Boot.ServerApp" />
@@ -297,7 +373,25 @@
       <workItem from="1729494508022" duration="20067000" />
       <workItem from="1729641603691" duration="5000" />
       <workItem from="1729644040046" duration="19535000" />
-      <workItem from="1729730514726" duration="5229000" />
+      <workItem from="1729730514726" duration="5814000" />
+      <workItem from="1729753262981" duration="1525000" />
+      <workItem from="1729817487940" duration="4000" />
+      <workItem from="1730000986478" duration="40000" />
+      <workItem from="1730002115157" duration="1760000" />
+      <workItem from="1730084309448" duration="3087000" />
+      <workItem from="1730187291132" duration="2073000" />
+      <workItem from="1730197727421" duration="391000" />
+      <workItem from="1730198252544" duration="653000" />
+      <workItem from="1730767667666" duration="7562000" />
+      <workItem from="1730940702175" duration="1595000" />
+      <workItem from="1731296212949" duration="977000" />
+      <workItem from="1731372872089" duration="23464000" />
+      <workItem from="1731408527865" duration="1240000" />
+      <workItem from="1731414437153" duration="620000" />
+      <workItem from="1731483138241" duration="5837000" />
+      <workItem from="1731546180248" duration="3598000" />
+      <workItem from="1731550161294" duration="270000" />
+      <workItem from="1731647030941" duration="30000" />
     </task>
     <servers />
   </component>

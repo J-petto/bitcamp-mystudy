@@ -4,9 +4,19 @@ plugins {
     id 'io.spring.dependency-management' version '1.1.6'
 }
 
-// jar 파일 경로
 group = 'bitcamp'
 version = '0.0.1-SNAPSHOT'
+
+// 스프링부트 실행 jar 파일을 만들 때 파일명 설정
+bootJar {
+    archiveFileName = "${rootProject.name}.jar"
+}
+
+// jar 태스크를 수행하지 않게 설정
+tasks.named("jar") {
+	enabled = false
+}
+
 
 java {
     toolchain {
@@ -15,8 +25,6 @@ java {
 }
 
 configurations {
-    // gradle에게 컴파일 할 때 annotation 먼저 처리하기를 요청함
-    // 왜? lombok을 사용하기 위해서 - 자동으로 get, set 등 다양한 데이터를 자동으로 만들어주는데 컴파일 단계에서 처리를 하기 때문
     compileOnly {
         extendsFrom annotationProcessor
     }
@@ -31,25 +39,18 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.3.2'
-    compileOnly 'org.projectlombok:lombok' // 컴파일 단계에서 도메인 객체를 만들어줌 // compileOnly 컴파일할 때 씀
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
+    compileOnly 'org.projectlombok:lombok'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
-    runtimeOnly 'com.mysql:mysql-connector-j' // runtimeOnly 실행할때만 씀
-    // annotationProcessor : 컴파일 단계에서 애노테이션을 처리해줄 도구가 들어있음
+    runtimeOnly 'com.mysql:mysql-connector-j'
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
     annotationProcessor 'org.projectlombok:lombok'
+
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.security:spring-security-test'
     testImplementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter-test:2.3.2'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-
-    // JDBC Driver
-    //implementation 'com.mysql:mysql-connector-j:8.4.0'
-    //implementation 'com.google.code.gson:gson:2.11.0'
-
-    // Tomcat Embedded Server용 JSP 라이브러리
-//    implementation 'org.apache.tomcat.embed:tomcat-embed-jasper:9.0.83'
-
-    // JSTL API 및 구현체 라이브러리
-    implementation 'javax.servlet:jstl:1.2'
 
     // Amazon S3 라이브러리
     implementation 'com.amazonaws:aws-java-sdk-s3:1.12.772'

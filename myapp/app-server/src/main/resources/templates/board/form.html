@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html>
 <head data-th-replace="~{header :: head}"></head>
 <body>
+
 <header data-th-replace="~{header :: #page-header}"></header>
 
 <h1>게시글 등록</h1>
-<form action='add' method="post" enctype="multipart/form-data">
+<form action='add' enctype="multipart/form-data" method="post">
     제목: <input name='title' type='text'><br>
     내용: <textarea name='content'></textarea><br>
-    첨부파일: <input name="files" type="file" multiple><br>
+    첨부파일: <input multiple name="files" type="file"><br>
     <input type='submit' value='등록'>
 </form>
 

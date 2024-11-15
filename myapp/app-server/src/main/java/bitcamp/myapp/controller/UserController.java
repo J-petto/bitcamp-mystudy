@@ -1,6 +1,5 @@
 package bitcamp.myapp.controller;
 
-import bitcamp.myapp.annotation.LoginUser;
 import bitcamp.myapp.service.StorageService;
 import bitcamp.myapp.service.UserService;
 import bitcamp.myapp.vo.User;
@@ -33,14 +32,17 @@ public class UserController {
 
   @PostMapping
   public String add(User user, MultipartFile file) throws Exception {
-    // 클라이언트가 보낸 파일을 저장할 때 다른 파일 이름과 충돌나지 않도록 임의로 지정
+
+    // 클라이언트가 보낸 파일을 저장할 때 다른 파일 이름과 충돌나지 않도록 임의의 새 파일 이름을 생성한다.
     String filename = UUID.randomUUID().toString();
 
     HashMap<String, Object> options = new HashMap<>();
     options.put(StorageService.CONTENT_TYPE, file.getContentType());
-    storageService.upload(folderName + filename, file.getInputStream(), options);
+    storageService.upload(folderName + filename,
+            file.getInputStream(),
+            options);
 
-    user.setPhoto(filename); // user no를
+    user.setPhoto(filename); // DB에 저장할 사진 파일 이름 설정
 
     userService.add(user);
     return "redirect:../users";
@@ -54,39 +56,50 @@ public class UserController {
   }
 
   @GetMapping("{no}")
-  public String view(@PathVariable int no, Model model) throws Exception {
+  public String view(
+          @PathVariable int no,
+          Model model) throws Exception {
     User user = userService.get(no);
     model.addAttribute("user", user);
     return "user/view";
   }
 
   @GetMapping("myInfo")
-  public String view(@LoginUser User loginUser, Model model) throws Exception {
-    if(loginUser == null) {
+  public String myInfo(
+          HttpSession session,
+          Model model) throws Exception {
+    User loginUser = (User) session.getAttribute("loginUser");
+    if (loginUser == null) {
       throw new Exception("로그인이 필요합니다.");
     }
-
     User user = userService.get(loginUser.getNo());
     model.addAttribute("user", user);
     return "user/view";
   }
 
   @PostMapping("{no}")
-  public String update(@PathVariable int no, User user, MultipartFile file) throws Exception {
+  public String update(
+          @PathVariable int no,
+          User user,
+          MultipartFile file) throws Exception {
+
     user.setNo(no);
+
     User old = userService.get(no);
 
-    if(file != null && !file.isEmpty()) {
+    if (file != null && file.getSize() > 0) {
       storageService.delete(folderName + old.getPhoto());
 
       String filename = UUID.randomUUID().toString();
-
       HashMap<String, Object> options = new HashMap<>();
       options.put(StorageService.CONTENT_TYPE, file.getContentType());
-      storageService.upload(folderName + filename, file.getInputStream(), options);
+      storageService.upload(folderName + filename,
+              file.getInputStream(),
+              options);
 
       user.setPhoto(filename);
-    }else {
+
+    } else {
       user.setPhoto(old.getPhoto());
     }
 
@@ -100,12 +113,13 @@ public class UserController {
   @Transactional
   @DeleteMapping("{no}")
   @ResponseBody
-  public String delete(@PathVariable int no) throws Exception {
+  public String delete(
+          @PathVariable int no) throws Exception {
+
     User old = userService.get(no);
 
     if (userService.delete(no)) {
       storageService.delete(folderName + old.getPhoto());
-
       return "success";
     } else {
       return "failure";

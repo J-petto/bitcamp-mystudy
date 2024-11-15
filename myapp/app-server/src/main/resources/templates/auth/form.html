@@ -1,4 +1,5 @@
-<html xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html>
 <head data-th-replace="~{header :: head}"></head>
 <body>
 
@@ -6,9 +7,9 @@
 
 <h1>로그인</h1>
 <form action='login' method="post">
-    이메일: <input name='email' type='email' value="hong@test.com" data-th-value="${email}"><br>
+    이메일: <input data-th-value="${email}" name='email' type='email' value="hong@test.com"><br>
     암호: <input name='password' type='password'><br>
-    <input type="checkbox" name="saveEmail" data-th-checked="${email}"> 이메일 저장<br>
+    <input checked data-th-checked="${email}" name="saveEmail" type="checkbox"> 이메일 저장<br>
     <input type='submit' value='로그인'>
 </form>
 

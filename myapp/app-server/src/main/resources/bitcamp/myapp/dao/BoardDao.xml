@@ -41,8 +41,9 @@
         from
             myapp_boards b inner join myapp_users u on b.user_id=u.user_id
         order by
-            b.board_id asc
-        limit #{rowNo}, #{length}
+            b.board_id desc
+        limit
+            #{rowNo}, #{length}
     </select>
 
     <insert id="insert" parameterType="board"

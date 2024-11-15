@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="header1">변수3</h1>
+
+    <!-- <script>
+        // use strict = js 엄격 모드 활성화 규칙 강화하여 에러를 줄임
+        "use strict"
+        a = 100
+        console.log(a)
+        // "use strict" 중간에 들어가면 일을 하지 않음 무조건 처임에 선언
+        b = 200
+        console.log(b)
+    </script>
+
+    <script>
+        // 다른 스크립트 문에는 적용이 되지않는다.
+        c = 300
+        console.log(c)
+    </script> -->
+
+    <!-- <script>
+        // ,로 연속해서 변수 선언이 가능하다.
+        var a = 100, b = 200, c = "hello";
+    </script> -->
+
+    <!-- <script>
+        // "use strict"
+
+        var a;
+
+        console.log(a) // 선언 후 값이 없을 땐 undifined
+        console.log(b) // 선언조차 없을 때 b is not defined 에러
+
+        a = 100
+        console.log(a)
+        console.log(b)
+        var a // 변수 선언이 아래에 있어도 js의 hoisting으로 자동으로 위로 끌어올려진다.
+        var b = 100 // 선언문은 올라가도 값 할당문은 올라가지 않는다.
+        // hoisting <script> 태그에 있는 자바스크립트 코드를 실행하기 전에 변수 선언과 함수 정의를 먼저 실행한다. let 제외 적용된다. (var, const)
+    </script> -->
+
+    <!-- <script>
+        "use strict"
+
+        var a = 100;
+        console.log(a)
+        console.log(window.a) // js의 글로벌 변수는 window에 종속됨
+        window.a = 200;
+        console.log(a)
+
+        let b = 100
+        console.log(b)
+        console.log(window.b) // 로컬 변수는 window에 종속되지않는다.
+        window.b = 200;
+        console.log(b)
+
+        function f() {
+            console.log(a)
+            console.log(window.a)
+
+            console.log(b)
+            console.log(window.b)
+        }
+
+        f()
+    </script> -->
+
+    <!-- <script>
+        "use strict"
+
+        var a = 100;
+
+        a = 100; // a 변수는 number 타입으로 다뤄진다.
+
+        console.log(a)
+        console.log(window.a)
+        console.log(window["a"])
+        console.log(window['a'])
+    </script> -->
+
+    <script>
+        "use strict"
+
+        var a;
+
+        a = 100;
+        console.log(typeof a)
+
+        a = "Hello"
+        console.log(typeof a)
+
+        a = true
+        console.log(typeof a)
+
+
+    </script>
+</body>
+
+</html>

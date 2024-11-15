@@ -13,7 +13,6 @@ public interface BoardDao {
 
   boolean insert(Board board) throws Exception;
 
-  // Map과 options를 사용하는 이유 : DB 종속성을 없애기 위해
   List<Board> list(Map<String, Object> options) throws Exception;
 
   Board findBy(int no) throws Exception;
